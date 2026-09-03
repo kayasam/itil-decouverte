@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 546" width="840" height="546" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="840" height="546" fill="#ffffff"/>
+  <text x="420" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">Priorité = Impact x Urgence</text>
+  <text x="420" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">C'est GLPI qui calcule — mais c'est vous qui saisissez les deux entrées</text>
+  <text x="499" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">URGENCE</text>
+  <text x="309" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">Élevée</text>
+  <text x="499" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">Moyenne</text>
+  <text x="689" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">Faible</text>
+  <text x="64" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b" transform="rotate(-90 64 294)">IMPACT</text>
+  <text x="180" y="195" text-anchor="end" font-size="13" font-weight="600" fill="#475569">Élevé</text>
+  <rect x="217" y="141" width="184" height="98" rx="10" fill="#dc2626" stroke="#ffffff" stroke-width="3"/>
+  <text x="309" y="186" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">CRITIQUE</text>
+  <text x="309" y="208" text-anchor="middle" font-size="11" fill="#ffffff" opacity="0.9">Caisse CB HS</text>
+  <rect x="407" y="141" width="184" height="98" rx="10" fill="#ea580c" stroke="#ffffff" stroke-width="3"/>
+  <text x="499" y="195" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">HAUTE</text>
+  <rect x="597" y="141" width="184" height="98" rx="10" fill="#d97706" stroke="#ffffff" stroke-width="3"/>
+  <text x="689" y="195" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">MOYENNE</text>
+  <text x="180" y="299" text-anchor="end" font-size="13" font-weight="600" fill="#475569">Moyen</text>
+  <rect x="217" y="245" width="184" height="98" rx="10" fill="#ea580c" stroke="#ffffff" stroke-width="3"/>
+  <text x="309" y="299" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">HAUTE</text>
+  <rect x="407" y="245" width="184" height="98" rx="10" fill="#d97706" stroke="#ffffff" stroke-width="3"/>
+  <text x="499" y="299" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">MOYENNE</text>
+  <rect x="597" y="245" width="184" height="98" rx="10" fill="#16a34a" stroke="#ffffff" stroke-width="3"/>
+  <text x="689" y="299" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">BASSE</text>
+  <text x="180" y="403" text-anchor="end" font-size="13" font-weight="600" fill="#475569">Faible</text>
+  <rect x="217" y="349" width="184" height="98" rx="10" fill="#d97706" stroke="#ffffff" stroke-width="3"/>
+  <text x="309" y="403" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">MOYENNE</text>
+  <rect x="407" y="349" width="184" height="98" rx="10" fill="#16a34a" stroke="#ffffff" stroke-width="3"/>
+  <text x="499" y="403" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">BASSE</text>
+  <rect x="597" y="349" width="184" height="98" rx="10" fill="#64748b" stroke="#ffffff" stroke-width="3"/>
+  <text x="689" y="394" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">TRÈS BASSE</text>
+  <text x="689" y="416" text-anchor="middle" font-size="11" fill="#ffffff" opacity="0.9">Imprimante boutique</text>
+  <rect x="214" y="474" width="570" height="46" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="499" y="494" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1e40af">L'impact se mesure sur l'activité de l'entreprise,</text>
+  <text x="499" y="511" text-anchor="middle" font-size="12.5" fill="#1e40af">pas sur le ton du message ni sur qui le signale.</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 350" width="980" height="350" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="980" height="350" fill="#ffffff"/>
+  <text x="490" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">Les versions d'ITIL</text>
+  <text x="490" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">Du catalogue de procédures au système de création de valeur</text>
+  <line x1="60" y1="196" x2="920" y2="196" stroke="#cbd5e1" stroke-width="3"/>
+  <circle cx="136" cy="196" r="15" fill="#94a3b8"/>
+  <text x="136" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">v1</text>
+  <text x="136" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#94a3b8">1989</text>
+  <text x="136" y="172" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">31 livres</text>
+  <text x="136" y="234" text-anchor="middle" font-size="11.5" fill="#64748b">très détaillé,</text>
+  <text x="136" y="250" text-anchor="middle" font-size="11.5" fill="#64748b">difficile à utiliser</text>
+  <circle cx="279" cy="196" r="15" fill="#94a3b8"/>
+  <text x="279" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">v2</text>
+  <text x="279" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#94a3b8">2000</text>
+  <text x="279" y="172" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">7 livres</text>
+  <text x="279" y="234" text-anchor="middle" font-size="11.5" fill="#64748b">centré processus,</text>
+  <text x="279" y="250" text-anchor="middle" font-size="11.5" fill="#64748b">Incident / Problème</text>
+  <circle cx="422" cy="196" r="15" fill="#64748b"/>
+  <text x="422" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">v3</text>
+  <text x="422" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#64748b">2007</text>
+  <text x="422" y="172" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">5 livres</text>
+  <text x="422" y="234" text-anchor="middle" font-size="11.5" fill="#64748b">cycle de vie</text>
+  <text x="422" y="250" text-anchor="middle" font-size="11.5" fill="#64748b">du service</text>
+  <circle cx="565" cy="196" r="15" fill="#64748b"/>
+  <text x="565" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">v3</text>
+  <text x="565" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#64748b">2011</text>
+  <text x="565" y="172" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">mise à jour</text>
+  <text x="565" y="234" text-anchor="middle" font-size="11.5" fill="#64748b">corrections</text>
+  <text x="565" y="250" text-anchor="middle" font-size="11.5" fill="#64748b">et clarifications</text>
+  <circle cx="708" cy="196" r="15" fill="#2563eb"/>
+  <text x="708" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">4</text>
+  <text x="708" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#2563eb">2019</text>
+  <text x="708" y="172" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">logique de valeur</text>
+  <text x="708" y="234" text-anchor="middle" font-size="11.5" fill="#64748b">Agile, DevOps, Lean</text>
+  <text x="708" y="250" text-anchor="middle" font-size="11.5" fill="#64748b">SVS et 34 pratiques</text>
+  <circle cx="851" cy="196" r="15" fill="#16a34a"/>
+  <text x="851" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">5</text>
+  <text x="851" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#16a34a">2026</text>
+  <text x="851" y="172" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">IA native + ESM</text>
+  <text x="851" y="234" text-anchor="middle" font-size="11.5" fill="#64748b">Foundation depuis</text>
+  <text x="851" y="250" text-anchor="middle" font-size="11.5" fill="#64748b">le 12 février 2026</text>
+  <rect x="600" y="286" width="330" height="40" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="765" y="311" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1e40af">ITIL 4 et ITIL 5 coexistent aujourd'hui</text>
+</svg>

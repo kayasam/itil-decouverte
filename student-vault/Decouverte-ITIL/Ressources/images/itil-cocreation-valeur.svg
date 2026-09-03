@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="900" height="480" fill="#ffffff"/>
+  <text x="450" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">La valeur est cocréée</text>
+  <text x="450" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">Ni le prestataire ni l'utilisateur ne créent la valeur seul</text>
+  <rect x="60" y="104" width="330" height="196" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="60" y="104" width="330" height="42" rx="14" fill="#2563eb"/>
+  <rect x="60" y="132" width="330" height="14" fill="#2563eb"/>
+  <text x="225" y="132" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">PRESTATAIRE IT</text>
+  <text x="225" y="172" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">le technicien</text>
+  <circle cx="90" cy="203" r="3.5" fill="#2563eb"/><text x="104" y="208" font-size="13.5" fill="#475569">Fournit le service Wi-Fi</text>
+  <circle cx="90" cy="233" r="3.5" fill="#2563eb"/><text x="104" y="238" font-size="13.5" fill="#475569">Configure le réseau</text>
+  <circle cx="90" cy="263" r="3.5" fill="#2563eb"/><text x="104" y="268" font-size="13.5" fill="#475569">Assure la disponibilité</text>
+
+  <circle cx="450" cy="202" r="26" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="450" y="212" text-anchor="middle" font-size="28" font-weight="700" fill="#64748b">+</text>
+
+  <rect x="510" y="104" width="330" height="196" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="510" y="104" width="330" height="42" rx="14" fill="#2563eb"/>
+  <rect x="510" y="132" width="330" height="14" fill="#2563eb"/>
+  <text x="675" y="132" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">CLIENT / UTILISATEUR</text>
+  <text x="675" y="172" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">Marie, la boulangère</text>
+  <circle cx="540" cy="203" r="3.5" fill="#2563eb"/><text x="554" y="208" font-size="13.5" fill="#475569">Sait comment s'en servir</text>
+  <circle cx="540" cy="233" r="3.5" fill="#2563eb"/><text x="554" y="238" font-size="13.5" fill="#475569">Fait confiance au service</text>
+  <circle cx="540" cy="263" r="3.5" fill="#2563eb"/><text x="554" y="268" font-size="13.5" fill="#475569">Signale les problèmes</text>
+
+  <path d="M225,300 L225,330 L450,330" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+  <path d="M675,300 L675,330 L450,330" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="450" y1="330" x2="450" y2="356" stroke="#16a34a" stroke-width="3" marker-end="url(#ag)"/>
+
+  <rect x="230" y="368" width="440" height="86" rx="14" fill="#16a34a" filter="url(#sh)"/>
+  <text x="450" y="400" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">VALEUR CRÉÉE</text>
+  <text x="450" y="424" text-anchor="middle" font-size="13" fill="#dcfce7">Marie prend ses commandes en ligne</text>
+  <text x="450" y="442" text-anchor="middle" font-size="13" fill="#dcfce7">depuis sa tablette</text>
+</svg>

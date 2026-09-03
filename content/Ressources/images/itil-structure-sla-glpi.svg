@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="880" height="500" fill="#ffffff"/>
+  <text x="440" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">La structure des SLA dans GLPI</text>
+  <text x="440" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">Configuration → Niveaux de services</text>
+  <rect x="290" y="100" width="300" height="62" rx="12" fill="#2563eb" filter="url(#sh)"/>
+  <text x="440" y="126" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">SLM</text>
+  <text x="440" y="147" text-anchor="middle" font-size="11.5" fill="#dbeafe">Niveau de services — nom + calendrier</text>
+  <path d="M440,162 L440,196" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <path d="M230,196 L650,196" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <path d="M230,196 L230,226" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <path d="M650,196 L650,226" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="80" y="236" width="300" height="86" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="230" y="264" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">SLAs</text>
+  <text x="230" y="286" text-anchor="middle" font-size="12" fill="#64748b">Délais engagés vis-à-vis</text>
+  <text x="230" y="304" text-anchor="middle" font-size="12" fill="#64748b">des utilisateurs (TTO / TTR)</text>
+  <rect x="500" y="236" width="300" height="86" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="650" y="264" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">OLAs</text>
+  <text x="650" y="286" text-anchor="middle" font-size="12" fill="#64748b">Délais internes entre équipes IT</text>
+  <text x="650" y="304" text-anchor="middle" font-size="12" font-style="italic" fill="#94a3b8">inutile au Fournil Doré : un seul technicien</text>
+  <path d="M230,322 L230,356" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#aa)"/>
+  <rect x="80" y="366" width="300" height="76" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="230" y="394" text-anchor="middle" font-size="15" font-weight="700" fill="#b45309">Niveaux d'escalade</text>
+  <text x="230" y="416" text-anchor="middle" font-size="12" fill="#b45309">Alertes déclenchées avant</text>
+  <text x="230" y="432" text-anchor="middle" font-size="12" fill="#b45309">le dépassement du délai</text>
+  <text x="440" y="478" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">Le SLM est un conteneur : il ne définit aucun délai lui-même, il regroupe les SLA et les OLA.</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 490" width="960" height="490" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="960" height="490" fill="#ffffff"/>
+  <text x="480" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">Les 3 types de changements</text>
+  <text x="480" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">Le type détermine qui approuve, et à quelle vitesse</text>
+  <rect x="40" y="102" width="288" height="330" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="40" y="102" width="288" height="56" rx="14" fill="#16a34a"/>
+  <rect x="40" y="144" width="288" height="14" fill="#16a34a"/>
+  <text x="184" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">STANDARD</text>
+  <text x="184" y="152" text-anchor="middle" font-size="11.5" fill="#ffffff" opacity="0.9">Pré-autorisé</text>
+  <circle cx="66" cy="188" r="3.5" fill="#16a34a"/>
+  <text x="80" y="193" font-size="12.5" fill="#475569">Risque : faible</text>
+  <circle cx="66" cy="218" r="3.5" fill="#16a34a"/>
+  <text x="80" y="223" font-size="12.5" fill="#475569">Procédure connue et répétée</text>
+  <circle cx="66" cy="248" r="3.5" fill="#16a34a"/>
+  <text x="80" y="253" font-size="12.5" fill="#475569">Aucune approbation à chaque fois</text>
+  <line x1="62" y1="292" x2="306" y2="292" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="184" y="316" text-anchor="middle" font-size="11.5" font-weight="700" fill="#94a3b8">EXEMPLES</text>
+  <text x="184" y="342" text-anchor="middle" font-size="12" fill="#64748b">Ajout d'un compte utilisateur</text>
+  <text x="184" y="364" text-anchor="middle" font-size="12" fill="#64748b">Installation d'une imprimante référencée</text>
+  <rect x="60" y="392" width="248" height="30" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="184" y="412" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748b">Le Fournil Doré : rare</text>
+  <rect x="336" y="102" width="288" height="330" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="336" y="102" width="288" height="56" rx="14" fill="#2563eb"/>
+  <rect x="336" y="144" width="288" height="14" fill="#2563eb"/>
+  <text x="480" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">NORMAL</text>
+  <text x="480" y="152" text-anchor="middle" font-size="11.5" fill="#ffffff" opacity="0.9">Approbation requise</text>
+  <circle cx="362" cy="188" r="3.5" fill="#2563eb"/>
+  <text x="376" y="193" font-size="12.5" fill="#475569">Risque : modéré à élevé</text>
+  <circle cx="362" cy="218" r="3.5" fill="#2563eb"/>
+  <text x="376" y="223" font-size="12.5" fill="#475569">Évalué par le CAB</text>
+  <circle cx="362" cy="248" r="3.5" fill="#2563eb"/>
+  <text x="376" y="253" font-size="12.5" fill="#475569">Planifié avant mise en œuvre</text>
+  <line x1="358" y1="292" x2="602" y2="292" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="480" y="316" text-anchor="middle" font-size="11.5" font-weight="700" fill="#94a3b8">EXEMPLES</text>
+  <text x="480" y="342" text-anchor="middle" font-size="12" fill="#64748b">Déploiement d'un pilote sur le parc</text>
+  <text x="480" y="364" text-anchor="middle" font-size="12" fill="#64748b">Migration d'un serveur</text>
+  <rect x="356" y="392" width="248" height="30" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="480" y="412" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748b">Le Fournil Doré : la GPO du ch. 05</text>
+  <rect x="632" y="102" width="288" height="330" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="632" y="102" width="288" height="56" rx="14" fill="#dc2626"/>
+  <rect x="632" y="144" width="288" height="14" fill="#dc2626"/>
+  <text x="776" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">URGENCE</text>
+  <text x="776" y="152" text-anchor="middle" font-size="11.5" fill="#ffffff" opacity="0.9">Approbation accélérée</text>
+  <circle cx="658" cy="188" r="3.5" fill="#dc2626"/>
+  <text x="672" y="193" font-size="12.5" fill="#475569">Risque : accepté sciemment</text>
+  <circle cx="658" cy="218" r="3.5" fill="#dc2626"/>
+  <text x="672" y="223" font-size="12.5" fill="#475569">Validé par l'ECAB</text>
+  <circle cx="658" cy="248" r="3.5" fill="#dc2626"/>
+  <text x="672" y="253" font-size="12.5" fill="#475569">Documenté après coup</text>
+  <line x1="654" y1="292" x2="898" y2="292" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="776" y="316" text-anchor="middle" font-size="11.5" font-weight="700" fill="#94a3b8">EXEMPLES</text>
+  <text x="776" y="342" text-anchor="middle" font-size="12" fill="#64748b">Correctif de sécurité critique</text>
+  <text x="776" y="364" text-anchor="middle" font-size="12" fill="#64748b">Rétablissement après panne majeure</text>
+  <rect x="652" y="392" width="248" height="30" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="776" y="412" text-anchor="middle" font-size="11.5" font-style="italic" fill="#64748b">Le Fournil Doré : four à l'arrêt</text>
+  <text x="480" y="466" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">Un changement d'urgence reste documenté — simplement après coup plutôt qu'avant. Jamais « pas du tout ».</text>
+</svg>

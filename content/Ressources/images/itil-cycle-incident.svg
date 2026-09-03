@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="960" height="480" fill="#ffffff"/>
+  <text x="480" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">Le cycle de vie d'un incident</text>
+  <text x="480" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">Sept étapes, du signalement au service rétabli</text>
+  <rect x="40" y="106" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="68" cy="134" r="15" fill="#2563eb"/>
+  <text x="68" y="139" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">1</text>
+  <text x="140" y="168" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Détection</text>
+  <text x="140" y="192" text-anchor="middle" font-size="11.5" fill="#64748b">Un utilisateur signale,</text>
+  <text x="140" y="208" text-anchor="middle" font-size="11.5" fill="#64748b">ou la supervision alerte</text>
+  <line x1="240" y1="168" x2="304" y2="168" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="268" y="106" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="296" cy="134" r="15" fill="#2563eb"/>
+  <text x="296" y="139" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">2</text>
+  <text x="368" y="168" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Enregistrement</text>
+  <text x="368" y="192" text-anchor="middle" font-size="11.5" fill="#64748b">Créer le ticket avec</text>
+  <text x="368" y="208" text-anchor="middle" font-size="11.5" fill="#64748b">toutes les informations</text>
+  <line x1="468" y1="168" x2="532" y2="168" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="496" y="106" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="524" cy="134" r="15" fill="#2563eb"/>
+  <text x="524" y="139" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">3</text>
+  <text x="596" y="168" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Catégorisation</text>
+  <text x="596" y="192" text-anchor="middle" font-size="11.5" fill="#64748b">Quel type ?</text>
+  <text x="596" y="208" text-anchor="middle" font-size="11.5" fill="#64748b">Quel service concerné ?</text>
+  <line x1="696" y1="168" x2="760" y2="168" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="724" y="106" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="752" cy="134" r="15" fill="#2563eb"/>
+  <text x="752" y="139" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">4</text>
+  <text x="824" y="168" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Priorisation</text>
+  <text x="824" y="192" text-anchor="middle" font-size="11.5" fill="#64748b">Impact x Urgence</text>
+  <text x="824" y="208" text-anchor="middle" font-size="11.5" fill="#64748b">= Priorité</text>
+  <path d="M924,230 L924,262 L140,262 L140,292" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ab)"/>
+  <rect x="40" y="300" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="68" cy="328" r="15" fill="#2563eb"/>
+  <text x="68" y="333" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">5</text>
+  <text x="140" y="362" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Diagnostic</text>
+  <text x="140" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">Identifier la</text>
+  <text x="140" y="402" text-anchor="middle" font-size="11.5" fill="#64748b">cause apparente</text>
+  <line x1="240" y1="362" x2="304" y2="362" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="268" y="300" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="296" cy="328" r="15" fill="#2563eb"/>
+  <text x="296" y="333" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">6</text>
+  <text x="368" y="362" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Résolution</text>
+  <text x="368" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">Appliquer la correction,</text>
+  <text x="368" y="402" text-anchor="middle" font-size="11.5" fill="#64748b">escalader si besoin</text>
+  <line x1="468" y1="362" x2="532" y2="362" stroke="#2563eb" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="496" y="300" width="200" height="124" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="524" cy="328" r="15" fill="#2563eb"/>
+  <text x="524" y="333" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">7</text>
+  <text x="596" y="362" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e293b">Clôture</text>
+  <text x="596" y="386" text-anchor="middle" font-size="11.5" fill="#64748b">Vérifier avec l'utilisateur,</text>
+  <text x="596" y="402" text-anchor="middle" font-size="11.5" fill="#64748b">fermer le ticket</text>
+  <line x1="696" y1="362" x2="730" y2="362" stroke="#16a34a" stroke-width="3" marker-end="url(#ag)"/>
+  <rect x="742" y="326" width="182" height="72" rx="14" fill="#16a34a" filter="url(#sh)"/>
+  <text x="833" y="356" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">SERVICE</text>
+  <text x="833" y="378" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">RÉTABLI</text>
+  <text x="480" y="456" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">L'objectif d'un incident est de rétablir le service au plus vite — pas de trouver la cause profonde (voir ch. 04).</text>
+</svg>

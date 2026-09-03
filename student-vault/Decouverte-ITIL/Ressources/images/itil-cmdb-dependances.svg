@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+    <marker id="aa" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect width="900" height="500" fill="#ffffff"/>
+  <text x="450" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1e293b">La CMDB : cartographier les dépendances</text>
+  <text x="450" y="70" text-anchor="middle" font-size="14.5" fill="#64748b">Documenter AVANT la panne, pour savoir qui sera impacté</text>
+  <rect x="330" y="100" width="240" height="76" rx="12" fill="#2563eb" filter="url(#sh)"/>
+  <text x="450" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">SW-NAN-SRVROOM-01</text>
+  <text x="450" y="152" text-anchor="middle" font-size="11.5" fill="#dbeafe">Switch — Nantes / Salle serveur</text>
+  <text x="450" y="168" text-anchor="middle" font-size="11" font-style="italic" fill="#bfdbfe">CI de niveau infrastructure</text>
+  <line x1="450" y1="176" x2="450" y2="214" stroke="#2563eb" stroke-width="3" marker-end="url(#ab)"/>
+  <text x="470" y="200" font-size="11.5" font-style="italic" fill="#64748b">dépend de</text>
+  <rect x="310" y="224" width="280" height="76" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2" filter="url(#sh)"/>
+  <text x="450" y="254" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">IMP-NAN-OPENSPACE-01</text>
+  <text x="450" y="276" text-anchor="middle" font-size="11.5" fill="#64748b">Imprimante Brother MFC-L8900CDW</text>
+  <text x="450" y="292" text-anchor="middle" font-size="11" font-style="italic" fill="#94a3b8">Nantes / Open space</text>
+  <path d="M450,300 L450,330" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+  <path d="M170,330 L730,330" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+  <path d="M170,330 L170,360" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="90" y="370" width="160" height="64" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="170" y="396" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Lucas Petit</text>
+  <text x="170" y="416" text-anchor="middle" font-size="11.5" fill="#64748b">vendeur</text>
+  <path d="M450,330 L450,360" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="370" y="370" width="160" height="64" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="450" y="396" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Marie Dupont</text>
+  <text x="450" y="416" text-anchor="middle" font-size="11.5" fill="#64748b">secrétariat</text>
+  <path d="M730,330 L730,360" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <rect x="650" y="370" width="160" height="64" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="730" y="396" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Claire Rousseau</text>
+  <text x="730" y="416" text-anchor="middle" font-size="11.5" fill="#64748b">comptabilité</text>
+  <rect x="620" y="96" width="256" height="84" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="748" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">Si le switch tombe…</text>
+  <text x="748" y="144" text-anchor="middle" font-size="11.5" fill="#b91c1c">l'imprimante devient inaccessible</text>
+  <text x="748" y="162" text-anchor="middle" font-size="11.5" fill="#b91c1c">et 3 utilisateurs sont impactés</text>
+  <text x="450" y="472" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">Sans cette carte, on découvre les impacts pendant l'incident. Avec elle, on les connaît avant — et on prévient les utilisateurs.</text>
+</svg>
