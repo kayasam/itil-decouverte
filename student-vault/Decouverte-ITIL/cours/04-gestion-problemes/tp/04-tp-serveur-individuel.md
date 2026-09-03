@@ -1,3 +1,7 @@
+---
+title: "TP (serveur individuel) : La gestion des problèmes"
+---
+
 # 04 — La gestion des problèmes · TP — serveur individuel
 
 > **Contexte de déploiement** : chaque stagiaire dispose de son propre GLPI, monté pendant les 3 jours de formation GLPI.
@@ -7,9 +11,8 @@
 
 ## Atelier — Identifier et gérer un problème au Fournil Doré
 
-:::info
-**Contexte** — Vous consultez l'historique des tickets dans GLPI. Vous remarquez que **3 incidents** ont été signalés en 3 semaines pour le même équipement : `IMP-NAN-OPENSPACE-01`. Tous viennent de lucas.petit, le vendeur en boutique.
-:::
+> [!INFO] Contexte
+> Vous consultez l'historique des tickets dans GLPI. Vous remarquez que **3 incidents** ont été signalés en 3 semaines pour le même équipement : `IMP-NAN-OPENSPACE-01`. Tous viennent de lucas.petit, le vendeur en boutique.
 
 ---
 

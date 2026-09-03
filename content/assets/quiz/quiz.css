@@ -190,6 +190,36 @@ a {
   border-color: var(--wrong);
   background: rgba(255, 123, 134, 0.09);
 }
+
+.feedback strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.feedback p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.feedback p + p {
+  margin-top: 8px;
+}
+
+.feedback-answer {
+  font-weight: 700;
+}
+
+.feedback-explanation {
+  color: var(--text);
+}
+
+.feedback-advice {
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
 .quiz-actions,
 .result-actions {
   display: flex;

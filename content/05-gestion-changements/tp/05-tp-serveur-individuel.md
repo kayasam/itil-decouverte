@@ -1,5 +1,5 @@
 ---
-title: "05 tp serveur individuel"
+title: "TP (serveur individuel) : La gestion des changements"
 aliases:
   - "/tp/05-tp-serveur-individuel"
 ---
@@ -17,9 +17,8 @@ aliases:
 
 ## Atelier — Créer un changement au Fournil Doré
 
-:::info
-**Contexte** — Suite à l'investigation du chapitre 04, vous avez identifié que le pilote d'impression se corrompt à chaque mise à jour Windows automatique. La solution définitive est de désactiver ces mises à jour via une stratégie de groupe (GPO) sur tous les postes de la boutique. Ce changement touche plusieurs postes : il doit être documenté et approuvé avant mise en œuvre.
-:::
+> [!INFO] Contexte
+> Suite à l'investigation du chapitre 04, vous avez identifié que le pilote d'impression se corrompt à chaque mise à jour Windows automatique. La solution définitive est de désactiver ces mises à jour via une stratégie de groupe (GPO) sur tous les postes de la boutique. Ce changement touche plusieurs postes : il doit être documenté et approuvé avant mise en œuvre.
 
 ---
 

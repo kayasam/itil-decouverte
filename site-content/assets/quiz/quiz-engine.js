@@ -97,10 +97,25 @@
       if (buttonIndex === choiceIndex && !isCorrect) button.classList.add("wrong")
     })
     const status = document.createElement("strong")
-    status.textContent = isCorrect ? "Bonne réponse" : "Réponse incorrecte"
-    const explanation = document.createElement("span")
+    status.textContent = isCorrect ? "Bonne réponse" : "Réponse à revoir"
+    const answerReview = document.createElement("p")
+    answerReview.className = "feedback-answer"
+    answerReview.textContent = isCorrect
+      ? "Votre choix est juste : « " + question.choices[question.answer] + " »."
+      : "Vous avez choisi « " +
+        question.choices[choiceIndex] +
+        " ». La réponse attendue était « " +
+        question.choices[question.answer] +
+        " »."
+    const explanation = document.createElement("p")
+    explanation.className = "feedback-explanation"
     explanation.textContent = question.explanation
-    feedback.append(status, explanation)
+    const advice = document.createElement("p")
+    advice.className = "feedback-advice"
+    advice.textContent = isCorrect
+      ? "Repère acquis : relisez l’explication pour fixer la distinction dans la durée."
+      : "Conseil : comparez les deux notions citées, puis reformulez la bonne définition avec vos propres mots."
+    feedback.append(status, answerReview, explanation, advice)
     feedback.className = "feedback visible " + (isCorrect ? "correct" : "wrong")
     next.disabled = false
     next.focus()

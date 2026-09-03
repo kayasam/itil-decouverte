@@ -1,3 +1,7 @@
+---
+title: "TP (serveur mutualisé) : La gestion des incidents"
+---
+
 # 03 — La gestion des incidents · TP — serveur mutualisé
 
 > **Contexte de déploiement** : un seul serveur GLPI pour tout le groupe, chaque stagiaire a un compte nominatif.
@@ -7,16 +11,14 @@
 
 ## Atelier — Créer et traiter des incidents dans GLPI
 
-:::info
-**Contexte** — Vous êtes le technicien IT du Fournil Doré. Ce matin, quatre collègues vous signalent des soucis. Votre travail : les analyser, les prioriser, puis les traiter dans GLPI.
+> [!INFO] Contexte
+> Vous êtes le technicien IT du Fournil Doré. Ce matin, quatre collègues vous signalent des soucis. Votre travail : les analyser, les prioriser, puis les traiter dans GLPI.
+>
+> Vous vous connectez avec **votre propre compte**, et vous vous attribuez les tickets à vous-même.
 
-Vous vous connectez avec **votre propre compte**, et vous vous attribuez les tickets à vous-même.
-:::
-
-:::warning
-Préfixez le titre de **chaque** ticket par votre prénom entre crochets.
-Exemple : `[Theo] La caisse refuse les paiements CB`
-:::
+> [!WARNING]
+> Préfixez le titre de **chaque** ticket par votre prénom entre crochets.
+> Exemple : `[Theo] La caisse refuse les paiements CB`
 
 ---
 
@@ -120,9 +122,8 @@ Pour chaque ticket, quatre gestes :
 
 **4. Clôturer** — passez le statut à **Résolu**.
 
-:::info
-Notez la différence entre **Résolu** et **Clos**. Résolu = le technicien pense avoir réglé le problème. Clos = l'utilisateur a confirmé. Ce n'est pas à vous de décider que le service est rétabli.
-:::
+> [!INFO]
+> Notez la différence entre **Résolu** et **Clos**. Résolu = le technicien pense avoir réglé le problème. Clos = l'utilisateur a confirmé. Ce n'est pas à vous de décider que le service est rétabli.
 
 ---
 

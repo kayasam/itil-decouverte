@@ -1,3 +1,7 @@
+---
+title: "TP (serveur mutualisé) : L'amélioration continue"
+---
+
 # 08 — L'amélioration continue · TP — serveur mutualisé
 
 > **Contexte de déploiement** : un seul serveur GLPI pour tout le groupe, chaque stagiaire a un compte nominatif.
@@ -29,9 +33,8 @@ Observer et noter :
 
 Choisir la vue **Par catégorie** et observer quelles catégories concentrent le plus de tickets.
 
-:::info
-Les statistiques portent sur **l'ensemble des tickets du groupe**, pas seulement les vôtres. C'est une bonne nouvelle : à quatre, vous avez produit assez de volume pour que les graphiques veuillent dire quelque chose. Un service IT réel raisonne exactement comme ça — sur l'activité de toute l'équipe, jamais sur celle d'un seul technicien.
-:::
+> [!INFO]
+> Les statistiques portent sur **l'ensemble des tickets du groupe**, pas seulement les vôtres. C'est une bonne nouvelle : à quatre, vous avez produit assez de volume pour que les graphiques veuillent dire quelque chose. Un service IT réel raisonne exactement comme ça — sur l'activité de toute l'équipe, jamais sur celle d'un seul technicien.
 
 ---
 

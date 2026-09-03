@@ -1,3 +1,7 @@
+---
+title: "05. La gestion des changements"
+---
+
 # 05 — La gestion des changements · Cours
 
 ---

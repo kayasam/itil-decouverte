@@ -1,3 +1,7 @@
+---
+title: "Annexe — TP en binôme : jeu de rôle"
+---
+
 # Annexe — TP en binôme : « Un vrai utilisateur, un vrai technicien »
 
 **Durée : 1h30** (version courte possible en 45 min, voir en fin de note)
@@ -54,9 +58,8 @@ Vous ne savez rien à l'avance. Votre poste de travail, c'est GLPI.
 
 Tout ne s'applique pas forcément à toutes les cartes. **C'est à vous de décider ce qui s'applique** — et c'est exactement là qu'est l'exercice.
 
-:::warning
-La règle de nommage tient toujours : préfixez tout ce que vous créez par votre prénom entre crochets.
-:::
+> [!WARNING]
+> La règle de nommage tient toujours : préfixez tout ce que vous créez par votre prénom entre crochets.
 
 ---
 

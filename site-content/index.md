@@ -12,6 +12,7 @@ description: Parcours élève pour comprendre les fondamentaux ITIL et les mettr
   <div class="pc-actions">
     <a href="./00-contexte/">Découvrir le contexte →</a>
     <a href="./01-introduction-itil/">Commencer le cours</a>
+    <a href="./annexes/lexique-itil">Consulter le lexique</a>
   </div>
 </section>
 

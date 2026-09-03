@@ -34,8 +34,18 @@ function Mirror([string]$Source, [string]$Destination) {
   if ($LASTEXITCODE -ge 8) { throw "Copie impossible : $Source" }
 }
 function Add-Metadata([string]$Path, [string]$Title, [string]$Alias) {
-  $body = [IO.File]::ReadAllText($Path)
-  [IO.File]::WriteAllText($Path, "---`ntitle: `"$Title`"`naliases:`n  - `"$Alias`"`n---`n`n$body", $utf8)
+  $content = [IO.File]::ReadAllText($Path)
+  if ($content -match '\A---\r?\n') {
+    $frontmatter = [regex]::Match($content, '\A---\r?\n(?<body>.*?)\r?\n---\r?\n', [Text.RegularExpressions.RegexOptions]::Singleline)
+    if (-not $frontmatter.Success) { throw "Frontmatter invalide : $Path" }
+    $metadata = $frontmatter.Groups['body'].Value
+    if ($metadata -notmatch '(?m)^title:') { $metadata += "`ntitle: `"$Title`"" }
+    if ($metadata -notmatch '(?m)^aliases?:') { $metadata += "`naliases:`n  - `"$Alias`"" }
+    $content = "---`n$metadata`n---`n" + $content.Substring($frontmatter.Length)
+  } else {
+    $content = "---`ntitle: `"$Title`"`naliases:`n  - `"$Alias`"`n---`n`n$content"
+  }
+  [IO.File]::WriteAllText($Path, $content, $utf8)
 }
 function Add-ResourceBlock([string]$Path, [string]$Block) {
   $body = [IO.File]::ReadAllText($Path)

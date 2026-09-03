@@ -1,3 +1,7 @@
+---
+title: "08. L'amélioration continue"
+---
+
 # 08 — L'amélioration continue · Cours
 
 ---

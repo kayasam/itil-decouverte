@@ -1,3 +1,7 @@
+---
+title: "TP (serveur individuel) : Les SLA et les niveaux de service"
+---
+
 # 06 — Les SLA et les niveaux de service · TP — serveur individuel
 
 > **Contexte de déploiement** : chaque stagiaire dispose de son propre GLPI, monté pendant les 3 jours de formation GLPI.
@@ -7,13 +11,12 @@
 
 ## Atelier — Configurer les SLA du Fournil Doré
 
-:::info
-**Contexte** — Vous voulez formaliser vos engagements de service. Après discussion avec le directeur, vous vous accordez sur les délais suivants :
-
-- Tout incident doit être **pris en charge en moins d'1 heure** (TTO)
-- Les incidents de **haute priorité** doivent être résolus en **4 heures** (TTR)
-- Les incidents de **priorité normale** sont résolus en **24 heures** (TTR)
-:::
+> [!INFO] Contexte
+> Vous voulez formaliser vos engagements de service. Après discussion avec le directeur, vous vous accordez sur les délais suivants :
+>
+> - Tout incident doit être **pris en charge en moins d'1 heure** (TTO)
+> - Les incidents de **haute priorité** doivent être résolus en **4 heures** (TTR)
+> - Les incidents de **priorité normale** sont résolus en **24 heures** (TTR)
 
 ---
 

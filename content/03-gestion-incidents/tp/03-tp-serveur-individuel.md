@@ -1,5 +1,5 @@
 ---
-title: "03 tp serveur individuel"
+title: "TP (serveur individuel) : La gestion des incidents"
 aliases:
   - "/tp/03-tp-serveur-individuel"
 ---
@@ -17,11 +17,10 @@ aliases:
 
 ## Atelier — Créer et traiter des incidents dans GLPI
 
-:::info
-**Contexte** — Vous êtes le technicien IT du Fournil Doré. Ce matin, quatre collègues vous signalent des soucis. Votre travail : les analyser, les prioriser, puis les traiter dans GLPI.
-
-Vous vous connectez avec le compte **thomas.martin**, et vous vous attribuez les tickets à vous-même.
-:::
+> [!INFO] Contexte
+> Vous êtes le technicien IT du Fournil Doré. Ce matin, quatre collègues vous signalent des soucis. Votre travail : les analyser, les prioriser, puis les traiter dans GLPI.
+>
+> Vous vous connectez avec le compte **thomas.martin**, et vous vous attribuez les tickets à vous-même.
 
 ---
 
@@ -126,9 +125,8 @@ Pour chaque ticket, quatre gestes :
 
 **4. Clôturer** — passez le statut à **Résolu**.
 
-:::info
-Notez la différence entre **Résolu** et **Clos**. Résolu = le technicien pense avoir réglé le problème. Clos = l'utilisateur a confirmé. Ce n'est pas à vous de décider que le service est rétabli.
-:::
+> [!INFO]
+> Notez la différence entre **Résolu** et **Clos**. Résolu = le technicien pense avoir réglé le problème. Clos = l'utilisateur a confirmé. Ce n'est pas à vous de décider que le service est rétabli.
 
 ---
 

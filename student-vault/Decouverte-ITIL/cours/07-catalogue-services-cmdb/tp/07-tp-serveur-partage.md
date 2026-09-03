@@ -1,3 +1,7 @@
+---
+title: "TP (serveur mutualisé) : Catalogue de services et CMDB"
+---
+
 # 07 — Catalogue de services et CMDB · TP — serveur mutualisé
 
 > **Contexte de déploiement** : un seul serveur GLPI pour tout le groupe, chaque stagiaire a un compte nominatif.
@@ -29,9 +33,8 @@ Cliquer sur **« Signaler un incident »** et observer le formulaire qui s'ouvre
 
 ### Partie 2 — Cartographier l'imprimante dans la CMDB
 
-:::info
-**Contexte** — Vous voulez documenter que `IMP-NAN-OPENSPACE-01` dépend d'un switch réseau situé en salle serveur de Nantes. Si le switch tombe, l'imprimante devient inaccessible depuis les postes de travail.
-:::
+> [!INFO] Contexte
+> Vous voulez documenter que `IMP-NAN-OPENSPACE-01` dépend d'un switch réseau situé en salle serveur de Nantes. Si le switch tombe, l'imprimante devient inaccessible depuis les postes de travail.
 
 **Étape 1 — Créer votre switch**
 
@@ -61,11 +64,10 @@ Dans le graphe, reliez le switch à l'imprimante avec une flèche. Le sens indiq
 
 **Étape 5 — Observer**
 
-:::warning
-Vous allez voir apparaître **les switches de vos trois collègues** sur le même graphe. C'est voulu, et c'est une leçon en soi : la CMDB est une **base commune**. Si chacun y documente dans son coin sans convention, elle devient rapidement illisible — exactement ce que vous avez sous les yeux.
-
-En production, c'est pour ça qu'une CMDB a un propriétaire et des règles de nommage strictes.
-:::
+> [!WARNING]
+> Vous allez voir apparaître **les switches de vos trois collègues** sur le même graphe. C'est voulu, et c'est une leçon en soi : la CMDB est une **base commune**. Si chacun y documente dans son coin sans convention, elle devient rapidement illisible — exactement ce que vous avez sous les yeux.
+>
+> En production, c'est pour ça qu'une CMDB a un propriétaire et des règles de nommage strictes.
 
 ---
 

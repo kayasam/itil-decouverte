@@ -1,5 +1,5 @@
 ---
-title: "04. Gestion des problèmes"
+title: "04. La gestion des problèmes"
 aliases:
   - "/cours/04-gestion-problemes"
 ---

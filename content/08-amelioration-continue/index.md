@@ -1,5 +1,5 @@
 ---
-title: "08. Amélioration continue"
+title: "08. L'amélioration continue"
 aliases:
   - "/cours/08-amelioration-continue"
 ---

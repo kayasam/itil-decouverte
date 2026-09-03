@@ -1,5 +1,5 @@
 ---
-title: "06. SLA et niveaux de service"
+title: "06. Les SLA et les niveaux de service"
 aliases:
   - "/cours/06-sla-niveaux-service"
 ---

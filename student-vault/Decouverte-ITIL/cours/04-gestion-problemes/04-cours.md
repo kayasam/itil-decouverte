@@ -1,3 +1,7 @@
+---
+title: "04. La gestion des problèmes"
+---
+
 # 04 — La gestion des problèmes · Cours
 
 ---

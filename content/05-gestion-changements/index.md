@@ -1,5 +1,5 @@
 ---
-title: "05. Gestion des changements"
+title: "05. La gestion des changements"
 aliases:
   - "/cours/05-gestion-changements"
 ---

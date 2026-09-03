@@ -1,5 +1,5 @@
 ---
-title: "04 tp serveur partage"
+title: "TP (serveur mutualisé) : La gestion des problèmes"
 aliases:
   - "/tp/04-tp-serveur-partage"
 ---
@@ -17,13 +17,11 @@ aliases:
 
 ## Atelier — Identifier et gérer un problème au Fournil Doré
 
-:::info
-**Contexte** — Vous consultez l'historique des tickets dans GLPI. Vous remarquez que **3 incidents** ont été signalés en 3 semaines pour le même équipement : `IMP-NAN-OPENSPACE-01`. Tous viennent de lucas.petit, le vendeur en boutique.
-:::
+> [!INFO] Contexte
+> Vous consultez l'historique des tickets dans GLPI. Vous remarquez que **3 incidents** ont été signalés en 3 semaines pour le même équipement : `IMP-NAN-OPENSPACE-01`. Tous viennent de lucas.petit, le vendeur en boutique.
 
-:::warning
-Comme toujours : préfixez de votre prénom **tout** ce que vous créez — les deux tickets **et** le problème.
-:::
+> [!WARNING]
+> Comme toujours : préfixez de votre prénom **tout** ce que vous créez — les deux tickets **et** le problème.
 
 ---
 
@@ -57,9 +55,8 @@ L'incident de la semaine 3 a déjà été créé à l'atelier du chapitre 03 («
 
 **Vérification** — ouvrez `Parc` → `Imprimantes` → `IMP-NAN-OPENSPACE-01` → onglet **Tickets**.
 
-:::info
-Vous y verrez **aussi les tickets de vos collègues**, puisque l'imprimante est partagée. C'est normal, et c'est même réaliste : en entreprise, un équipement accumule les tickets de toute l'équipe. Repérez vos 3 incidents grâce à votre préfixe.
-:::
+> [!INFO]
+> Vous y verrez **aussi les tickets de vos collègues**, puisque l'imprimante est partagée. C'est normal, et c'est même réaliste : en entreprise, un équipement accumule les tickets de toute l'équipe. Repérez vos 3 incidents grâce à votre préfixe.
 
 ---
 

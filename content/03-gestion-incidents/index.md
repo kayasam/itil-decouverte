@@ -1,5 +1,5 @@
 ---
-title: "03. Gestion des incidents"
+title: "03. La gestion des incidents"
 aliases:
   - "/cours/03-gestion-incidents"
 ---

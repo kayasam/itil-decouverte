@@ -1,3 +1,8 @@
+---
+title: "Annexe — Cartes utilisateur (formateur)"
+publier: false
+---
+
 # Cartes utilisateur — TP en binôme
 
 > **À NE DONNER QU'À LA PERSONNE QUI JOUE L'UTILISATEUR.**

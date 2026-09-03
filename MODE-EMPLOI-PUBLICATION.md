@@ -4,8 +4,8 @@ Les sources officielles restent dans :
 
 - `C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\itil`
 
-Le site public contient les 8 cours, les 14 variantes de TP, les illustrations et un quiz de
-20 questions pour chaque chapitre. Les fichiers de correction ne sont jamais copiés.
+Le site public contient les 8 cours, les 14 variantes de TP, les illustrations, le lexique ITIL et
+un quiz de 20 questions pour chaque chapitre. Les fichiers de correction ne sont jamais copiés.
 
 ## Publication rapide
 

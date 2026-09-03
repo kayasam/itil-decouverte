@@ -1,5 +1,5 @@
 ---
-title: "04 tp serveur individuel"
+title: "TP (serveur individuel) : La gestion des problèmes"
 aliases:
   - "/tp/04-tp-serveur-individuel"
 ---
@@ -17,9 +17,8 @@ aliases:
 
 ## Atelier — Identifier et gérer un problème au Fournil Doré
 
-:::info
-**Contexte** — Vous consultez l'historique des tickets dans GLPI. Vous remarquez que **3 incidents** ont été signalés en 3 semaines pour le même équipement : `IMP-NAN-OPENSPACE-01`. Tous viennent de lucas.petit, le vendeur en boutique.
-:::
+> [!INFO] Contexte
+> Vous consultez l'historique des tickets dans GLPI. Vous remarquez que **3 incidents** ont été signalés en 3 semaines pour le même équipement : `IMP-NAN-OPENSPACE-01`. Tous viennent de lucas.petit, le vendeur en boutique.
 
 ---
 

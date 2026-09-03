@@ -1,3 +1,7 @@
+---
+title: "03. La gestion des incidents"
+---
+
 # 03 — La gestion des incidents · Cours
 
 ---

@@ -1,3 +1,7 @@
+---
+title: "TP (serveur mutualisé) : Les SLA et les niveaux de service"
+---
+
 # 06 — Les SLA et les niveaux de service · TP — serveur mutualisé
 
 > **Contexte de déploiement** : un seul serveur GLPI pour tout le groupe, chaque stagiaire a un compte nominatif.
@@ -7,17 +11,15 @@
 
 ## Atelier — Configurer les SLA du Fournil Doré
 
-:::info
-**Contexte** — Vous voulez formaliser vos engagements de service. Après discussion avec le directeur, vous vous accordez sur les délais suivants :
+> [!INFO] Contexte
+> Vous voulez formaliser vos engagements de service. Après discussion avec le directeur, vous vous accordez sur les délais suivants :
+>
+> - Tout incident doit être **pris en charge en moins d'1 heure** (TTO)
+> - Les incidents de **haute priorité** doivent être résolus en **4 heures** (TTR)
+> - Les incidents de **priorité normale** sont résolus en **24 heures** (TTR)
 
-- Tout incident doit être **pris en charge en moins d'1 heure** (TTO)
-- Les incidents de **haute priorité** doivent être résolus en **4 heures** (TTR)
-- Les incidents de **priorité normale** sont résolus en **24 heures** (TTR)
-:::
-
-:::warning
-Le SLM, les 3 SLA et le niveau d'escalade sont des objets de configuration **visibles par tout le monde**. Préfixez-les impérativement de votre prénom, sinon vous ne saurez plus lequel est le vôtre.
-:::
+> [!WARNING]
+> Le SLM, les 3 SLA et le niveau d'escalade sont des objets de configuration **visibles par tout le monde**. Préfixez-les impérativement de votre prénom, sinon vous ne saurez plus lequel est le vôtre.
 
 ---
 
@@ -93,9 +95,8 @@ Dans la fiche du ticket, section **Niveaux de services** (en bas du panneau droi
 
 Sauvegarder le ticket.
 
-:::info
-Attention au moment de choisir dans la liste déroulante : les SLA de vos trois collègues y figurent aussi. Vérifiez bien votre préfixe.
-:::
+> [!INFO]
+> Attention au moment de choisir dans la liste déroulante : les SLA de vos trois collègues y figurent aussi. Vérifiez bien votre préfixe.
 
 > Après enregistrement, GLPI calcule automatiquement les échéances à partir de la date de création du ticket. Si le ticket est déjà résolu, les échéances sont affichées à titre indicatif.
 

@@ -416,14 +416,30 @@
         question: "Quelle définition correspond à « " + concept[1] + " » ?",
         choices: [concept[2]].concat(distractors.map((item) => item[2])),
         answer: 0,
-        explanation: concept[1] + " : " + concept[2] + ".",
+        explanation:
+          "« " +
+          concept[1] +
+          " » désigne précisément : " +
+          concept[2].toLowerCase() +
+          ". Les autres propositions définissent « " +
+          distractors.map((item) => item[1]).join(" », « ") +
+          " ». Ce contraste permet de repérer les notions proches sans les confondre.",
       })
       questions.push({
         theme: concept[0],
         question: "Quel concept correspond à cette définition : « " + concept[2] + " » ?",
         choices: [concept[1]].concat(distractors.map((item) => item[1])),
         answer: 0,
-        explanation: "Il s’agit de « " + concept[1] + " ».",
+        explanation:
+          "Il s’agit de « " +
+          concept[1] +
+          " » : " +
+          concept[2].toLowerCase() +
+          ". À ne pas confondre avec « " +
+          distractors[0][1] +
+          " », qui correspond à " +
+          distractors[0][2].toLowerCase() +
+          ".",
       })
     })
     return questions

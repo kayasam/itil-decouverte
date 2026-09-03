@@ -1,3 +1,7 @@
+---
+title: "TP (serveur individuel) : L'amélioration continue"
+---
+
 # 08 — L'amélioration continue · TP — serveur individuel
 
 > **Contexte de déploiement** : chaque stagiaire dispose de son propre GLPI, monté pendant les 3 jours de formation GLPI.
@@ -29,9 +33,8 @@ Observer et noter :
 
 Choisir la vue **Par catégorie** et observer quelles catégories concentrent le plus de tickets.
 
-:::info
-Sur un lab avec peu de données, les chiffres resteront limités — c'est normal. La démarche, elle, est exactement la même en production avec plusieurs mois d'historique. Ce qui compte ici est de savoir **où** aller chercher l'information et **quelles** questions lui poser.
-:::
+> [!INFO]
+> Sur un lab avec peu de données, les chiffres resteront limités — c'est normal. La démarche, elle, est exactement la même en production avec plusieurs mois d'historique. Ce qui compte ici est de savoir **où** aller chercher l'information et **quelles** questions lui poser.
 
 ---
 

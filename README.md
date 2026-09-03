@@ -7,6 +7,7 @@ Les sources officielles restent dans le coffre Obsidian :
 - Cours, TP et images : `C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\itil`
 
 Les corrections restent exclusivement dans le coffre Obsidian et ne sont jamais publiées.
+Le lexique ITIL public est maintenu dans `annexes\lexique-itil.md` du coffre.
 
 ## Utilisation locale
 

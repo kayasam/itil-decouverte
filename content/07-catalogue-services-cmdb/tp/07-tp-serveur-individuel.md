@@ -1,5 +1,5 @@
 ---
-title: "07 tp serveur individuel"
+title: "TP (serveur individuel) : Catalogue de services et CMDB"
 aliases:
   - "/tp/07-tp-serveur-individuel"
 ---
@@ -39,9 +39,8 @@ Cliquer sur **« Signaler un incident »** et observer le formulaire qui s'ouvre
 
 ### Partie 2 — Cartographier l'imprimante dans la CMDB
 
-:::info
-**Contexte** — Vous voulez documenter que `IMP-NAN-OPENSPACE-01` dépend d'un switch réseau situé en salle serveur de Nantes. Si le switch tombe, l'imprimante devient inaccessible depuis les postes de travail.
-:::
+> [!INFO] Contexte
+> Vous voulez documenter que `IMP-NAN-OPENSPACE-01` dépend d'un switch réseau situé en salle serveur de Nantes. Si le switch tombe, l'imprimante devient inaccessible depuis les postes de travail.
 
 **Étape 1 — Créer le switch**
 
@@ -68,13 +67,10 @@ Cliquer sur l'icône **+** dans la barre d'outils à droite du graphe, puis choi
 
 Dans le graphe, reliez le switch à l'imprimante avec une flèche. Le sens indique la dépendance : **l'imprimante dépend du switch**, donc la flèche va du switch vers l'imprimante.
 
-:::info
-**Étape 5 — Observer**
-
-La vue graphique montre maintenant deux CI reliés. Si un incident est créé sur le switch, GLPI peut signaler que l'imprimante en dépend — et donc anticiper l'impact sur les utilisateurs de l'open space.
-
-Ajoutez mentalement la suite : combien d'utilisateurs dépendent de cette imprimante ? Combien d'équipements dépendent de ce switch ? C'est cette cascade que la CMDB rend visible avant la panne.
-:::
+> [!INFO] Étape 5 — Observer
+> La vue graphique montre maintenant deux CI reliés. Si un incident est créé sur le switch, GLPI peut signaler que l'imprimante en dépend — et donc anticiper l'impact sur les utilisateurs de l'open space.
+>
+> Ajoutez mentalement la suite : combien d'utilisateurs dépendent de cette imprimante ? Combien d'équipements dépendent de ce switch ? C'est cette cascade que la CMDB rend visible avant la panne.
 
 ---
 
