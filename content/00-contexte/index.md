@@ -33,15 +33,7 @@ L'entreprise a deux implantations, un laboratoire de production et une boutique.
 
 ## Organigramme
 
-```mermaid
-graph TD
-    DIR["Direction<br/><i>Le Fournil Doré</i>"]
-    DIR --> IT["<b>VOUS</b><br/>Technicien IT<br/><i>votre compte</i>"]
-    DIR --> ADM["Marie Dupont<br/>Secrétaire de direction<br/>marie.dupont"]
-    DIR --> CPT["Claire Rousseau<br/>Comptable<br/>claire.rousseau"]
-    DIR --> BTQ["Lucas Petit<br/>Vendeur boutique<br/>lucas.petit"]
-    DIR --> LAB["Ahmed Benali<br/>Responsable production<br/>ahmed.benali"]
-```
+![itil-organigramme-fournil-dore.svg](/Ressources/images/itil-organigramme-fournil-dore.svg)
 
 | Login             | Nom             | Rôle dans l'entreprise  | Entité          |
 | ----------------- | --------------- | ----------------------- | --------------- |
