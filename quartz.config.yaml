@@ -14,12 +14,13 @@ configuration:
     - cours/**/*.excalidraw
     - cours/**/*.excalidraw.md
   theme:
-    fontOrigin: googleFonts
-    cdnCaching: true
+    # Même police système que le coffre Obsidian sous Windows.
+    fontOrigin: local
+    cdnCaching: false
     typography:
-      header: Space Grotesk
-      body: Inter
-      code: IBM Plex Mono
+      header: Segoe UI
+      body: Segoe UI
+      code: Cascadia Code
     colors:
       lightMode:
         light: "#f8fafc"
@@ -110,7 +111,8 @@ plugins:
     enabled: false
     order: 92
   - source: "@quartz-community/quartz-fonts"
-    enabled: true
+    # Désactivé : ce plugin remplaçait Segoe UI par des polices Google.
+    enabled: false
   - source: "@quartz-themes/core"
     enabled: true
     options:
