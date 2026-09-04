@@ -4,6 +4,13 @@ title: "08. L'amélioration continue"
 
 # 08 — L'amélioration continue · Cours
 
+> [!TIP] Ressources du chapitre
+> - <a href="08-amelioration-continue-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[08-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[08-tp-serveur-individuel|TP — serveur individuel]]
+> - [[08-correction|Correction]] *(formateur)*
+> - [[00-INDEX|Sommaire de la formation]]
+
 ---
 
 > [!NOTE] Objectif de cette section

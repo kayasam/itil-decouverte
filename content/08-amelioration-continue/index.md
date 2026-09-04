@@ -8,8 +8,17 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
+> - [Ouvrir le chapitre interactif](https://kayasam.github.io/itil-decouverte/cours/08-amelioration-continue-interactif.html)
 > - [Faire le quiz — 20 questions](https://kayasam.github.io/itil-decouverte/cours/quiz/08-amelioration-continue.html)
 > - <a href="https://kayasam.github.io/itil-decouverte/telechargements/cours/08-amelioration-continue.md" download>Télécharger ce cours en Markdown</a>
+
+> [!TIP] Ressources du chapitre
+>
+> - <a href="08-amelioration-continue-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[08-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[08-tp-serveur-individuel|TP — serveur individuel]]
+> - [[08-correction|Correction]] _(formateur)_
+> - [[00-INDEX|Sommaire de la formation]]
 
 ---
 

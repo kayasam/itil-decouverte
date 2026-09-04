@@ -8,8 +8,17 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
+> - [Ouvrir le chapitre interactif](https://kayasam.github.io/itil-decouverte/cours/06-sla-niveaux-service-interactif.html)
 > - [Faire le quiz — 20 questions](https://kayasam.github.io/itil-decouverte/cours/quiz/06-sla-niveaux-service.html)
 > - <a href="https://kayasam.github.io/itil-decouverte/telechargements/cours/06-sla-niveaux-service.md" download>Télécharger ce cours en Markdown</a>
+
+> [!TIP] Ressources du chapitre
+>
+> - <a href="06-sla-niveaux-service-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[06-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[06-tp-serveur-individuel|TP — serveur individuel]]
+> - [[06-correction|Correction]] _(formateur)_
+> - [[00-INDEX|Sommaire de la formation]]
 
 ---
 

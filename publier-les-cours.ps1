@@ -85,7 +85,16 @@ foreach ($chapter in $chapters) {
   Add-Metadata $course $chapter.Title "/cours/$($chapter.Slug)"
   $quiz = "https://kayasam.github.io/itil-decouverte/cours/quiz/$($chapter.Slug).html"
   $download = "https://kayasam.github.io/itil-decouverte/telechargements/cours/$($chapter.Slug).md"
-  Add-ResourceBlock $course "`n`n> [!TIP] Ressources du chapitre`n> - [Faire le quiz — 20 questions]($quiz)`n> - <a href=`"$download`" download>Télécharger ce cours en Markdown</a>`n"
+  $interactiveName = "$($chapter.Slug)-interactif.html"
+  $interactiveSource = Join-Path $sourceChapter $interactiveName
+  $interactiveLine = ""
+  if (Test-Path -LiteralPath $interactiveSource -PathType Leaf) {
+    Copy-Item -LiteralPath $interactiveSource -Destination (Join-Path $stageRoot "cours\$interactiveName") -Force
+    Copy-Item -LiteralPath $interactiveSource -Destination (Join-Path $vaultChapter $interactiveName) -Force
+    $interactiveUrl = "https://kayasam.github.io/itil-decouverte/cours/$interactiveName"
+    $interactiveLine = "> - [Ouvrir le chapitre interactif]($interactiveUrl)`n"
+  }
+  Add-ResourceBlock $course "`n`n> [!TIP] Ressources du chapitre`n$interactiveLine> - [Faire le quiz — 20 questions]($quiz)`n> - <a href=`"$download`" download>Télécharger ce cours en Markdown</a>`n"
   $links = @()
   foreach ($tp in $chapter.Tps) {
     $destination = Join-Path $tpRoot $tp

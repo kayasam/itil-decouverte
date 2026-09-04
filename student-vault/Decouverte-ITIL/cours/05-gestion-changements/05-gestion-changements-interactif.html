@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Support interactif de formation ITIL : 05. La gestion des changements">
+<title>05. La gestion des changements</title>
+<style>
+html[data-theme="dark"] {
+  --bg:#0f1117; --surface:#1a1d27; --surface2:#232635; --border:#2e3148;
+  --accent:#a78bfa; --accent2:#c4b5fd; --pink:#f472b6;
+  --warn:#f0a500; --danger:#e05c5c; --success:#4caf82;
+  --text:#d8d5f0; --text-dim:#8b85a8; --code-bg:#12141f;
+  --hexframe:#4c3a6e; --hexlabel:#fff; --pestle:#b8a4f8; --pestle-on:#f0abfc;
+  --headbg:linear-gradient(135deg,#120b1e 0%,#16102a 100%); --exbg:#16102a;
+  --line:#3a3d52;
+}
+html[data-theme="light"] {
+  --bg:#f7f6fc; --surface:#fff; --surface2:#f0ecfb; --border:#ddd6f0;
+  --accent:#7c3aed; --accent2:#5b21b6; --pink:#db2777;
+  --warn:#b45309; --danger:#b91c1c; --success:#15803d;
+  --text:#241d3d; --text-dim:#6b6389; --code-bg:#f1eefb;
+  --hexframe:#b9a8dd; --hexlabel:#fff; --pestle:#6d28d9; --pestle-on:#c026d3;
+  --headbg:linear-gradient(135deg,#efe9fb 0%,#f7f3ff 100%); --exbg:#f6f0fd;
+  --line:#cfc6e6;
+}
+:root { --radius:10px; }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; font-size:15px; line-height:1.7; transition:background .25s,color .25s; }
+
+header { background:var(--headbg); border-bottom:1px solid var(--border); padding:2.5rem 2rem 1.5rem; text-align:center; position:relative; }
+header h1 { font-size:1.8rem; font-weight:700; color:#fff; line-height:1.2; }
+html[data-theme="light"] header h1 { color:#2b1a52; }
+header p { color:var(--text-dim); margin-top:.4rem; font-size:.95rem; }
+.badge { display:inline-block; background:var(--accent); color:#fff; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:3px 10px; border-radius:20px; margin-bottom:.7rem; }
+html[data-theme="dark"] .badge { color:#14091f; }
+.theme-btn { position:absolute; top:1rem; right:1rem; background:var(--surface); border:1px solid var(--border); color:var(--text); border-radius:20px; padding:.4rem .9rem; font-size:.8rem; cursor:pointer; font-family:inherit; }
+.theme-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+nav { position:sticky; top:0; z-index:100; background:var(--surface); border-bottom:1px solid var(--border); display:flex; justify-content:center; flex-wrap:wrap; gap:.25rem; padding:.5rem 1rem; }
+nav button { background:none; border:none; color:var(--text-dim); padding:.85rem 1.1rem; font-size:.88rem; font-weight:500; cursor:pointer; border-bottom:2px solid transparent; white-space:nowrap; transition:all .2s; font-family:inherit; }
+nav button:hover { color:var(--text); }
+nav button.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+.tab-content { display:none; padding:2rem; max-width:980px; margin:0 auto; }
+.tab-content.active { display:block; }
+h2 { font-size:1.25rem; color:var(--accent2); margin:1.8rem 0 .8rem; border-left:3px solid var(--accent); padding-left:.75rem; }
+h2:first-child { margin-top:0; }
+h3 { font-size:1.05rem; color:var(--text); margin:1.4rem 0 .6rem; }
+p { margin-bottom:.9rem; }
+ul,ol { padding-left:1.4rem; margin-bottom:.9rem; }
+li { margin-bottom:.35rem; }
+.lead { color:var(--text-dim); font-size:.95rem; }
+.hint { text-align:center; color:var(--text-dim); font-size:.84rem; margin-bottom:.6rem; }
+
+.callout { border-radius:var(--radius); padding:.9rem 1.1rem; margin:1.2rem 0; border-left:4px solid; background:var(--surface2); }
+.callout.note{border-color:var(--accent)} .callout.tip{border-color:var(--success)}
+.callout.warn{border-color:var(--warn)} .callout.danger{border-color:var(--danger)}
+.callout-title { font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.07em; margin-bottom:.4rem; }
+.callout.note .callout-title{color:var(--accent)} .callout.tip .callout-title{color:var(--success)}
+.callout.warn .callout-title{color:var(--warn)} .callout.danger .callout-title{color:var(--danger)}
+
+.table-wrap { overflow-x:auto; margin:1rem 0; }
+table { width:100%; border-collapse:collapse; font-size:.9rem; }
+th { background:var(--surface2); color:var(--accent2); text-align:left; padding:.6rem .9rem; font-weight:600; border:1px solid var(--border); }
+td { padding:.55rem .9rem; border:1px solid var(--border); vertical-align:top; }
+tr:hover td { background:var(--surface2); }
+code { font-family:'Consolas',monospace; font-size:.88rem; color:var(--accent2); background:var(--code-bg); padding:.15rem .4rem; border-radius:4px; }
+
+.detail-panel { background:var(--surface2); border:1px solid var(--accent); border-radius:var(--radius); padding:1.2rem 1.4rem; margin-top:1rem; min-height:130px; }
+.detail-panel .dp-kicker { font-size:.72rem; text-transform:uppercase; letter-spacing:.09em; color:var(--text-dim); }
+.detail-panel h4 { color:var(--accent); font-size:1.15rem; margin:.2rem 0 .7rem; }
+.detail-panel ul { margin:.5rem 0 .8rem; }
+.detail-panel .dp-ex { background:var(--exbg); border-left:3px solid var(--pink); padding:.6rem .9rem; border-radius:6px; font-size:.89rem; }
+.detail-panel .dp-ex b { color:var(--pink); }
+.dp-empty { color:var(--text-dim); font-style:italic; text-align:center; padding-top:2rem; }
+
+/* etapes cliquables */
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:.6rem; margin:1.2rem 0; }
+.step { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:.9rem .7rem; text-align:center; cursor:pointer; transition:all .2s; }
+.step:hover { border-color:var(--accent); }
+.step.on { border-color:var(--accent); border-width:2px; background:var(--surface2); transform:translateY(-3px); }
+.step .sn { width:26px; height:26px; margin:0 auto .45rem; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:.8rem; display:flex; align-items:center; justify-content:center; }
+html[data-theme="dark"] .step .sn { color:#14091f; }
+.step .st { font-weight:700; font-size:.87rem; color:var(--accent2); line-height:1.3; }
+.step.alt .sn { background:var(--warn); }
+.step.end .sn { background:var(--success); }
+.step.ko .sn { background:var(--danger); }
+
+/* cartes cliquables larges */
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:.8rem; margin:1.2rem 0; }
+.kard { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; cursor:pointer; transition:all .2s; }
+.kard:hover { border-color:var(--accent); }
+.kard.on { border-color:var(--accent); border-width:2px; background:var(--surface2); }
+.kard .kt { font-weight:700; color:var(--accent2); font-size:1rem; }
+.kard .ks { color:var(--text-dim); font-size:.82rem; margin-top:.3rem; }
+.kard .kb { display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; border-radius:20px; padding:.12rem .55rem; margin-bottom:.45rem; }
+
+/* cartes retournables */
+.flip-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:.9rem; margin:1.2rem 0; }
+.flip { perspective:1000px; height:170px; cursor:pointer; }
+.flip-in { position:relative; width:100%; height:100%; transition:transform .55s; transform-style:preserve-3d; }
+.flip.on .flip-in { transform:rotateY(180deg); }
+.flip-f,.flip-b { position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius); border:1px solid var(--border); padding:.9rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.flip-f { background:var(--surface); }
+.flip-f .fn { width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:.8rem; margin-bottom:.5rem; }
+html[data-theme="dark"] .flip-f .fn { color:#14091f; }
+.flip-f .ft { font-weight:700; color:var(--accent2); font-size:.95rem; line-height:1.35; }
+.flip-f .fh { color:var(--text-dim); font-size:.72rem; margin-top:.5rem; }
+.flip-b { background:var(--surface2); border-color:var(--accent); transform:rotateY(180deg); font-size:.84rem; line-height:1.5; }
+
+/* schema svg */
+.svg-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem .5rem .5rem; margin:1.2rem 0; }
+svg.fig { width:100%; height:auto; display:block; }
+.node { cursor:pointer; transition:filter .2s; }
+.node:hover { filter:brightness(1.2); }
+.node.on { filter:brightness(1.35) saturate(1.15); }
+.figlabel { pointer-events:none; font-family:'Segoe UI',sans-serif; font-weight:700; fill:#fff; }
+.figsub { pointer-events:none; font-family:'Segoe UI',sans-serif; fill:#fff; opacity:.8; }
+.figframe { stroke:var(--hexframe); }
+.figtext { font-family:'Segoe UI',sans-serif; fill:var(--text-dim); }
+
+/* matrice */
+.mx { display:grid; grid-template-columns:96px repeat(3,1fr); gap:.4rem; margin:1.2rem 0; }
+.mx .mh { display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; color:var(--text-dim); text-align:center; padding:.3rem; }
+.mx .mc { border-radius:8px; padding:.9rem .5rem; text-align:center; cursor:pointer; color:#fff; font-weight:700; font-size:.88rem; border:2px solid transparent; transition:all .2s; }
+.mx .mc:hover { filter:brightness(1.15); }
+.mx .mc.on { border-color:#fff; transform:scale(1.04); }
+.mx .mc small { display:block; font-weight:400; font-size:.7rem; opacity:.9; margin-top:.2rem; }
+
+/* simulateur */
+.simul { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; margin:1.2rem 0; }
+.simul-row { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:.9rem; }
+.simul-row label { font-size:.85rem; color:var(--text-dim); min-width:80px; }
+.seg { display:flex; gap:.3rem; flex-wrap:wrap; }
+.seg button { background:var(--surface2); border:1px solid var(--border); color:var(--text); border-radius:20px; padding:.35rem .9rem; font-size:.82rem; cursor:pointer; font-family:inherit; transition:all .2s; }
+.seg button:hover { border-color:var(--accent); }
+.seg button.on { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+html[data-theme="dark"] .seg button.on { color:#14091f; }
+.simul-out { border-radius:var(--radius); padding:1rem; text-align:center; font-weight:700; font-size:1.1rem; color:#fff; margin-top:.6rem; }
+.simul-note { font-size:.85rem; color:var(--text-dim); font-style:italic; margin-top:.6rem; text-align:center; }
+input[type=range] { width:100%; accent-color:var(--accent); }
+
+/* boutons scenarios */
+.trace-btns { display:flex; gap:.5rem; flex-wrap:wrap; margin:1rem 0 .3rem; }
+.trace-btn { background:var(--surface); border:1px solid var(--border); color:var(--text); border-radius:20px; padding:.45rem 1rem; font-size:.84rem; cursor:pointer; transition:all .2s; font-family:inherit; }
+.trace-btn:hover { border-color:var(--accent); }
+.trace-btn.on { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+html[data-theme="dark"] .trace-btn.on { color:#14091f; }
+.lit { border-color:var(--success)!important; box-shadow:inset 0 0 0 1px var(--success); }
+
+/* jeu */
+.game { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.3rem; margin:1.2rem 0; }
+.game-q { font-size:1.02rem; font-weight:600; color:var(--accent2); margin-bottom:.3rem; min-height:52px; }
+.game-meta { color:var(--text-dim); font-size:.8rem; margin-bottom:.9rem; }
+.game-opts { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.6rem; }
+.game-opt { background:var(--surface2); border:1px solid var(--border); color:var(--text); border-radius:8px; padding:.8rem; cursor:pointer; font-size:.88rem; font-family:inherit; transition:all .2s; }
+.game-opt:hover:not(:disabled) { border-color:var(--accent); }
+.game-opt.ok { border-color:var(--success); color:var(--success); font-weight:600; }
+.game-opt.ko { border-color:var(--danger); color:var(--danger); font-weight:600; }
+.game-fb { margin-top:.9rem; font-size:.87rem; color:var(--text-dim); font-style:italic; min-height:40px; }
+.game-bar { height:6px; background:var(--surface2); border-radius:3px; overflow:hidden; margin-bottom:1rem; }
+.game-bar span { display:block; height:100%; background:var(--accent); width:0; transition:width .35s; }
+
+/* quiz */
+.quiz-question { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; margin-bottom:1.2rem; }
+.quiz-question h4 { color:var(--accent2); margin-bottom:.9rem; font-size:.98rem; }
+.quiz-options { display:flex; flex-direction:column; gap:.5rem; }
+.quiz-option { background:var(--surface2); border:1px solid var(--border); color:var(--text); border-radius:8px; padding:.7rem 1rem; text-align:left; cursor:pointer; font-size:.89rem; font-family:inherit; transition:all .2s; }
+.quiz-option:hover:not(:disabled) { border-color:var(--accent); }
+.quiz-option.correct { border-color:var(--success); color:var(--success); font-weight:600; }
+.quiz-option.wrong { border-color:var(--danger); color:var(--danger); font-weight:600; }
+.quiz-option:disabled { cursor:default; }
+.quiz-feedback { margin-top:.6rem; font-size:.87rem; color:var(--text-dim); font-style:italic; }
+.quiz-score { display:none; background:var(--surface); border:1px solid var(--accent); border-radius:var(--radius); padding:1.5rem; text-align:center; }
+.quiz-score .score-num { font-size:2.5rem; font-weight:700; color:var(--accent); }
+.quiz-score p { color:var(--text-dim); margin-top:.4rem; }
+.btn { background:var(--accent); color:#fff; border:none; border-radius:8px; padding:.6rem 1.3rem; font-weight:600; cursor:pointer; font-family:inherit; font-size:.88rem; margin-top:1rem; }
+html[data-theme="dark"] .btn { color:#14091f; }
+.btn:hover { filter:brightness(1.1); }
+
+@media (max-width:700px){ .tab-content{padding:1.2rem} header h1{font-size:1.4rem} .mx{grid-template-columns:70px repeat(3,1fr)} }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">Mode clair</button>
+  <div class="badge">Formation ITIL</div>
+  <h1>05. La gestion des changements</h1>
+  <p>Classer, documenter, approuver et déployer sans casser la production.</p>
+</header>
+
+<nav id="main-nav">
+  <button class="active" onclick="showTab('quoi', this)">Qu'est-ce qu'un changement</button>
+  <button onclick="showTab('types', this)">Les 3 types</button>
+  <button onclick="showTab('cycle', this)">Cycle de vie</button>
+  <button onclick="showTab('repli', this)">Plan de repli</button>
+  <button onclick="showTab('jeu', this)">Mini-jeu</button>
+  <button onclick="showTab('quiz', this)">Quiz</button></nav>
+
+
+<div id="tab-quoi" class="tab-content active">
+  <h2>Qu'est-ce qu'un changement ?</h2>
+  <p>Un <b>changement</b> est l'ajout, la modification ou la suppression volontaire de quelque chose qui peut avoir un effet sur un service.</p>
+  <div class="callout note">
+    <div class="callout-title">Le critère qui tranche</div>
+    Est-ce que ça <b>modifie durablement l'état</b> d'un élément de configuration ? Rétablir un service n'est pas le modifier.
+    <br><br>Redémarrer un service planté restaure l'état existant : c'est de la gestion d'incident. Déployer une GPO sur tous les postes crée un « avant » et un « après » : c'est un changement.
+  </div>
+  <div class="table-wrap"><table>
+    <tr><th></th><th>Redémarrer le service d'impression</th><th>Déployer la GPO</th></tr>
+    <tr><td>Portée</td><td>Un poste</td><td>Tous les postes de la boutique</td></tr>
+    <tr><td>Effet</td><td>Restaure l'état existant</td><td>Modifie durablement la configuration</td></tr>
+    <tr><td>Réversibilité</td><td>Immédiate</td><td>Nécessite un plan de repli documenté</td></tr>
+    <tr><td>Pratique ITIL</td><td>Gestion des <b>incidents</b></td><td>Gestion des <b>changements</b></td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">ITIL 4 : « Change Enablement »</div>
+    La pratique s'appelle officiellement <i>Change Enablement</i>, et non plus « Change Management ». L'idée : les changements ne doivent pas freiner l'organisation, mais être maîtrisés et documentés.
+  </div>
+</div>
+
+<div id="tab-types" class="tab-content">
+  <h2>Les 3 types de changements</h2>
+  <p class="lead">Le type détermine qui approuve, et à quelle vitesse. Cliquez sur une carte.</p>
+  <div class="cards" id="c5">
+    <div class="kard" data-k="std"><span class="kb" style="background:#2f9e6e;color:#fff">Standard</span><div class="kt">Pré-autorisé</div><div class="ks">Risque faible, procédure connue et répétée. Aucune approbation à chaque fois.</div></div>
+    <div class="kard" data-k="nor"><span class="kb" style="background:#7c5cd6;color:#fff">Normal</span><div class="kt">Approbation requise</div><div class="ks">Risque modéré à élevé. Évalué par le CAB avant mise en œuvre.</div></div>
+    <div class="kard" data-k="urg"><span class="kb" style="background:#c0392b;color:#fff">Urgence</span><div class="kt">Approbation accélérée</div><div class="ks">Validé par l'ECAB, documenté après coup — jamais « pas du tout ».</div></div>
+  </div>
+  <div class="detail-panel" id="p1"><div class="dp-empty">Cliquez sur un type de changement.</div></div>
+  <h2>Le CAB</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Qui y siège</th><th>Ce qu'il fait</th></tr>
+    <tr><td>Un responsable des changements (préside)</td><td>Vérifie l'analyse d'impact et de risque</td></tr>
+    <tr><td>Représentants techniques : exploitation, réseau, sécurité</td><td>S'assure que le plan de repli et les tests existent</td></tr>
+    <tr><td>Un ou plusieurs représentants métier</td><td>Arbitre les créneaux et les conflits entre changements</td></tr>
+    <tr><td>Parfois un fournisseur concerné</td><td>Autorise ou refuse — <b>il n'exécute pas</b></td></tr>
+  </table></div>
+  <div class="callout note">
+    <div class="callout-title">Au Fournil Doré</div>
+    Il n'y a pas de CAB formel : le technicien dépend directement du directeur. Dans une PME, le CAB est souvent une seule personne — ça reste une approbation.
+  </div>
+</div>
+
+<div id="tab-cycle" class="tab-content">
+  <h2>Le cycle de vie dans GLPI</h2>
+  <p class="lead">Huit statuts, de la demande au dossier clos. Cliquez sur un statut.</p>
+  <div class="steps" id="st5">
+    <div class="step" data-k="s1"><div class="sn">1</div><div class="st">Nouveau</div></div>
+    <div class="step" data-k="s2"><div class="sn">2</div><div class="st">Évaluation</div></div>
+    <div class="step" data-k="s3"><div class="sn">3</div><div class="st">Validation</div></div>
+    <div class="step" data-k="s4"><div class="sn">4</div><div class="st">Accepté</div></div>
+    <div class="step" data-k="s5"><div class="sn">5</div><div class="st">En test</div></div>
+    <div class="step" data-k="s6"><div class="sn">6</div><div class="st">Appliqué</div></div>
+    <div class="step" data-k="s7"><div class="sn">7</div><div class="st">Revue</div></div>
+    <div class="step end" data-k="s8"><div class="sn">8</div><div class="st">Clos</div></div>
+  </div>
+  <div class="steps" style="max-width:200px">
+    <div class="step ko" data-k="ref"><div class="sn">✕</div><div class="st">Refusé</div></div>
+  </div>
+  <div class="detail-panel" id="p2"><div class="dp-empty">Cliquez sur un statut.</div></div>
+</div>
+
+<div id="tab-repli" class="tab-content">
+  <h2>Le plan de repli</h2>
+  <p class="lead">Ce n'est pas de la paperasse : c'est ce qui borne le risque.</p>
+  <div class="callout danger">
+    <div class="callout-title">Le scénario catastrophe</div>
+    GPO déployée sans plan de repli, l'impression tombe sur tous les postes un <b>samedi matin</b>. Jour de forte affluence, technicien absent, personne sur place ne sait revenir en arrière.
+    <br><br>Un changement mal maîtrisé vient de <b>créer un incident majeur</b>, plus grave que le problème qu'il devait résoudre.
+  </div>
+  <h2>Les 4 sections à remplir</h2>
+  <div class="hint">Cliquez sur une section</div>
+  <div class="cards" id="c5b">
+    <div class="kard" data-k="an"><div class="kt">Analyse d'impact</div><div class="ks">Qui est touché, combien de temps, quelle fenêtre ?</div></div>
+    <div class="kard" data-k="dep"><div class="kt">Plan de déploiement</div><div class="ks">Les étapes concrètes de la mise en œuvre.</div></div>
+    <div class="kard" data-k="rep"><div class="kt">Plan de repli</div><div class="ks">Comment revenir en arrière, et en combien de temps.</div></div>
+    <div class="kard" data-k="ver"><div class="kt">Liste de vérifications</div><div class="ks">Comment savoir que ça a marché.</div></div>
+  </div>
+  <div class="detail-panel" id="p3"><div class="dp-empty">Cliquez sur une section.</div></div>
+</div>
+
+
+<div id="tab-jeu" class="tab-content">
+  <h2>Mini-jeu — Standard, normal ou urgence ?</h2>
+  <p class="lead">Huit changements à classer. Le type détermine qui approuve.</p>
+  <div class="game">
+    <div class="game-bar"><span id="gBar"></span></div>
+    <div class="game-meta" id="gMeta"></div>
+    <div class="game-q" id="gQ"></div>
+    <div class="game-opts" id="gOpts"></div>
+    <div class="game-fb" id="gFb"></div>
+    <button class="btn" id="gBtn" onclick="gameNext()" style="display:none">Situation suivante</button>
+  </div>
+  <div class="quiz-score" id="gScore">
+    <div class="score-num" id="gScoreNum"></div>
+    <p id="gScoreMsg"></p>
+    <button class="btn" onclick="gameStart()">Rejouer</button>
+  </div>
+</div>
+
+<div id="tab-quiz" class="tab-content">
+  <h2>Quiz — Gestion des changements</h2>
+  <p class="lead">Quelques questions pour vérifier que l'essentiel est acquis.</p>
+  <div id="quiz-container"></div>
+  <div class="quiz-score" id="quiz-score">
+    <div class="score-num" id="score-display"></div>
+    <p id="score-msg"></p>
+    <button class="btn" onclick="restartQuiz()">Recommencer</button>
+  </div>
+</div>
+
+<script>
+
+var DATA={
+ std:{k:'Type 1',t:'Changement standard',li:['Pré-autorisé une fois pour toutes','Risque faible','Procédure connue et répétée','Aucune approbation à chaque exécution'],ex:'Ajout d\'un compte utilisateur, installation d\'une imprimante déjà référencée, renouvellement d\'un certificat selon procédure.'},
+ nor:{k:'Type 2',t:'Changement normal',li:['Passe par un processus d\'approbation','Risque modéré à élevé','Évalué par le CAB','Planifié avant mise en œuvre'],ex:'La GPO du chapitre 05 : elle touche plusieurs postes, le risque est modéré, il n\'y a pas d\'urgence puisqu\'un contournement existe.'},
+ urg:{k:'Type 3',t:'Changement d\'urgence',li:['Approbation accélérée par l\'ECAB','Risque accepté sciemment','Documenté après coup — jamais « pas du tout »'],ex:'Correctif de sécurité critique, ou rétablissement après une panne majeure. Rare, et il doit le rester.'},
+ s1:{k:'Statut 1',t:'Nouveau',li:['La demande de changement est créée','En attente d\'examen'],ex:'Thomas saisit le changement dans GLPI après avoir identifié la cause racine.'},
+ s2:{k:'Statut 2',t:'Évaluation',li:['Analyse d\'impact','Estimation des risques','Préparation du dossier'],ex:'Combien de postes ? Quelle durée ? Quelle fenêtre de maintenance ?'},
+ s3:{k:'Statut 3',t:'Validation',li:['Dossier soumis au CAB ou au responsable','C\'est ici que ça se joue'],ex:'Au Fournil Doré, le dossier passe devant le directeur.'},
+ s4:{k:'Statut 4',t:'Accepté',li:['Approuvé','Créneau de déploiement confirmé'],ex:'Lundi 7h-8h30, avant l\'ouverture de la boutique.'},
+ s5:{k:'Statut 5',t:'En test',li:['Déploiement sur un poste pilote','Vérification avant généralisation'],ex:'On applique la GPO sur un seul poste et on imprime pour vérifier.'},
+ s6:{k:'Statut 6',t:'Appliqué',li:['Changement déployé en production','Sur l\'ensemble du périmètre'],ex:'La GPO est appliquée à toute l\'OU Boutique.'},
+ s7:{k:'Statut 7',t:'Revue',li:['Vérification post-déploiement','L\'objectif est-il atteint ?'],ex:'Étape systématiquement sautée en pratique. Sans elle, on espère que ça a marché, on ne le sait pas.'},
+ s8:{k:'Statut 8',t:'Clos',li:['Dossier fermé','Documentation finalisée','Le problème associé peut être clos à son tour'],ex:'On relie le changement au problème du chapitre 04 : la boucle est bouclée.'},
+ ref:{k:'Issue alternative',t:'Refusé',li:['Le CAB ou le responsable n\'approuve pas','Risque jugé trop élevé, ou créneau impossible'],ex:'Un changement refusé n\'est pas un échec : c\'est le processus qui fonctionne. Il a évité une panne.'},
+ an:{k:'Section',t:'Analyse d\'impact',li:['Qui est touché','Quelle durée d\'intervention','Quelle fenêtre de maintenance'],ex:'Tous les PC de la boutique. 30 minutes. Lundi matin avant ouverture, 7h-8h30.'},
+ dep:{k:'Section',t:'Plan de déploiement',li:['Les étapes concrètes, dans l\'ordre','Assez précis pour qu\'un collègue puisse exécuter'],ex:'Créer la GPO, désactiver la MAJ auto des pilotes, appliquer sur l\'OU Boutique, gpupdate /force, vérifier l\'impression.'},
+ rep:{k:'Section',t:'Plan de repli',li:['Comment revenir à l\'état antérieur','En combien de temps','Obligatoire, sans exception'],ex:'Désactiver la GPO, gpupdate /force, réinstaller le pilote v3.1 à la main. 20 minutes.'},
+ ver:{k:'Section',t:'Liste de vérifications',li:['Comment savoir que ça a marché','Critères objectifs, pas une impression'],ex:'Imprimante visible depuis le PC du comptoir, impression test réussie, aucune MAJ auto au prochain cycle Windows Update.'}
+};
+var QUIZ=[
+ {q:'Redémarrer un service d\'impression planté est…',o:['a) Un changement standard','b) De la gestion d\'incident','c) Un changement d\'urgence'],good:'b',
+  fb:{b:'Exact — ça restaure l\'état existant sans rien modifier durablement.',wrong:'Non : rétablir un service n\'est pas le modifier. C\'est de la gestion d\'incident.'}},
+ {q:'Déployer une GPO sur tous les postes de la boutique est un changement…',o:['a) Standard','b) Normal','c) D\'urgence'],good:'b',
+  fb:{b:'Exact — plusieurs postes, risque modéré, pas d\'urgence puisqu\'un contournement existe.',wrong:'Non : ce n\'est pas pré-autorisé (donc pas standard) et le service fonctionne (donc pas urgence). C\'est un changement normal.'}},
+ {q:'Le rôle du CAB est…',o:['a) D\'exécuter les changements','b) D\'évaluer et d\'autoriser','c) De rédiger les procédures techniques'],good:'b',
+  fb:{b:'Exact — il autorise ou refuse. La mise en œuvre reste aux équipes techniques.',wrong:'Non : le CAB évalue et autorise. Il n\'exécute pas.'}},
+ {q:'Le plan de repli est…',o:['a) Optionnel si le risque est faible','b) Obligatoire','c) À rédiger après le déploiement'],good:'b',
+  fb:{b:'Exact — c\'est ce qui borne le risque. Sans lui, un changement raté devient un incident majeur.',wrong:'Non : il est obligatoire. C\'est la seule garantie de pouvoir revenir en arrière.'}},
+ {q:'Un changement d\'urgence est…',o:['a) Non documenté','b) Documenté après coup','c) Documenté avant, comme les autres'],good:'b',
+  fb:{b:'Exact — après coup plutôt qu\'avant. Jamais « pas du tout ».',wrong:'Non : l\'urgence décale la documentation, elle ne la supprime pas.'}},
+ {q:'Un changement refusé, c\'est…',o:['a) Un échec du processus','b) Le processus qui fonctionne','c) Un incident'],good:'b',
+  fb:{b:'Exact — le refus a peut-être évité une panne. C\'est exactement à ça que sert l\'approbation.',wrong:'Non : refuser est une décision valide. Le processus a joué son rôle.'}}
+];
+var GAME={opts:['Standard','Normal','Urgence'],
+ msg:['Les trois types ne sont pas encore distingués. Revoyez l\'onglet.',
+      'La base est là, mais les cas limites vous piègent.',
+      'Très bien — vous classez juste presque à chaque fois.',
+      'Sans faute. Le classement conditionne tout le reste du processus.'],
+ items:[
+  ['Créer le compte du nouveau vendeur qui arrive lundi.',0,'Procédure connue et répétée, risque faible : standard.'],
+  ['Déployer une GPO sur tous les postes de la boutique.',1,'Plusieurs postes, risque modéré, pas d\'urgence : normal.'],
+  ['Appliquer un correctif de sécurité critique exploité activement.',2,'Le risque de ne rien faire dépasse celui d\'agir : urgence.'],
+  ['Installer une imprimante d\'un modèle déjà référencé.',0,'Cas connu, pré-autorisé : standard.'],
+  ['Migrer le serveur GLPI vers une nouvelle machine.',1,'Impact large, planification nécessaire : normal.'],
+  ['Rétablir le service après une panne majeure du four.',2,'La production est arrêtée, on agit puis on documente : urgence.'],
+  ['Renouveler un certificat SSL selon la procédure documentée.',0,'Répétitif et cadré : standard.'],
+  ['Modifier les règles du pare-feu pour ouvrir un nouveau service.',1,'Touche la sécurité, doit être évalué : normal.']
+ ]};
+
+
+/* THEME */
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);
+  document.getElementById('themeBtn').textContent=(t==='dark')?'\u2600 Mode clair':'\u263e Mode sombre';
+  try{localStorage.setItem('itil-theme',t)}catch(e){}}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+(function(){var t=null;try{t=localStorage.getItem('itil-theme')}catch(e){}
+  if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';
+  applyTheme(t==='light'?'light':'dark')})();
+
+/* NAV */
+function showTab(id,btn){document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active')});
+  document.getElementById('tab-'+id).classList.add('active');
+  document.querySelectorAll('#main-nav button').forEach(function(b){b.classList.remove('active')});
+  if(btn)btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+
+/* PANNEAUX */
+function renderPanel(el,d){if(!d||!el)return;
+  var h='<div class="dp-kicker">'+d.k+'</div><h4>'+d.t+'</h4>';
+  if(d.li&&d.li.length){h+='<ul>';d.li.forEach(function(x){h+='<li>'+x+'</li>'});h+='</ul>'}
+  if(d.ex)h+='<div class="dp-ex"><b>'+(d.exl||'Au Fournil Dor\u00e9 \u2014')+'</b> '+d.ex+'</div>';
+  el.innerHTML=h}
+function bindGroup(sel,data,panelId){var nodes=document.querySelectorAll(sel);
+  nodes.forEach(function(n){n.addEventListener('click',function(){
+    nodes.forEach(function(m){m.classList.remove('on')});n.classList.add('on');
+    renderPanel(document.getElementById(panelId),data[n.dataset.k])})})}
+
+/* CARTES RETOURNABLES */
+function buildFlips(gridId,arr){var g=document.getElementById(gridId);if(!g)return;
+  arr.forEach(function(p,i){var d=document.createElement('div');d.className='flip';
+    d.innerHTML='<div class="flip-in"><div class="flip-f"><div class="fn">'+(i+1)+'</div><div class="ft">'+p[0]+
+      '</div><div class="fh">cliquer pour retourner</div></div><div class="flip-b"><div style="margin-bottom:.5rem">'+p[1]+
+      '</div><div style="color:var(--pink);font-size:.79rem">'+p[2]+'</div></div></div>';
+    d.addEventListener('click',function(){d.classList.toggle('on')});g.appendChild(d)})}
+
+/* MINI-JEU */
+var gi=0,gs=0;
+function gameStart(){gi=0;gs=0;document.getElementById('gScore').style.display='none';
+  document.querySelector('#tab-jeu .game').style.display='block';gameRender()}
+function gameRender(){var q=GAME.items[gi];
+  document.getElementById('gMeta').textContent='Situation '+(gi+1)+' / '+GAME.items.length+'   \u00b7   score '+gs;
+  document.getElementById('gQ').textContent='\u00ab '+q[0]+' \u00bb';
+  document.getElementById('gBar').style.width=(gi/GAME.items.length*100)+'%';
+  document.getElementById('gFb').textContent='';document.getElementById('gBtn').style.display='none';
+  var o=document.getElementById('gOpts');o.innerHTML='';
+  GAME.opts.forEach(function(label,idx){var b=document.createElement('button');b.className='game-opt';
+    b.textContent=label;b.onclick=function(){gameAnswer(idx,b)};o.appendChild(b)})}
+function gameAnswer(idx,btn){var q=GAME.items[gi];var all=document.querySelectorAll('#gOpts .game-opt');
+  all.forEach(function(b){b.disabled=true});
+  if(idx===q[1]){btn.classList.add('ok');gs++;document.getElementById('gFb').textContent='Correct. '+q[2]}
+  else{btn.classList.add('ko');all[q[1]].classList.add('ok');document.getElementById('gFb').textContent='Rat\u00e9. '+q[2]}
+  var bt=document.getElementById('gBtn');bt.style.display='inline-block';
+  bt.textContent=(gi===GAME.items.length-1)?'Voir mon score':'Situation suivante'}
+function gameNext(){gi++;
+  if(gi>=GAME.items.length){document.querySelector('#tab-jeu .game').style.display='none';
+    document.getElementById('gScore').style.display='block';
+    document.getElementById('gScoreNum').textContent=gs+' / '+GAME.items.length;
+    var p=gs/GAME.items.length,m;
+    if(p<=.4)m=GAME.msg[0];else if(p<=.7)m=GAME.msg[1];else if(p<1)m=GAME.msg[2];else m=GAME.msg[3];
+    document.getElementById('gScoreMsg').textContent=m;return}
+  gameRender()}
+
+/* QUIZ */
+var score=0,answered={};
+(function(){var c=document.getElementById('quiz-container');if(!c)return;
+  QUIZ.forEach(function(q,i){var n=i+1;var h='<div class="quiz-question" id="q'+n+'"><h4>'+n+'. '+q.q+'</h4><div class="quiz-options">';
+    q.o.forEach(function(txt){h+='<button class="quiz-option" onclick="answer('+n+',\''+txt.trim().charAt(0)+'\')">'+txt+'</button>'});
+    h+='</div><div class="quiz-feedback" id="fb'+n+'"></div></div>';c.innerHTML+=h})})();
+function answer(n,choice){if(answered[n])return;answered[n]=true;
+  var q=document.getElementById('q'+n),good=QUIZ[n-1].good;
+  q.querySelectorAll('.quiz-option').forEach(function(b){b.disabled=true;
+    var l=b.textContent.trim().charAt(0);
+    if(l===good)b.classList.add('correct');else if(l===choice)b.classList.add('wrong')});
+  if(choice===good)score++;
+  var fb=QUIZ[n-1].fb;document.getElementById('fb'+n).textContent=fb[choice]||fb.wrong;
+  if(Object.keys(answered).length===QUIZ.length)showScore()}
+function showScore(){document.getElementById('quiz-score').style.display='block';
+  document.getElementById('score-display').textContent=score+' / '+QUIZ.length;
+  var p=score/QUIZ.length,m;
+  if(p<.35)m='Revoyez le cours avant de continuer.';
+  else if(p<.6)m='Plusieurs notions sont \u00e0 revoir.';
+  else if(p<.85)m='Pas mal ! Relisez les points manqu\u00e9s.';
+  else if(p<1)m='Tr\u00e8s bien, vous ma\u00eetrisez presque tout.';
+  else m='Parfait \u2014 toutes les r\u00e9ponses sont correctes.';
+  document.getElementById('score-msg').textContent=m}
+function restartQuiz(){score=0;answered={};document.getElementById('quiz-score').style.display='none';
+  document.querySelectorAll('.quiz-option').forEach(function(b){b.disabled=false;b.classList.remove('correct','wrong')});
+  document.querySelectorAll('.quiz-feedback').forEach(function(f){f.textContent=''})}
+
+bindGroup('#c5 .kard',DATA,'p1');bindGroup('#st5 .step',DATA,'p2');bindGroup('#c5b .kard',DATA,'p3');
+gameStart();
+</script>
+</body>
+</html>

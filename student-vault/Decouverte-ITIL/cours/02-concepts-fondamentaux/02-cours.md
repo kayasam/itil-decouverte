@@ -4,6 +4,12 @@ title: "02. Concepts fondamentaux d'ITIL 4"
 
 # 02 — Concepts fondamentaux d'ITIL 4 · Cours
 
+> [!TIP] Ressources du chapitre
+> - <a href="02-concepts-fondamentaux-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[02-tp|TP du chapitre]]
+> - [[02-correction|Correction]] *(formateur)*
+> - [[00-INDEX|Sommaire de la formation]]
+
 ---
 
 > [!NOTE] Objectif de cette section

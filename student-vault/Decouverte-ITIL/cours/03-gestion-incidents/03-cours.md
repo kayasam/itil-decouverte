@@ -4,6 +4,13 @@ title: "03. La gestion des incidents"
 
 # 03 — La gestion des incidents · Cours
 
+> [!TIP] Ressources du chapitre
+> - <a href="03-gestion-incidents-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[03-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[03-tp-serveur-individuel|TP — serveur individuel]]
+> - [[03-correction|Correction]] *(formateur)*
+> - [[00-INDEX|Sommaire de la formation]]
+
 ---
 
 > [!NOTE] Objectif de cette section

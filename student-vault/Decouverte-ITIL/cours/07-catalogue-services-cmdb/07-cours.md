@@ -4,6 +4,13 @@ title: "07. Catalogue de services et CMDB"
 
 # 07 — Catalogue de services et CMDB · Cours
 
+> [!TIP] Ressources du chapitre
+> - <a href="07-catalogue-services-cmdb-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[07-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[07-tp-serveur-individuel|TP — serveur individuel]]
+> - [[07-correction|Correction]] *(formateur)*
+> - [[00-INDEX|Sommaire de la formation]]
+
 ---
 
 > [!NOTE] Objectif de cette section

@@ -8,8 +8,17 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
+> - [Ouvrir le chapitre interactif](https://kayasam.github.io/itil-decouverte/cours/07-catalogue-services-cmdb-interactif.html)
 > - [Faire le quiz — 20 questions](https://kayasam.github.io/itil-decouverte/cours/quiz/07-catalogue-services-cmdb.html)
 > - <a href="https://kayasam.github.io/itil-decouverte/telechargements/cours/07-catalogue-services-cmdb.md" download>Télécharger ce cours en Markdown</a>
+
+> [!TIP] Ressources du chapitre
+>
+> - <a href="07-catalogue-services-cmdb-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[07-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[07-tp-serveur-individuel|TP — serveur individuel]]
+> - [[07-correction|Correction]] _(formateur)_
+> - [[00-INDEX|Sommaire de la formation]]
 
 ---
 

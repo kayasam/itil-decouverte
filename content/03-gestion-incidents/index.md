@@ -8,8 +8,17 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
+> - [Ouvrir le chapitre interactif](https://kayasam.github.io/itil-decouverte/cours/03-gestion-incidents-interactif.html)
 > - [Faire le quiz — 20 questions](https://kayasam.github.io/itil-decouverte/cours/quiz/03-gestion-incidents.html)
 > - <a href="https://kayasam.github.io/itil-decouverte/telechargements/cours/03-gestion-incidents.md" download>Télécharger ce cours en Markdown</a>
+
+> [!TIP] Ressources du chapitre
+>
+> - <a href="03-gestion-incidents-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[03-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[03-tp-serveur-individuel|TP — serveur individuel]]
+> - [[03-correction|Correction]] _(formateur)_
+> - [[00-INDEX|Sommaire de la formation]]
 
 ---
 

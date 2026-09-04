@@ -1,0 +1,1784 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Support interactif de formation ITIL : 04. La gestion des problèmes"
+    />
+    <title>04. La gestion des problèmes</title>
+    <style>
+      html[data-theme="dark"] {
+        --bg: #0f1117;
+        --surface: #1a1d27;
+        --surface2: #232635;
+        --border: #2e3148;
+        --accent: #a78bfa;
+        --accent2: #c4b5fd;
+        --pink: #f472b6;
+        --warn: #f0a500;
+        --danger: #e05c5c;
+        --success: #4caf82;
+        --text: #d8d5f0;
+        --text-dim: #8b85a8;
+        --code-bg: #12141f;
+        --hexframe: #4c3a6e;
+        --hexlabel: #fff;
+        --pestle: #b8a4f8;
+        --pestle-on: #f0abfc;
+        --headbg: linear-gradient(135deg, #120b1e 0%, #16102a 100%);
+        --exbg: #16102a;
+        --line: #3a3d52;
+      }
+      html[data-theme="light"] {
+        --bg: #f7f6fc;
+        --surface: #fff;
+        --surface2: #f0ecfb;
+        --border: #ddd6f0;
+        --accent: #7c3aed;
+        --accent2: #5b21b6;
+        --pink: #db2777;
+        --warn: #b45309;
+        --danger: #b91c1c;
+        --success: #15803d;
+        --text: #241d3d;
+        --text-dim: #6b6389;
+        --code-bg: #f1eefb;
+        --hexframe: #b9a8dd;
+        --hexlabel: #fff;
+        --pestle: #6d28d9;
+        --pestle-on: #c026d3;
+        --headbg: linear-gradient(135deg, #efe9fb 0%, #f7f3ff 100%);
+        --exbg: #f6f0fd;
+        --line: #cfc6e6;
+      }
+      :root {
+        --radius: 10px;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", system-ui, sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        transition:
+          background 0.25s,
+          color 0.25s;
+      }
+
+      header {
+        background: var(--headbg);
+        border-bottom: 1px solid var(--border);
+        padding: 2.5rem 2rem 1.5rem;
+        text-align: center;
+        position: relative;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+      }
+      html[data-theme="light"] header h1 {
+        color: #2b1a52;
+      }
+      header p {
+        color: var(--text-dim);
+        margin-top: 0.4rem;
+        font-size: 0.95rem;
+      }
+      .badge {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin-bottom: 0.7rem;
+      }
+      html[data-theme="dark"] .badge {
+        color: #14091f;
+      }
+      .theme-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 20px;
+        padding: 0.4rem 0.9rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .theme-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.5rem 1rem;
+      }
+      nav button {
+        background: none;
+        border: none;
+        color: var(--text-dim);
+        padding: 0.85rem 1.1rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        white-space: nowrap;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      nav button:hover {
+        color: var(--text);
+      }
+      nav button.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      .tab-content {
+        display: none;
+        padding: 2rem;
+        max-width: 980px;
+        margin: 0 auto;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      h2 {
+        font-size: 1.25rem;
+        color: var(--accent2);
+        margin: 1.8rem 0 0.8rem;
+        border-left: 3px solid var(--accent);
+        padding-left: 0.75rem;
+      }
+      h2:first-child {
+        margin-top: 0;
+      }
+      h3 {
+        font-size: 1.05rem;
+        color: var(--text);
+        margin: 1.4rem 0 0.6rem;
+      }
+      p {
+        margin-bottom: 0.9rem;
+      }
+      ul,
+      ol {
+        padding-left: 1.4rem;
+        margin-bottom: 0.9rem;
+      }
+      li {
+        margin-bottom: 0.35rem;
+      }
+      .lead {
+        color: var(--text-dim);
+        font-size: 0.95rem;
+      }
+      .hint {
+        text-align: center;
+        color: var(--text-dim);
+        font-size: 0.84rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .callout {
+        border-radius: var(--radius);
+        padding: 0.9rem 1.1rem;
+        margin: 1.2rem 0;
+        border-left: 4px solid;
+        background: var(--surface2);
+      }
+      .callout.note {
+        border-color: var(--accent);
+      }
+      .callout.tip {
+        border-color: var(--success);
+      }
+      .callout.warn {
+        border-color: var(--warn);
+      }
+      .callout.danger {
+        border-color: var(--danger);
+      }
+      .callout-title {
+        font-weight: 700;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        margin-bottom: 0.4rem;
+      }
+      .callout.note .callout-title {
+        color: var(--accent);
+      }
+      .callout.tip .callout-title {
+        color: var(--success);
+      }
+      .callout.warn .callout-title {
+        color: var(--warn);
+      }
+      .callout.danger .callout-title {
+        color: var(--danger);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        margin: 1rem 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th {
+        background: var(--surface2);
+        color: var(--accent2);
+        text-align: left;
+        padding: 0.6rem 0.9rem;
+        font-weight: 600;
+        border: 1px solid var(--border);
+      }
+      td {
+        padding: 0.55rem 0.9rem;
+        border: 1px solid var(--border);
+        vertical-align: top;
+      }
+      tr:hover td {
+        background: var(--surface2);
+      }
+      code {
+        font-family: "Consolas", monospace;
+        font-size: 0.88rem;
+        color: var(--accent2);
+        background: var(--code-bg);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+      }
+
+      .detail-panel {
+        background: var(--surface2);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius);
+        padding: 1.2rem 1.4rem;
+        margin-top: 1rem;
+        min-height: 130px;
+      }
+      .detail-panel .dp-kicker {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--text-dim);
+      }
+      .detail-panel h4 {
+        color: var(--accent);
+        font-size: 1.15rem;
+        margin: 0.2rem 0 0.7rem;
+      }
+      .detail-panel ul {
+        margin: 0.5rem 0 0.8rem;
+      }
+      .detail-panel .dp-ex {
+        background: var(--exbg);
+        border-left: 3px solid var(--pink);
+        padding: 0.6rem 0.9rem;
+        border-radius: 6px;
+        font-size: 0.89rem;
+      }
+      .detail-panel .dp-ex b {
+        color: var(--pink);
+      }
+      .dp-empty {
+        color: var(--text-dim);
+        font-style: italic;
+        text-align: center;
+        padding-top: 2rem;
+      }
+
+      /* etapes cliquables */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+        gap: 0.6rem;
+        margin: 1.2rem 0;
+      }
+      .step {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.9rem 0.7rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .step:hover {
+        border-color: var(--accent);
+      }
+      .step.on {
+        border-color: var(--accent);
+        border-width: 2px;
+        background: var(--surface2);
+        transform: translateY(-3px);
+      }
+      .step .sn {
+        width: 26px;
+        height: 26px;
+        margin: 0 auto 0.45rem;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      html[data-theme="dark"] .step .sn {
+        color: #14091f;
+      }
+      .step .st {
+        font-weight: 700;
+        font-size: 0.87rem;
+        color: var(--accent2);
+        line-height: 1.3;
+      }
+      .step.alt .sn {
+        background: var(--warn);
+      }
+      .step.end .sn {
+        background: var(--success);
+      }
+      .step.ko .sn {
+        background: var(--danger);
+      }
+
+      /* cartes cliquables larges */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 0.8rem;
+        margin: 1.2rem 0;
+      }
+      .kard {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .kard:hover {
+        border-color: var(--accent);
+      }
+      .kard.on {
+        border-color: var(--accent);
+        border-width: 2px;
+        background: var(--surface2);
+      }
+      .kard .kt {
+        font-weight: 700;
+        color: var(--accent2);
+        font-size: 1rem;
+      }
+      .kard .ks {
+        color: var(--text-dim);
+        font-size: 0.82rem;
+        margin-top: 0.3rem;
+      }
+      .kard .kb {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border-radius: 20px;
+        padding: 0.12rem 0.55rem;
+        margin-bottom: 0.45rem;
+      }
+
+      /* cartes retournables */
+      .flip-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+        gap: 0.9rem;
+        margin: 1.2rem 0;
+      }
+      .flip {
+        perspective: 1000px;
+        height: 170px;
+        cursor: pointer;
+      }
+      .flip-in {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.55s;
+        transform-style: preserve-3d;
+      }
+      .flip.on .flip-in {
+        transform: rotateY(180deg);
+      }
+      .flip-f,
+      .flip-b {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .flip-f {
+        background: var(--surface);
+      }
+      .flip-f .fn {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+      html[data-theme="dark"] .flip-f .fn {
+        color: #14091f;
+      }
+      .flip-f .ft {
+        font-weight: 700;
+        color: var(--accent2);
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+      .flip-f .fh {
+        color: var(--text-dim);
+        font-size: 0.72rem;
+        margin-top: 0.5rem;
+      }
+      .flip-b {
+        background: var(--surface2);
+        border-color: var(--accent);
+        transform: rotateY(180deg);
+        font-size: 0.84rem;
+        line-height: 1.5;
+      }
+
+      /* schema svg */
+      .svg-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem 0.5rem 0.5rem;
+        margin: 1.2rem 0;
+      }
+      svg.fig {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .node {
+        cursor: pointer;
+        transition: filter 0.2s;
+      }
+      .node:hover {
+        filter: brightness(1.2);
+      }
+      .node.on {
+        filter: brightness(1.35) saturate(1.15);
+      }
+      .figlabel {
+        pointer-events: none;
+        font-family: "Segoe UI", sans-serif;
+        font-weight: 700;
+        fill: #fff;
+      }
+      .figsub {
+        pointer-events: none;
+        font-family: "Segoe UI", sans-serif;
+        fill: #fff;
+        opacity: 0.8;
+      }
+      .figframe {
+        stroke: var(--hexframe);
+      }
+      .figtext {
+        font-family: "Segoe UI", sans-serif;
+        fill: var(--text-dim);
+      }
+
+      /* matrice */
+      .mx {
+        display: grid;
+        grid-template-columns: 96px repeat(3, 1fr);
+        gap: 0.4rem;
+        margin: 1.2rem 0;
+      }
+      .mx .mh {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--text-dim);
+        text-align: center;
+        padding: 0.3rem;
+      }
+      .mx .mc {
+        border-radius: 8px;
+        padding: 0.9rem 0.5rem;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.88rem;
+        border: 2px solid transparent;
+        transition: all 0.2s;
+      }
+      .mx .mc:hover {
+        filter: brightness(1.15);
+      }
+      .mx .mc.on {
+        border-color: #fff;
+        transform: scale(1.04);
+      }
+      .mx .mc small {
+        display: block;
+        font-weight: 400;
+        font-size: 0.7rem;
+        opacity: 0.9;
+        margin-top: 0.2rem;
+      }
+
+      /* simulateur */
+      .simul {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        margin: 1.2rem 0;
+      }
+      .simul-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 0.9rem;
+      }
+      .simul-row label {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        min-width: 80px;
+      }
+      .seg {
+        display: flex;
+        gap: 0.3rem;
+        flex-wrap: wrap;
+      }
+      .seg button {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 20px;
+        padding: 0.35rem 0.9rem;
+        font-size: 0.82rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .seg button:hover {
+        border-color: var(--accent);
+      }
+      .seg button.on {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+        font-weight: 600;
+      }
+      html[data-theme="dark"] .seg button.on {
+        color: #14091f;
+      }
+      .simul-out {
+        border-radius: var(--radius);
+        padding: 1rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #fff;
+        margin-top: 0.6rem;
+      }
+      .simul-note {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        font-style: italic;
+        margin-top: 0.6rem;
+        text-align: center;
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--accent);
+      }
+
+      /* boutons scenarios */
+      .trace-btns {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 1rem 0 0.3rem;
+      }
+      .trace-btn {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 20px;
+        padding: 0.45rem 1rem;
+        font-size: 0.84rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .trace-btn:hover {
+        border-color: var(--accent);
+      }
+      .trace-btn.on {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+        font-weight: 600;
+      }
+      html[data-theme="dark"] .trace-btn.on {
+        color: #14091f;
+      }
+      .lit {
+        border-color: var(--success) !important;
+        box-shadow: inset 0 0 0 1px var(--success);
+      }
+
+      /* jeu */
+      .game {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.3rem;
+        margin: 1.2rem 0;
+      }
+      .game-q {
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--accent2);
+        margin-bottom: 0.3rem;
+        min-height: 52px;
+      }
+      .game-meta {
+        color: var(--text-dim);
+        font-size: 0.8rem;
+        margin-bottom: 0.9rem;
+      }
+      .game-opts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.6rem;
+      }
+      .game-opt {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 8px;
+        padding: 0.8rem;
+        cursor: pointer;
+        font-size: 0.88rem;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .game-opt:hover:not(:disabled) {
+        border-color: var(--accent);
+      }
+      .game-opt.ok {
+        border-color: var(--success);
+        color: var(--success);
+        font-weight: 600;
+      }
+      .game-opt.ko {
+        border-color: var(--danger);
+        color: var(--danger);
+        font-weight: 600;
+      }
+      .game-fb {
+        margin-top: 0.9rem;
+        font-size: 0.87rem;
+        color: var(--text-dim);
+        font-style: italic;
+        min-height: 40px;
+      }
+      .game-bar {
+        height: 6px;
+        background: var(--surface2);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+      .game-bar span {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        width: 0;
+        transition: width 0.35s;
+      }
+
+      /* quiz */
+      .quiz-question {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+      }
+      .quiz-question h4 {
+        color: var(--accent2);
+        margin-bottom: 0.9rem;
+        font-size: 0.98rem;
+      }
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .quiz-option {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        text-align: left;
+        cursor: pointer;
+        font-size: 0.89rem;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .quiz-option:hover:not(:disabled) {
+        border-color: var(--accent);
+      }
+      .quiz-option.correct {
+        border-color: var(--success);
+        color: var(--success);
+        font-weight: 600;
+      }
+      .quiz-option.wrong {
+        border-color: var(--danger);
+        color: var(--danger);
+        font-weight: 600;
+      }
+      .quiz-option:disabled {
+        cursor: default;
+      }
+      .quiz-feedback {
+        margin-top: 0.6rem;
+        font-size: 0.87rem;
+        color: var(--text-dim);
+        font-style: italic;
+      }
+      .quiz-score {
+        display: none;
+        background: var(--surface);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .quiz-score .score-num {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .quiz-score p {
+        color: var(--text-dim);
+        margin-top: 0.4rem;
+      }
+      .btn {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.88rem;
+        margin-top: 1rem;
+      }
+      html[data-theme="dark"] .btn {
+        color: #14091f;
+      }
+      .btn:hover {
+        filter: brightness(1.1);
+      }
+
+      @media (max-width: 700px) {
+        .tab-content {
+          padding: 1.2rem;
+        }
+        header h1 {
+          font-size: 1.4rem;
+        }
+        .mx {
+          grid-template-columns: 70px repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">Mode clair</button>
+      <div class="badge">Formation ITIL</div>
+      <h1>04. La gestion des problèmes</h1>
+      <p>Passer du symptôme à la cause racine, et savoir quand ça vaut le coup.</p>
+    </header>
+
+    <nav id="main-nav">
+      <button class="active" onclick="showTab('vs', this)">Incident vs Problème</button>
+      <button onclick="showTab('cas', this)">Le cas de l'imprimante</button>
+      <button onclick="showTab('ec', this)">Erreur connue</button>
+      <button onclick="showTab('cycle', this)">Cycle de vie</button>
+      <button onclick="showTab('jeu', this)">Mini-jeu</button>
+      <button onclick="showTab('quiz', this)">Quiz</button>
+    </nav>
+
+    <div id="tab-vs" class="tab-content active">
+      <h2>Incident vs Problème : la distinction clé</h2>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th></th>
+            <th>Incident</th>
+            <th>Problème</th>
+          </tr>
+          <tr>
+            <td>Question posée</td>
+            <td>Comment rétablir vite ?</td>
+            <td>Pourquoi ça casse ?</td>
+          </tr>
+          <tr>
+            <td>Horizon</td>
+            <td>Minutes, heures</td>
+            <td>Jours, semaines</td>
+          </tr>
+          <tr>
+            <td>Se ferme quand</td>
+            <td>Le service est rétabli</td>
+            <td>La cause racine est éliminée</td>
+          </tr>
+          <tr>
+            <td>Nombre</td>
+            <td>Beaucoup</td>
+            <td>Peu</td>
+          </tr>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title">On peut avoir zéro incident et un problème actif</div>
+        C'est même la situation normale entre deux pannes. Fermer les incidents sans traiter le
+        problème, c'est gérer les symptômes en boucle.
+      </div>
+      <h2>Les deux modes</h2>
+      <div class="hint">Cliquez sur une carte</div>
+      <div class="cards" id="c4">
+        <div class="kard" data-k="rea">
+          <div class="kt">Mode réactif</div>
+          <div class="ks">On ouvre un problème parce que des incidents se répètent.</div>
+        </div>
+        <div class="kard" data-k="pro">
+          <div class="kt">Mode proactif</div>
+          <div class="ks">On analyse les données avant que la panne n'arrive.</div>
+        </div>
+      </div>
+      <div class="detail-panel" id="p1"><div class="dp-empty">Cliquez sur un mode.</div></div>
+    </div>
+
+    <div id="tab-cas" class="tab-content">
+      <h2>Le cas de l'imprimante</h2>
+      <p class="lead">
+        Trois incidents en trois semaines sur <code>IMP-NAN-OPENSPACE-01</code>. Cliquez sur chaque
+        étape du raisonnement.
+      </p>
+      <div class="svg-wrap">
+        <svg
+          class="fig"
+          viewBox="0 0 940 520"
+          role="img"
+          aria-label="De trois incidents à un problème"
+        >
+          <defs>
+            <filter id="sf4" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#000" flood-opacity=".3" />
+            </filter>
+          </defs>
+          <g class="node" data-k="i1">
+            <rect x="40" y="40" width="255" height="86" rx="13" fill="#c0392b" filter="url(#sf4)" />
+            <text class="figlabel" x="167" y="74" font-size="14" text-anchor="middle">
+              INCIDENT — Semaine 1
+            </text>
+            <text class="figsub" x="167" y="99" font-size="13" text-anchor="middle">
+              File d'impression bloquée
+            </text>
+          </g>
+          <g class="node" data-k="i2">
+            <rect
+              x="342"
+              y="40"
+              width="255"
+              height="86"
+              rx="13"
+              fill="#c0392b"
+              filter="url(#sf4)"
+            />
+            <text class="figlabel" x="470" y="74" font-size="14" text-anchor="middle">
+              INCIDENT — Semaine 2
+            </text>
+            <text class="figsub" x="470" y="99" font-size="13" text-anchor="middle">
+              Imprimante absente du réseau
+            </text>
+          </g>
+          <g class="node" data-k="i3">
+            <rect
+              x="645"
+              y="40"
+              width="255"
+              height="86"
+              rx="13"
+              fill="#c0392b"
+              filter="url(#sf4)"
+            />
+            <text class="figlabel" x="772" y="74" font-size="14" text-anchor="middle">
+              INCIDENT — Semaine 3
+            </text>
+            <text class="figsub" x="772" y="99" font-size="13" text-anchor="middle">
+              Imprimante ne répond plus
+            </text>
+          </g>
+          <path
+            d="M167,126 L167,168 M470,126 L470,168 M772,126 L772,168"
+            stroke="#8b85a8"
+            stroke-width="2.5"
+            stroke-dasharray="5 4"
+            fill="none"
+          />
+          <line x1="167" y1="168" x2="772" y2="168" stroke="#8b85a8" stroke-width="2.5" />
+          <path d="M470,168 L470,200" stroke="#d1a000" stroke-width="3" fill="none" />
+          <polygon points="470,212 464,198 476,198" fill="#d1a000" />
+          <g class="node" data-k="pb">
+            <rect
+              x="245"
+              y="216"
+              width="450"
+              height="92"
+              rx="15"
+              fill="#b8860b"
+              filter="url(#sf4)"
+            />
+            <text class="figlabel" x="470" y="250" font-size="18" text-anchor="middle">
+              PROBLÈME
+            </text>
+            <text class="figsub" x="470" y="276" font-size="12.5" text-anchor="middle">
+              Cause racine : le pilote se corrompt à chaque
+            </text>
+            <text class="figsub" x="470" y="294" font-size="12.5" text-anchor="middle">
+              mise à jour Windows automatique
+            </text>
+          </g>
+          <path
+            d="M340,308 L340,336 L215,336 L215,362"
+            stroke="#d1a000"
+            stroke-width="2.5"
+            fill="none"
+          />
+          <polygon points="215,374 209,360 221,360" fill="#d1a000" />
+          <path
+            d="M600,308 L600,336 L725,336 L725,362"
+            stroke="#2f9e6e"
+            stroke-width="2.5"
+            fill="none"
+          />
+          <polygon points="725,374 719,360 731,360" fill="#2f9e6e" />
+          <g class="node" data-k="wa">
+            <rect
+              x="45"
+              y="378"
+              width="340"
+              height="102"
+              rx="14"
+              fill="none"
+              stroke="#d1a000"
+              stroke-width="2.5"
+            />
+            <text
+              x="215"
+              y="410"
+              font-size="15"
+              font-weight="700"
+              fill="#d1a000"
+              text-anchor="middle"
+              font-family="'Segoe UI',sans-serif"
+            >
+              Contournement
+            </text>
+            <text class="figtext" x="215" y="435" font-size="12.5" text-anchor="middle">
+              Réinstaller le pilote à la main
+            </text>
+            <text class="figtext" x="215" y="454" font-size="12.5" text-anchor="middle">
+              15 min, à rejouer chaque mois
+            </text>
+            <text
+              x="215"
+              y="472"
+              font-size="11.5"
+              font-weight="700"
+              fill="#d1a000"
+              text-anchor="middle"
+              font-family="'Segoe UI',sans-serif"
+            >
+              TEMPORAIRE
+            </text>
+          </g>
+          <g class="node" data-k="sd">
+            <rect
+              x="555"
+              y="378"
+              width="340"
+              height="102"
+              rx="14"
+              fill="none"
+              stroke="#2f9e6e"
+              stroke-width="2.5"
+            />
+            <text
+              x="725"
+              y="410"
+              font-size="15"
+              font-weight="700"
+              fill="#2f9e6e"
+              text-anchor="middle"
+              font-family="'Segoe UI',sans-serif"
+            >
+              Solution définitive
+            </text>
+            <text class="figtext" x="725" y="435" font-size="12.5" text-anchor="middle">
+              GPO désactivant la MAJ auto
+            </text>
+            <text class="figtext" x="725" y="454" font-size="12.5" text-anchor="middle">
+              30 min, une seule fois
+            </text>
+            <text
+              x="725"
+              y="472"
+              font-size="11.5"
+              font-weight="700"
+              fill="#2f9e6e"
+              text-anchor="middle"
+              font-family="'Segoe UI',sans-serif"
+            >
+              PASSE PAR UN CHANGEMENT
+            </text>
+          </g>
+        </svg>
+        <div class="detail-panel" id="p2">
+          <div class="dp-empty">Cliquez sur un élément du schéma.</div>
+        </div>
+      </div>
+
+      <h2>Combien de temps avant que le contournement coûte plus cher ?</h2>
+      <p class="lead">
+        Le contournement coûte 15 min par mois. La solution définitive coûte 30 min, une fois.
+        Faites glisser le curseur.
+      </p>
+      <div class="simul">
+        <div class="simul-row" style="display: block">
+          <label style="display: block; margin-bottom: 0.5rem"
+            >Nombre de mois : <b id="moisVal">1</b></label
+          >
+          <input type="range" id="mois" min="1" max="12" value="1" />
+        </div>
+        <div class="table-wrap">
+          <table>
+            <tr>
+              <th></th>
+              <th>Temps cumulé</th>
+            </tr>
+            <tr>
+              <td>Contournement (15 min / mois)</td>
+              <td id="cWa">15 min</td>
+            </tr>
+            <tr>
+              <td>Solution définitive (30 min, une fois)</td>
+              <td>30 min</td>
+            </tr>
+          </table>
+        </div>
+        <div class="simul-out" id="coutOut"></div>
+        <div class="simul-note">
+          C'est exactement l'argument chiffré qu'on présente à une direction pour faire accepter un
+          changement.
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-ec" class="tab-content">
+      <h2>Erreur connue et contournement</h2>
+      <div class="hint">Cliquez sur une carte</div>
+      <div class="cards" id="c4b">
+        <div class="kard" data-k="ec">
+          <div class="kt">Erreur connue</div>
+          <div class="ks">Cause identifiée, correction pas encore déployée.</div>
+        </div>
+        <div class="kard" data-k="wk">
+          <div class="kt">Contournement</div>
+          <div class="ks">Solution temporaire pour réduire l'impact.</div>
+        </div>
+        <div class="kard" data-k="kb">
+          <div class="kt">Base de connaissance</div>
+          <div class="ks">Là où le contournement est écrit pour tous.</div>
+        </div>
+      </div>
+      <div class="detail-panel" id="p3"><div class="dp-empty">Cliquez sur une carte.</div></div>
+      <div class="callout tip">
+        <div class="callout-title">L'étape la plus rentable</div>
+        Dès que le contournement est documenté, les incidents suivants se traitent en minutes au
+        lieu d'heures — même par un technicien qui n'a jamais vu le cas.
+      </div>
+    </div>
+
+    <div id="tab-cycle" class="tab-content">
+      <h2>Le cycle de vie d'un problème</h2>
+      <p class="lead">Cliquez sur une étape.</p>
+      <div class="steps" id="st4">
+        <div class="step" data-k="q1">
+          <div class="sn">1</div>
+          <div class="st">Identification</div>
+        </div>
+        <div class="step" data-k="q2">
+          <div class="sn">2</div>
+          <div class="st">Enregistrement</div>
+        </div>
+        <div class="step" data-k="q3">
+          <div class="sn">3</div>
+          <div class="st">Catégorisation</div>
+        </div>
+        <div class="step" data-k="q4">
+          <div class="sn">4</div>
+          <div class="st">Investigation</div>
+        </div>
+        <div class="step alt" data-k="q5">
+          <div class="sn">5</div>
+          <div class="st">Erreur connue</div>
+        </div>
+        <div class="step" data-k="q6">
+          <div class="sn">6</div>
+          <div class="st">Résolution</div>
+        </div>
+        <div class="step end" data-k="q7">
+          <div class="sn">7</div>
+          <div class="st">Clôture</div>
+        </div>
+      </div>
+      <div class="detail-panel" id="p4">
+        <div class="dp-empty">Cliquez sur une étape du cycle.</div>
+      </div>
+    </div>
+
+    <div id="tab-jeu" class="tab-content">
+      <h2>Mini-jeu — Incident ou problème ?</h2>
+      <p class="lead">Huit situations. Symptôme à rétablir, ou cause à investiguer ?</p>
+      <div class="game">
+        <div class="game-bar"><span id="gBar"></span></div>
+        <div class="game-meta" id="gMeta"></div>
+        <div class="game-q" id="gQ"></div>
+        <div class="game-opts" id="gOpts"></div>
+        <div class="game-fb" id="gFb"></div>
+        <button class="btn" id="gBtn" onclick="gameNext()" style="display: none">
+          Situation suivante
+        </button>
+      </div>
+      <div class="quiz-score" id="gScore">
+        <div class="score-num" id="gScoreNum"></div>
+        <p id="gScoreMsg"></p>
+        <button class="btn" onclick="gameStart()">Rejouer</button>
+      </div>
+    </div>
+
+    <div id="tab-quiz" class="tab-content">
+      <h2>Quiz — Gestion des problèmes</h2>
+      <p class="lead">Quelques questions pour vérifier que l'essentiel est acquis.</p>
+      <div id="quiz-container"></div>
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-num" id="score-display"></div>
+        <p id="score-msg"></p>
+        <button class="btn" onclick="restartQuiz()">Recommencer</button>
+      </div>
+    </div>
+
+    <script>
+      var DATA = {
+        rea: {
+          k: "Mode",
+          t: "Réactif",
+          li: [
+            "Déclenché par la répétition d'incidents",
+            "Le plus courant",
+            "Signal : 2 incidents identiques en moins d'un mois",
+          ],
+          ex: "Trois pannes de la même imprimante en trois semaines : on ouvre un problème.",
+        },
+        pro: {
+          k: "Mode",
+          t: "Proactif",
+          li: [
+            "Déclenché par l'analyse des données",
+            "Avant que la panne n'arrive",
+            "Demande du temps — c'est pour ça qu'on le saute",
+          ],
+          ex: "Les statistiques montrent que 60 % des tickets viennent des postes du comptoir. On investigue avant la prochaine panne.",
+        },
+        i1: {
+          k: "Semaine 1",
+          t: "Premier incident",
+          li: [
+            "File d'impression bloquée",
+            "Résolu par un redémarrage du service",
+            "Aucun soupçon à ce stade",
+          ],
+          ex: "Un incident isolé ne justifie pas d'ouvrir un problème. On rétablit et on passe.",
+        },
+        i2: {
+          k: "Semaine 2",
+          t: "Deuxième incident",
+          li: [
+            "L'imprimante n'apparaît plus sur le réseau",
+            "Symptôme différent, même équipement",
+            "C'est ici qu'il fallait ouvrir le problème",
+          ],
+          ex: "Deux incidents sur le même équipement en moins d'un mois : le signal est clair. Attendre coûte une troisième panne.",
+        },
+        i3: {
+          k: "Semaine 3",
+          t: "Troisième incident",
+          li: ["L'imprimante ne répond plus du tout", "Le doute n'est plus permis"],
+          ex: "Trois interruptions pour Lucas, trois interventions du technicien. Tout ça était évitable.",
+        },
+        pb: {
+          k: "Le problème",
+          t: "Cause racine identifiée",
+          li: [
+            "Le pilote se corrompt à chaque mise à jour Windows",
+            "Bug confirmé par Brother",
+            "Pilote stable annoncé sous 2 semaines",
+          ],
+          ex: "Le problème regroupe les 3 incidents. Il se ferme quand la cause disparaît, pas quand l'imprimante réimprime.",
+        },
+        wa: {
+          k: "Sortie 1",
+          t: "Le contournement",
+          li: [
+            "Réinstaller le pilote manuellement",
+            "15 minutes, à rejouer après chaque mise à jour",
+            "Documenté en base de connaissance",
+          ],
+          ex: "Le statut du problème passe à « Erreur connue » : cause identifiée, contournement disponible, correction en attente.",
+        },
+        sd: {
+          k: "Sortie 2",
+          t: "La solution définitive",
+          li: [
+            "GPO désactivant la mise à jour automatique du pilote",
+            "30 minutes, une seule fois",
+            "Modifie durablement plusieurs postes",
+          ],
+          ex: "Parce qu'elle modifie durablement la configuration, elle doit passer par un changement — c'est le chapitre 05.",
+        },
+        ec: {
+          k: "Concept",
+          t: "Erreur connue",
+          li: [
+            "La cause est identifiée",
+            "La correction n'est pas encore déployée",
+            "Statut GLPI dédié",
+          ],
+          ex: "On sait pourquoi ça casse, on sait comment tenir en attendant. C'est déjà énorme.",
+        },
+        wk: {
+          k: "Concept",
+          t: "Contournement (workaround)",
+          li: [
+            "Temporaire, pas définitif",
+            "Réduit l'impact sans supprimer la cause",
+            "Doit rester visible comme provisoire",
+          ],
+          ex: "Réinstaller le pilote à la main. Ça marche, mais ça ne règle rien.",
+        },
+        kb: {
+          k: "Concept",
+          t: "Base de connaissance",
+          li: [
+            "Là où le contournement est écrit",
+            "Accessible à toute l'équipe",
+            "Chaque problème résolu devrait y laisser une fiche",
+          ],
+          ex: "La prochaine fois qu'un technicien voit le symptôme, il trouve la procédure en 30 secondes.",
+        },
+        q1: {
+          k: "Étape 1",
+          t: "Identification",
+          li: ["Récurrence d'incidents, ou analyse proactive"],
+          ex: "Trois tickets liés au même équipement en trois semaines.",
+        },
+        q2: {
+          k: "Étape 2",
+          t: "Enregistrement",
+          li: ["Créer le problème", "Y lier les incidents concernés"],
+          ex: "Onglet Éléments liés du problème : on rattache les 3 tickets.",
+        },
+        q3: {
+          k: "Étape 3",
+          t: "Catégorisation",
+          li: ["Même logique que pour les incidents"],
+          ex: "Matériel / Impression.",
+        },
+        q4: {
+          k: "Étape 4",
+          t: "Investigation",
+          li: ["Analyse de la cause racine", "Logs, tests, historique, contact éditeur"],
+          ex: "C'est l'étape qui demande du temps — celle qu'on n'a jamais dans l'urgence quotidienne.",
+        },
+        q5: {
+          k: "Étape 5",
+          t: "Erreur connue",
+          li: ["Documenter la cause et le contournement", "Statut dédié dans GLPI"],
+          ex: "L'étape la plus rentable : à partir d'ici, les incidents suivants coûtent des minutes.",
+        },
+        q6: {
+          k: "Étape 6",
+          t: "Résolution",
+          li: ["Appliquer le correctif définitif", "Passe souvent par un changement"],
+          ex: "Déploiement de la GPO — voir chapitre 05.",
+        },
+        q7: {
+          k: "Étape 7",
+          t: "Clôture",
+          li: ["Vérifier que la cause a bien disparu", "Mettre à jour la documentation"],
+          ex: "On ne ferme pas parce que l'imprimante marche aujourd'hui, mais parce qu'elle ne peut plus tomber pour cette raison.",
+        },
+      }
+      var QUIZ = [
+        {
+          q: "Un problème se ferme quand…",
+          o: [
+            "a) Le service est rétabli",
+            "b) La cause racine est éliminée",
+            "c) L'utilisateur ne se plaint plus",
+          ],
+          good: "b",
+          fb: {
+            b: "Exact — l'incident se ferme au rétablissement, le problème à l'élimination de la cause.",
+            wrong:
+              "Non : c'est l'incident qui se ferme au rétablissement. Le problème se ferme quand la cause disparaît.",
+          },
+        },
+        {
+          q: "À partir de combien d'incidents identiques ouvre-t-on généralement un problème ?",
+          o: ["a) Dès le premier", "b) 2 identiques en moins d'un mois", "c) Au moins 10"],
+          good: "b",
+          fb: {
+            b: "Exact — il n'y a pas de règle absolue, mais c'est le signal généralement retenu.",
+            wrong:
+              "Non : la pratique courante est 2 incidents identiques sur le même équipement en moins d'un mois.",
+          },
+        },
+        {
+          q: "Un contournement, c'est…",
+          o: [
+            "a) La correction définitive",
+            "b) Une solution temporaire qui réduit l'impact",
+            "c) Un type de ticket GLPI",
+          ],
+          good: "b",
+          fb: {
+            b: "Exact — ça soulage sans supprimer la cause. Il doit rester visible comme provisoire.",
+            wrong:
+              "Non : le contournement est temporaire. La correction définitive est autre chose.",
+          },
+        },
+        {
+          q: "Le contournement coûte 15 min/mois, la solution définitive 30 min une fois. À partir de quand le contournement coûte-t-il plus cher ?",
+          o: ["a) Le 2e mois", "b) Le 3e mois", "c) Le 6e mois"],
+          good: "b",
+          fb: {
+            b: "Exact — 3 × 15 = 45 min contre 30. Et c'est un calcul optimiste : il ignore l'interruption de service.",
+            wrong: "Non : au 3e mois, 45 minutes cumulées contre 30 pour la solution définitive.",
+          },
+        },
+        {
+          q: "« Erreur connue » signifie…",
+          o: [
+            "a) Le problème est résolu",
+            "b) La cause est identifiée mais la correction n'est pas déployée",
+            "c) On ignore la cause",
+          ],
+          good: "b",
+          fb: {
+            b: "Exact — on sait pourquoi, on sait comment tenir, on attend le correctif.",
+            wrong: "Non : erreur connue = cause identifiée, correction pas encore déployée.",
+          },
+        },
+        {
+          q: "Peut-on avoir zéro incident ouvert et un problème actif ?",
+          o: [
+            "a) Non, c'est incohérent",
+            "b) Oui, c'est même la situation normale entre deux pannes",
+            "c) Seulement si le problème est clos",
+          ],
+          good: "b",
+          fb: {
+            b: "Exact — le problème vit sur un autre rythme que les incidents qu'il génère.",
+            wrong:
+              "Non : c'est parfaitement normal. Entre deux pannes, aucun incident n'est ouvert mais la cause est toujours là.",
+          },
+        },
+      ]
+      var GAME = {
+        opts: ["Incident", "Problème"],
+        msg: [
+          "La distinction n'est pas acquise. Revoyez le premier onglet.",
+          "Encore quelques confusions entre symptôme et cause.",
+          "Très bien — vous séparez le symptôme de la cause.",
+          "Sans faute. C'est la compétence qui fait la différence sur le terrain.",
+        ],
+        items: [
+          [
+            "La caisse ne répond plus, là, maintenant.",
+            0,
+            "Un service interrompu ici et maintenant : incident.",
+          ],
+          [
+            "Trois postes du comptoir plantent chaque lundi matin depuis un mois.",
+            1,
+            "Récurrence + motif : c'est un problème.",
+          ],
+          ["Marie ne peut pas se connecter ce matin.", 0, "Un cas isolé à rétablir : incident."],
+          [
+            "On ignore pourquoi le Wi-Fi du fournil coupe entre 5h et 7h.",
+            1,
+            "Cause inconnue derrière des incidents répétés : problème.",
+          ],
+          [
+            "L'imprimante est hors ligne, Lucas attend ses bons.",
+            0,
+            "Interruption ponctuelle : incident.",
+          ],
+          [
+            "Le même message d'erreur revient sur 8 postes depuis la dernière mise à jour.",
+            1,
+            "Cause commune identifiable : problème.",
+          ],
+          [
+            "Le terminal de paiement refuse les CB depuis 10 minutes.",
+            0,
+            "Rétablir d'abord : incident.",
+          ],
+          [
+            "On a redémarré le service d'impression 6 fois ce mois-ci.",
+            1,
+            "La répétition est le signal : ouvrir un problème.",
+          ],
+        ],
+      }
+
+      /* THEME */
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t)
+        document.getElementById("themeBtn").textContent =
+          t === "dark" ? "\u2600 Mode clair" : "\u263e Mode sombre"
+        try {
+          localStorage.setItem("itil-theme", t)
+        } catch (e) {}
+      }
+      function toggleTheme() {
+        applyTheme(
+          document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark",
+        )
+      }
+      ;(function () {
+        var t = null
+        try {
+          t = localStorage.getItem("itil-theme")
+        } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches)
+          t = "light"
+        applyTheme(t === "light" ? "light" : "dark")
+      })()
+
+      /* NAV */
+      function showTab(id, btn) {
+        document.querySelectorAll(".tab-content").forEach(function (t) {
+          t.classList.remove("active")
+        })
+        document.getElementById("tab-" + id).classList.add("active")
+        document.querySelectorAll("#main-nav button").forEach(function (b) {
+          b.classList.remove("active")
+        })
+        if (btn) btn.classList.add("active")
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      }
+
+      /* PANNEAUX */
+      function renderPanel(el, d) {
+        if (!d || !el) return
+        var h = '<div class="dp-kicker">' + d.k + "</div><h4>" + d.t + "</h4>"
+        if (d.li && d.li.length) {
+          h += "<ul>"
+          d.li.forEach(function (x) {
+            h += "<li>" + x + "</li>"
+          })
+          h += "</ul>"
+        }
+        if (d.ex)
+          h +=
+            '<div class="dp-ex"><b>' +
+            (d.exl || "Au Fournil Dor\u00e9 \u2014") +
+            "</b> " +
+            d.ex +
+            "</div>"
+        el.innerHTML = h
+      }
+      function bindGroup(sel, data, panelId) {
+        var nodes = document.querySelectorAll(sel)
+        nodes.forEach(function (n) {
+          n.addEventListener("click", function () {
+            nodes.forEach(function (m) {
+              m.classList.remove("on")
+            })
+            n.classList.add("on")
+            renderPanel(document.getElementById(panelId), data[n.dataset.k])
+          })
+        })
+      }
+
+      /* CARTES RETOURNABLES */
+      function buildFlips(gridId, arr) {
+        var g = document.getElementById(gridId)
+        if (!g) return
+        arr.forEach(function (p, i) {
+          var d = document.createElement("div")
+          d.className = "flip"
+          d.innerHTML =
+            '<div class="flip-in"><div class="flip-f"><div class="fn">' +
+            (i + 1) +
+            '</div><div class="ft">' +
+            p[0] +
+            '</div><div class="fh">cliquer pour retourner</div></div><div class="flip-b"><div style="margin-bottom:.5rem">' +
+            p[1] +
+            '</div><div style="color:var(--pink);font-size:.79rem">' +
+            p[2] +
+            "</div></div></div>"
+          d.addEventListener("click", function () {
+            d.classList.toggle("on")
+          })
+          g.appendChild(d)
+        })
+      }
+
+      /* MINI-JEU */
+      var gi = 0,
+        gs = 0
+      function gameStart() {
+        gi = 0
+        gs = 0
+        document.getElementById("gScore").style.display = "none"
+        document.querySelector("#tab-jeu .game").style.display = "block"
+        gameRender()
+      }
+      function gameRender() {
+        var q = GAME.items[gi]
+        document.getElementById("gMeta").textContent =
+          "Situation " + (gi + 1) + " / " + GAME.items.length + "   \u00b7   score " + gs
+        document.getElementById("gQ").textContent = "\u00ab " + q[0] + " \u00bb"
+        document.getElementById("gBar").style.width = (gi / GAME.items.length) * 100 + "%"
+        document.getElementById("gFb").textContent = ""
+        document.getElementById("gBtn").style.display = "none"
+        var o = document.getElementById("gOpts")
+        o.innerHTML = ""
+        GAME.opts.forEach(function (label, idx) {
+          var b = document.createElement("button")
+          b.className = "game-opt"
+          b.textContent = label
+          b.onclick = function () {
+            gameAnswer(idx, b)
+          }
+          o.appendChild(b)
+        })
+      }
+      function gameAnswer(idx, btn) {
+        var q = GAME.items[gi]
+        var all = document.querySelectorAll("#gOpts .game-opt")
+        all.forEach(function (b) {
+          b.disabled = true
+        })
+        if (idx === q[1]) {
+          btn.classList.add("ok")
+          gs++
+          document.getElementById("gFb").textContent = "Correct. " + q[2]
+        } else {
+          btn.classList.add("ko")
+          all[q[1]].classList.add("ok")
+          document.getElementById("gFb").textContent = "Rat\u00e9. " + q[2]
+        }
+        var bt = document.getElementById("gBtn")
+        bt.style.display = "inline-block"
+        bt.textContent = gi === GAME.items.length - 1 ? "Voir mon score" : "Situation suivante"
+      }
+      function gameNext() {
+        gi++
+        if (gi >= GAME.items.length) {
+          document.querySelector("#tab-jeu .game").style.display = "none"
+          document.getElementById("gScore").style.display = "block"
+          document.getElementById("gScoreNum").textContent = gs + " / " + GAME.items.length
+          var p = gs / GAME.items.length,
+            m
+          if (p <= 0.4) m = GAME.msg[0]
+          else if (p <= 0.7) m = GAME.msg[1]
+          else if (p < 1) m = GAME.msg[2]
+          else m = GAME.msg[3]
+          document.getElementById("gScoreMsg").textContent = m
+          return
+        }
+        gameRender()
+      }
+
+      /* QUIZ */
+      var score = 0,
+        answered = {}
+      ;(function () {
+        var c = document.getElementById("quiz-container")
+        if (!c) return
+        QUIZ.forEach(function (q, i) {
+          var n = i + 1
+          var h =
+            '<div class="quiz-question" id="q' +
+            n +
+            '"><h4>' +
+            n +
+            ". " +
+            q.q +
+            '</h4><div class="quiz-options">'
+          q.o.forEach(function (txt) {
+            h +=
+              '<button class="quiz-option" onclick="answer(' +
+              n +
+              ",'" +
+              txt.trim().charAt(0) +
+              "')\">" +
+              txt +
+              "</button>"
+          })
+          h += '</div><div class="quiz-feedback" id="fb' + n + '"></div></div>'
+          c.innerHTML += h
+        })
+      })()
+      function answer(n, choice) {
+        if (answered[n]) return
+        answered[n] = true
+        var q = document.getElementById("q" + n),
+          good = QUIZ[n - 1].good
+        q.querySelectorAll(".quiz-option").forEach(function (b) {
+          b.disabled = true
+          var l = b.textContent.trim().charAt(0)
+          if (l === good) b.classList.add("correct")
+          else if (l === choice) b.classList.add("wrong")
+        })
+        if (choice === good) score++
+        var fb = QUIZ[n - 1].fb
+        document.getElementById("fb" + n).textContent = fb[choice] || fb.wrong
+        if (Object.keys(answered).length === QUIZ.length) showScore()
+      }
+      function showScore() {
+        document.getElementById("quiz-score").style.display = "block"
+        document.getElementById("score-display").textContent = score + " / " + QUIZ.length
+        var p = score / QUIZ.length,
+          m
+        if (p < 0.35) m = "Revoyez le cours avant de continuer."
+        else if (p < 0.6) m = "Plusieurs notions sont \u00e0 revoir."
+        else if (p < 0.85) m = "Pas mal ! Relisez les points manqu\u00e9s."
+        else if (p < 1) m = "Tr\u00e8s bien, vous ma\u00eetrisez presque tout."
+        else m = "Parfait \u2014 toutes les r\u00e9ponses sont correctes."
+        document.getElementById("score-msg").textContent = m
+      }
+      function restartQuiz() {
+        score = 0
+        answered = {}
+        document.getElementById("quiz-score").style.display = "none"
+        document.querySelectorAll(".quiz-option").forEach(function (b) {
+          b.disabled = false
+          b.classList.remove("correct", "wrong")
+        })
+        document.querySelectorAll(".quiz-feedback").forEach(function (f) {
+          f.textContent = ""
+        })
+      }
+
+      bindGroup("#c4 .kard", DATA, "p1")
+      bindGroup("#tab-cas .node", DATA, "p2")
+      bindGroup("#c4b .kard", DATA, "p3")
+      bindGroup("#st4 .step", DATA, "p4")
+      var sl = document.getElementById("mois")
+      function coutUpd() {
+        var m = +sl.value,
+          wa = m * 15
+        document.getElementById("moisVal").textContent = m
+        document.getElementById("cWa").textContent = wa + " min"
+        var o = document.getElementById("coutOut")
+        if (wa < 30) {
+          o.textContent = "Le contournement coûte encore moins cher (" + wa + " min contre 30)"
+          o.style.background = "#2f9e6e"
+        } else if (wa === 30) {
+          o.textContent = "Égalité : " + wa + " min de chaque côté"
+          o.style.background = "#b8860b"
+        } else {
+          o.textContent =
+            "Le contournement coûte " + (wa - 30) + " min de plus que la solution définitive"
+          o.style.background = "#c0392b"
+        }
+      }
+      sl.addEventListener("input", coutUpd)
+      coutUpd()
+
+      gameStart()
+    </script>
+  </body>
+</html>

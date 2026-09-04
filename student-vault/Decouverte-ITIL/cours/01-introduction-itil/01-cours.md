@@ -4,6 +4,12 @@ title: "01. Introduction à ITIL"
 
 # 01 — Introduction à ITIL · Cours
 
+> [!TIP] Ressources du chapitre
+> - <a href="01-introduction-itil-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[01-tp|TP du chapitre]]
+> - [[01-correction|Correction]] *(formateur)*
+> - [[00-INDEX|Sommaire de la formation]]
+
 ---
 
 > [!NOTE] Objectif de cette section

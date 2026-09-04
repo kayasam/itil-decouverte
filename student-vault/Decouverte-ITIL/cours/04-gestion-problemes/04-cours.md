@@ -4,6 +4,13 @@ title: "04. La gestion des problèmes"
 
 # 04 — La gestion des problèmes · Cours
 
+> [!TIP] Ressources du chapitre
+> - <a href="04-gestion-problemes-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[04-tp-serveur-partage|TP — serveur mutualisé]]
+> - [[04-tp-serveur-individuel|TP — serveur individuel]]
+> - [[04-correction|Correction]] *(formateur)*
+> - [[00-INDEX|Sommaire de la formation]]
+
 ---
 
 > [!NOTE] Objectif de cette section

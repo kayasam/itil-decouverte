@@ -8,8 +8,16 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
+> - [Ouvrir le chapitre interactif](https://kayasam.github.io/itil-decouverte/cours/01-introduction-itil-interactif.html)
 > - [Faire le quiz — 20 questions](https://kayasam.github.io/itil-decouverte/cours/quiz/01-introduction-itil.html)
 > - <a href="https://kayasam.github.io/itil-decouverte/telechargements/cours/01-introduction-itil.md" download>Télécharger ce cours en Markdown</a>
+
+> [!TIP] Ressources du chapitre
+>
+> - <a href="01-introduction-itil-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [[01-tp|TP du chapitre]]
+> - [[01-correction|Correction]] _(formateur)_
+> - [[00-INDEX|Sommaire de la formation]]
 
 ---
 
