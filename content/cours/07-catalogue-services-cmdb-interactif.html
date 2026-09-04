@@ -906,10 +906,70 @@
     </div>
 
     <div id="tab-cmdb" class="tab-content">
+      <h2>D'abord : qu'est-ce qu'un CI ?</h2>
+      <div class="callout note">
+        <div class="callout-title">Définition</div>
+        Un <b>CI</b> — <i>Configuration Item</i>, en français <b>élément de configuration</b> — est
+        <b>tout ce qui doit être géré pour pouvoir fournir un service IT</b>.
+      </div>
+      <p>Le mot « élément » est volontairement large. Un CI n'est pas forcément du matériel :</p>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Famille</th>
+            <th>Exemples de CI</th>
+          </tr>
+          <tr>
+            <td>Matériel</td>
+            <td>Ordinateur, imprimante, switch, serveur, téléphone</td>
+          </tr>
+          <tr>
+            <td>Logiciel</td>
+            <td>Application, licence, version d'un logiciel</td>
+          </tr>
+          <tr>
+            <td>Infrastructure</td>
+            <td>Machine virtuelle, base de données, lien réseau</td>
+          </tr>
+          <tr>
+            <td>Documentation</td>
+            <td>Contrat de maintenance, procédure d'exploitation, garantie</td>
+          </tr>
+        </table>
+      </div>
+      <h3>Le test en deux questions</h3>
+      <p>Pour savoir si quelque chose est un CI, posez-vous ces deux questions :</p>
+      <div class="cards">
+        <div class="kard" style="cursor: default">
+          <div class="kt">1. Est-ce que ça doit être géré ?</div>
+          <div class="ks">
+            Ça a un cycle de vie : on l'acquiert, on le maintient, on le met à jour, on le retire.
+            Il existe un responsable.
+          </div>
+        </div>
+        <div class="kard" style="cursor: default">
+          <div class="kt">2. Est-ce qu'un service en dépend ?</div>
+          <div class="ks">Si ça tombe ou disparaît, un service se dégrade ou s'arrête.</div>
+        </div>
+      </div>
+      <p>Deux « oui » : c'est un CI.</p>
+      <div class="callout warn">
+        <div class="callout-title">Ce qui n'est PAS un CI</div>
+        Un <b>ticket</b>, un <b>mail</b>, une <b>fiche de base de connaissance</b> ne sont pas des
+        CI. Ce sont des <b>enregistrements d'activité</b> ou de la connaissance : ils décrivent ce
+        qui arrive aux CI, ils ne sont pas les éléments eux-mêmes. <br /><br />La confusion est
+        fréquente parce que tout cohabite dans GLPI. Le repère : un CI <b>peut tomber en panne</b>.
+        Un ticket, non.
+      </div>
+
       <h2>La CMDB</h2>
       <p>
-        La <b>CMDB</b> (<i>Configuration Management Database</i>) recense les éléments de
-        configuration — les <b>CI</b> — et surtout <b>les liens entre eux</b>.
+        La <b>CMDB</b> (<i>Configuration Management Database</i>) est la base qui recense les CI
+        <b>et surtout les liens entre eux</b>. La définition ITIL 4 :
+        <i
+          >« une base de données qui stocke les enregistrements de configuration tout au long de
+          leur cycle de vie »</i
+        >.
       </p>
       <div class="table-wrap">
         <table>
@@ -1251,7 +1311,7 @@
       var GAME = {
         opts: ["Oui, c'est un CI", "Non"],
         msg: [
-          "La notion de CI reste floue. Revoyez l'onglet CMDB.",
+          "La notion de CI reste floue. Revoyez la définition et le test en deux questions.",
           "Quelques hésitations sur les cas limites.",
           "Très bien — vous savez ce qui mérite d'entrer dans la CMDB.",
           "Sans faute.",
