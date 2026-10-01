@@ -1,53 +1,56 @@
 ---
-title: Parcours GLPI puis ITIL
-description: "Parcours élève en deux étapes : initiation GLPI puis découverte ITIL."
+title: Initiation GLPI et Découverte ITIL
+description: Tous les chapitres du parcours élève GLPI puis ITIL.
 ---
 
-# Parcours — GLPI puis ITIL
+<header class="home-header">
+  <h1>Initiation GLPI et Découverte ITIL</h1>
+  <nav class="home-shortcuts" aria-label="Aller à une formation">
+    <a href="#glpi">Initiation GLPI <span>24 étapes ↓</span></a>
+    <a href="#itil">Découverte ITIL <span>8 chapitres ↓</span></a>
+  </nav>
+</header>
 
-<section class="pc-hero">
-  <span class="pc-kicker">Support élève · GLPI puis ITIL</span>
-  <h2>Installer le helpdesk. Comprendre les services.</h2>
-  <p>Commencer par installer et utiliser GLPI 11 dans le laboratoire du Fournil Doré. Poursuivre avec huit chapitres ITIL pour comprendre les pratiques qui donnent du sens au travail dans GLPI.</p>
-  <div class="pc-actions">
-    <a href="./00-glpi/">Commencer par GLPI →</a>
-    <a href="./itil/">Continuer avec ITIL</a>
+<section class="home-track home-track--glpi" id="glpi" aria-labelledby="home-glpi-title">
+  <div class="home-track__head">
+    <div class="home-track__logo home-track__logo--glpi"><img src="./assets/brands/glpi-logo.svg" alt="Logo officiel GLPI" /></div>
+    <div class="home-track__heading">
+      <h2 id="home-glpi-title">Initiation GLPI</h2>
+      <p>Installez GLPI 11, créez le parc, puis mettez en place les tickets, les mails et l'annuaire du laboratoire.</p>
+    </div>
+    <a class="home-track__start" href="./00-glpi/01-presentation-glpi/">Commencer au chapitre 01 →</a>
+  </div>
+  <div class="home-chapter-grid">
+    <!-- GLPI_CHAPTERS -->
   </div>
 </section>
 
-## 1. Initiation GLPI
+<section class="home-track home-track--itil" id="itil" aria-labelledby="home-itil-title">
+  <div class="home-track__head">
+    <div class="home-track__logo home-track__logo--itil"><img src="./assets/brands/itil-logo.svg" alt="Logo officiel ITIL" /></div>
+    <div class="home-track__heading">
+      <h2 id="home-itil-title">Découverte ITIL</h2>
+      <p>Reprenez le même laboratoire pour comprendre les services, les incidents, les problèmes et leur amélioration.</p>
+      <a class="home-track__context" href="./00-contexte/">Voir le contexte commun et ses schémas →</a>
+    </div>
+    <a class="home-track__start" href="./01-introduction-itil/">Commencer au chapitre 01 →</a>
+  </div>
+  <div class="home-chapter-grid">
+    <a class="home-chapter" href="./01-introduction-itil/"><span class="home-chapter__number">01</span><strong>Introduction à ITIL</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./02-concepts-fondamentaux/"><span class="home-chapter__number">02</span><strong>Concepts fondamentaux d'ITIL 4</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./03-gestion-incidents/"><span class="home-chapter__number">03</span><strong>Gestion des incidents</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./04-gestion-problemes/"><span class="home-chapter__number">04</span><strong>Gestion des problèmes</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./05-gestion-changements/"><span class="home-chapter__number">05</span><strong>Gestion des changements</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./06-sla-niveaux-service/"><span class="home-chapter__number">06</span><strong>SLA et niveaux de service</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./07-catalogue-services-cmdb/"><span class="home-chapter__number">07</span><strong>Catalogue de services et CMDB</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+    <a class="home-chapter" href="./08-amelioration-continue/"><span class="home-chapter__number">08</span><strong>Amélioration continue</strong><span class="home-chapter__arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>
 
-<div class="pc-path">
-  <a class="pc-card" href="./00-glpi/"><span class="pc-card__number">01</span><small>Première étape</small><strong>Initiation GLPI</strong><span>24 étapes : installation, parc, tickets, messagerie, automatisation et connexion LLDAP.</span></a>
-  <a class="pc-card" href="./00-glpi/01-presentation-glpi/"><span class="pc-card__number">→</span><small>Départ</small><strong>Présentation de GLPI</strong><span>Ouvrir le premier chapitre du laboratoire Le Fournil Doré.</span></a>
-</div>
-
-## 2. Découverte ITIL
-
-Une fois le laboratoire GLPI terminé, [relire le contexte commun](./00-contexte/) puis utiliser la même instance pour étudier les pratiques ITIL.
-
-<div class="pc-path">
-  <a class="pc-card" href="./itil/"><span class="pc-card__number">ITIL</span><small>Deuxième étape</small><strong>Découverte ITIL</strong><span>Huit chapitres pour comprendre les pratiques de gestion des services.</span></a>
-  <a class="pc-card" href="./01-introduction-itil/"><span class="pc-card__number">01</span><small>Repères</small><strong>Introduction à ITIL</strong><span>Origines, versions, services, valeur et certifications.</span></a>
-  <a class="pc-card" href="./02-concepts-fondamentaux/"><span class="pc-card__number">02</span><small>Fondations</small><strong>Concepts fondamentaux</strong><span>4 dimensions, SVS, principes directeurs et chaîne de valeur.</span></a>
-  <a class="pc-card" href="./03-gestion-incidents/"><span class="pc-card__number">03</span><small>Support</small><strong>Gestion des incidents</strong><span>Qualification, priorité, cycle de vie et escalade.</span></a>
-  <a class="pc-card" href="./04-gestion-problemes/"><span class="pc-card__number">04</span><small>Analyse</small><strong>Gestion des problèmes</strong><span>Cause racine, erreur connue et solution de contournement.</span></a>
-  <a class="pc-card" href="./05-gestion-changements/"><span class="pc-card__number">05</span><small>Maîtrise</small><strong>Gestion des changements</strong><span>Standard, normal, urgence, CAB et plan de repli.</span></a>
-  <a class="pc-card" href="./06-sla-niveaux-service/"><span class="pc-card__number">06</span><small>Engagements</small><strong>SLA et niveaux de service</strong><span>TTO, TTR, OLA, SLM et escalades.</span></a>
-  <a class="pc-card" href="./07-catalogue-services-cmdb/"><span class="pc-card__number">07</span><small>Services</small><strong>Catalogue et CMDB</strong><span>Offre de services, CI et analyse des dépendances.</span></a>
-  <a class="pc-card" href="./08-amelioration-continue/"><span class="pc-card__number">08</span><small>Progrès</small><strong>Amélioration continue</strong><span>Modèle en 7 étapes, KPI, registre et statistiques GLPI.</span></a>
-</div>
-
-## Emporter les formations
-
-<div class="obsidian-download">
-  <div class="obsidian-download__icon" aria-hidden="true">GLPI</div>
-  <div class="obsidian-download__content"><strong>Initiation GLPI hors ligne</strong><span>Cours, ateliers, schémas et captures du laboratoire.</span></div>
-  <a class="obsidian-download__button" href="./glpi-initiation-obsidian.zip" download>Télécharger le ZIP</a>
-</div>
-
-<div class="obsidian-download">
-  <div class="obsidian-download__icon" aria-hidden="true">ITIL</div>
-  <div class="obsidian-download__content"><strong>Formation hors ligne</strong><span>Les cours, les TP et les illustrations, sans les corrections.</span></div>
-  <a class="obsidian-download__button" href="./itil-decouverte-obsidian.zip" download>Télécharger le ZIP</a>
-</div>
+<section class="home-downloads" aria-labelledby="home-downloads-title">
+  <h2 id="home-downloads-title">Supports hors ligne</h2>
+  <div class="home-downloads__grid">
+    <a href="./glpi-initiation-obsidian.zip" download><strong>Initiation GLPI</strong><span>Récupérer les cours, TP et illustrations pour Obsidian.</span><em>Télécharger le ZIP →</em></a>
+    <a href="./itil-decouverte-obsidian.zip" download><strong>Découverte ITIL</strong><span>Récupérer les huit cours, TP et illustrations pour Obsidian.</span><em>Télécharger le ZIP →</em></a>
+  </div>
+</section>

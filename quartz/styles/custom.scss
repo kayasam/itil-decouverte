@@ -2,6 +2,22 @@
 @use "./pc.scss";
 @use "./explorer-pc.scss";
 
+body[data-slug="00-contexte/index"] .page-listing {
+  display: none;
+}
+
+body[data-slug="00-contexte/index"] article a.context-next,
+body[data-slug="00-contexte/index"] article a.context-next.internal {
+  display: inline-flex;
+  margin-top: 0.4rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.55rem;
+  color: #fff;
+  background: var(--secondary);
+  font-weight: 750;
+  text-decoration: none;
+}
+
 @media all and ($desktop) {
   .page > #quartz-body > .sidebar {
     padding-top: 1rem;

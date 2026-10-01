@@ -4,46 +4,34 @@ aliases:
   - "/contexte"
 ---
 
-# 00 — Le laboratoire que vous poursuivez
+# Le Fournil Doré — le laboratoire commun
 
-> [!NOTE] Point de départ
-> Vous avez terminé l'initiation GLPI sur votre propre VM. La formation ITIL continue sur **la même instance GLPI 11**, avec les mêmes comptes, équipements et tickets. Connectez-vous avec **votre compte Super-Admin** pour les réglages et les traitements. **Claire Rousseau** reste la demandeuse du fil rouge.
+Vous poursuivez **la même instance GLPI 11** après l'initiation. Les comptes, les équipements et les tickets déjà créés restent en place. Chaque élève travaille sur son propre laboratoire.
 
-## L'entreprise et son outil
+## Le réseau et l'entité
 
-**Le Fournil Doré** est une boulangerie avec des activités à Nantes et Rennes. Le laboratoire utilise un serveur Debian GLPI à `192.168.3.10` et un hôte Windows à `192.168.3.254`. Le DNS du réseau privé est `1.1.1.1`. Les comptes pédagogiques utilisent `a12345!`.
+![itil-contexte-laboratoire.svg](/Ressources/images/itil-contexte-laboratoire.svg)
 
-La VM, le parc et les premiers tickets ont été construits dans les 22 chapitres GLPI. Vous continuez à travailler dans l'entité racine **Le Fournil Doré**, sans « Arborescence ». **Boutique** et **Laboratoire** peuvent exister comme exemples d'entités, mais ce parcours n'y place ni utilisateurs, ni équipements, ni tickets.
+Le serveur Debian est à `192.168.3.10`, le poste Windows à `192.168.3.254` et le DNS est `1.1.1.1`. Le réseau reste celui de VirtualBox, configuré en `192.168.3.0/24`.
 
-| Repère                                          | Dans ce parcours                                 |
-| ----------------------------------------------- | ------------------------------------------------ |
-| Administrateur                                  | Votre compte Super-Admin de l'initiation GLPI    |
-| Demandeuse                                      | `claire.rousseau` — Claire Rousseau              |
-| Source des nouveaux comptes du chapitre GLPI 22 | LLDAP, pour `n.robin` et `z.roronoa`             |
-| Imprimante suivie                               | `IMP-NAN-OPENSPACE-01`, lieu Nantes > Open space |
-| Entité de tous les objets                       | Le Fournil Doré                                  |
-| Mot de passe pédagogique                        | `a12345!`                                        |
+**Tous les utilisateurs, équipements, tickets et objets des TP sont dans l'entité racine Le Fournil Doré.** Nantes et Rennes sont des lieux physiques. Un lieu indique où se trouve un équipement ; une entité détermine où GLPI classe les données et applique les droits. L'imprimante `IMP-NAN-OPENSPACE-01` est au lieu **Nantes > Open space**, dans l'entité racine.
 
-Un **lieu** indique où se trouve un équipement. Une **entité** détermine où GLPI classe les données et applique les droits. Le lieu **Nantes > Open space** ne change donc pas l'entité de l'imprimante.
+## Les comptes à utiliser
 
-## Du ticket GLPI à la démarche ITIL
+| Compte                   | Rôle dans les TP                                                                             |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| Votre compte Super-Admin | Configurer GLPI et traiter les objets du laboratoire                                         |
+| `claire.rousseau`        | Signaler les demandes et vérifier l'expérience du demandeur                                  |
+| `n.robin` et `z.roronoa` | Comptes LLDAP du groupe `mugiwara`, créés au chapitre GLPI 22 ; ils ne remplacent pas Claire |
 
-L'imprimante `IMP-NAN-OPENSPACE-01` sert de fil rouge. Claire signale une nouvelle panne dans le TP 03. Dans le TP 04, vous ajoutez deux incidents **simulés** pour étudier la récurrence, puis vous ouvrez un problème. Le TP 05 documente un changement de pilote avec un plan de test et de repli ; il ne suppose pas de domaine Active Directory ni de GPO. Les TP 06 à 08 ajoutent des engagements de service, une dépendance du parc et une mesure d'amélioration.
+Le mot de passe pédagogique est **`a12345!`** pour ces comptes. Si LLDAP est devenu la source de connexion par défaut, sélectionnez **Base interne GLPI** pour revenir au Super-Admin ou à Claire. Aucun préfixe de nommage n'est nécessaire : chaque élève possède sa propre instance.
 
-| Chapitre ITIL | Travail réalisé sur votre GLPI                                          |
-| ------------- | ----------------------------------------------------------------------- |
-| 01–02         | Comprendre la valeur du service et le système de valeur ITIL            |
-| 03            | Qualifier et traiter l'incident signalé par Claire                      |
-| 04            | Relier les incidents, rechercher la cause et documenter l'erreur connue |
-| 05            | Préparer le changement de pilote et son retour arrière                  |
-| 06            | Créer des SLA et les lire sur un ticket                                 |
-| 07            | Relier l'imprimante à son switch dans l'analyse d'impact                |
-| 08            | Exploiter les statistiques et planifier l'amélioration                  |
+## Du ticket GLPI aux pratiques ITIL
 
-## Les comptes et les accès
+![itil-contexte-parcours.svg](/Ressources/images/itil-contexte-parcours.svg)
 
-Votre Super-Admin sert aux actions de configuration du laboratoire. Pour vérifier l'expérience du demandeur, connectez-vous avec `claire.rousseau / a12345!`, puis revenez au Super-Admin en choisissant **Base interne GLPI** si l'annuaire LLDAP est la source par défaut. Les deux comptes LLDAP du chapitre GLPI 22 ne remplacent pas Claire dans les TP ITIL.
+Les chapitres **01 et 02** expliquent les concepts. Dans le TP **03**, Claire signale une nouvelle panne de l'imprimante. Le TP **04** ajoute deux incidents _simulés_ pour étudier la récurrence, puis ouvre un problème. Le TP **05** prépare un changement de pilote avec tests et plan de repli. Les TP **06 à 08** ajoutent les SLA, les relations entre équipements et la mesure de l'amélioration.
 
-Aucun préfixe de nommage n'est nécessaire : chaque élève travaille sur sa propre instance. Les nouveaux tickets, problèmes, changements, SLA et équipements sont créés dans **Le Fournil Doré**.
+Le laboratoire n'utilise ni domaine Active Directory ni GPO. Si aucun pilote approprié n'est disponible, le changement du TP 05 reste **prévu** : ne le présentez pas comme appliqué.
 
-Suite : [Introduction à ITIL](/01-introduction-itil/).
+<a class="context-next" href="/01-introduction-itil/">Commencer le chapitre 01 — Introduction à ITIL →</a>

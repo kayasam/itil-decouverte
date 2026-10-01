@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 390" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">Laboratoire GLPI commun aux formations GLPI et ITIL</title>
+  <desc id="desc">Un poste Windows en 192.168.3.254 et un serveur Debian GLPI en 192.168.3.10 communiquent sur le réseau VirtualBox 192.168.3.0/24. Le DNS est 1.1.1.1. Tous les objets restent dans l'entité racine Le Fournil Doré.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0 0 L10 5.5 L0 11 Z" fill="#1769aa"/></marker>
+  </defs>
+  <rect width="1080" height="390" rx="24" fill="#f8fbff"/>
+  <text x="40" y="51" fill="#182b45" font-size="27" font-weight="700">Un seul laboratoire, de GLPI à ITIL</text>
+  <rect x="32" y="76" width="1016" height="226" rx="20" fill="#eaf4fc" stroke="#a8cce7" stroke-width="2"/>
+  <text x="58" y="111" fill="#145b93" font-size="19" font-weight="700">Réseau VirtualBox · 192.168.3.0/24</text>
+  <rect x="59" y="134" width="295" height="130" rx="16" fill="#fff" stroke="#94c3e5" stroke-width="2"/>
+  <rect x="76" y="153" width="48" height="48" rx="12" fill="#1769aa"/>
+  <text x="100" y="185" text-anchor="middle" fill="#fff" font-size="24" font-weight="700">W</text>
+  <text x="139" y="174" fill="#17263d" font-size="21" font-weight="700">Poste Windows</text>
+  <text x="139" y="199" fill="#1769aa" font-size="18" font-weight="700">192.168.3.254</text>
+  <text x="77" y="237" fill="#52657d" font-size="16">Navigateur et poste du laboratoire</text>
+  <path d="M365 177 H715" stroke="#1769aa" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M715 198 H365" stroke="#1769aa" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="440" y="222" width="200" height="49" rx="12" fill="#fff" stroke="#bfd5e6"/>
+  <text x="540" y="253" text-anchor="middle" fill="#265377" font-size="17" font-weight="700">DNS 1.1.1.1</text>
+  <rect x="726" y="134" width="295" height="130" rx="16" fill="#fff" stroke="#94c3e5" stroke-width="2"/>
+  <rect x="744" y="153" width="48" height="48" rx="12" fill="#1769aa"/>
+  <text x="768" y="185" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">G</text>
+  <text x="807" y="174" fill="#17263d" font-size="20" font-weight="700">Debian 13 + GLPI 11</text>
+  <text x="807" y="199" fill="#1769aa" font-size="18" font-weight="700">192.168.3.10</text>
+  <text x="744" y="237" fill="#52657d" font-size="16">Tickets, parc et services du cours</text>
+  <rect x="32" y="319" width="1016" height="55" rx="15" fill="#eee9fc" stroke="#c8b8f4"/>
+  <text x="55" y="342" fill="#5c3aa9" font-size="18" font-weight="700">Entité racine : Le Fournil Doré</text>
+  <text x="55" y="363" fill="#4c4a63" font-size="15">Votre Super-Admin · Claire Rousseau · IMP-NAN-OPENSPACE-01 · tous les tickets et équipements</text>
+</svg>

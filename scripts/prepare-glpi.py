@@ -85,13 +85,18 @@ def write_page(source_file: Path, destination: str):
 write_page(source / "00-INDEX.md", "00-glpi/index.md")
 cards = []
 for number, title, folder, course_stem, tp_stem in chapters:
-    practice = "Cours et atelier" if tp_stem else "Cours"
     cards.append(
-        f'<a class="pc-card" href="/00-glpi/{folder.name}/">'
-        f'<span class="pc-card__number">{escape(number)}</span>'
-        f'<small>{practice}</small><strong>{escape(title)}</strong>'
-        f'<span>Ouvrir le chapitre GLPI.</span></a>'
+        f'<a class="home-chapter" href="/00-glpi/{folder.name}/">'
+        f'<span class="home-chapter__number">{escape(number)}</span>'
+        f'<strong>{escape(title)}</strong>'
+        f'<span class="home-chapter__arrow" aria-hidden="true">→</span></a>'
     )
+home = site_stage / "index.md"
+marker = "<!-- GLPI_CHAPTERS -->"
+home_body = home.read_text(encoding="utf-8")
+if home_body.count(marker) != 1:
+    raise SystemExit("Emplacement des chapitres GLPI manquant sur l'accueil")
+home.write_text(home_body.replace(marker, "\n    ".join(cards)), encoding="utf-8")
 (site / "index.md").write_text(
     "---\ntitle: Initiation GLPI\n"
     "description: Première étape du parcours GLPI puis ITIL.\n---\n\n"
@@ -99,7 +104,7 @@ for number, title, folder, course_stem, tp_stem in chapters:
     "Installer GLPI 11, construire le laboratoire **Le Fournil Doré**, puis "
     "mettre en place le helpdesk. Les chapitres suivent le même fil rouge dans "
     "l'entité racine.\n\n"
-    "## Parcours GLPI\n\n<div class=\"pc-path\">\n"
+    "## Parcours GLPI\n\n<div class=\"home-chapter-grid home-chapter-grid--glpi\">\n"
     + "\n".join(cards)
     + "\n</div>\n\n"
     "## Étape suivante\n\n"

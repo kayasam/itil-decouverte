@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 480" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">Progression du fil rouge dans les travaux pratiques ITIL</title>
+  <desc id="desc">Après les notions des chapitres 1 et 2, le chapitre 3 traite l'incident de Claire. Le chapitre 4 étudie un problème récurrent avec deux incidents simulés. Le chapitre 5 prépare un changement. Le chapitre 6 ajoute les SLA, le chapitre 7 les dépendances de la CMDB et le chapitre 8 la mesure de l'amélioration.</desc>
+  <defs><marker id="next" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0 0 L10 5.5 L0 11 Z" fill="#8956ee"/></marker></defs>
+  <rect width="1080" height="480" rx="24" fill="#fbfaff"/>
+  <text x="40" y="46" fill="#211b35" font-size="27" font-weight="700">Le fil rouge des TP ITIL</text>
+  <text x="40" y="74" fill="#615675" font-size="16">Chapitres 01–02 : comprendre les notions, puis reprendre la même instance GLPI.</text>
+  <path d="M340 170 H377" stroke="#8956ee" stroke-width="3" marker-end="url(#next)"/>
+  <path d="M690 170 H727" stroke="#8956ee" stroke-width="3" marker-end="url(#next)"/>
+  <path d="M880 241 V259 H190 V276" fill="none" stroke="#8956ee" stroke-width="3" marker-end="url(#next)"/>
+  <path d="M340 361 H377" stroke="#8956ee" stroke-width="3" marker-end="url(#next)"/>
+  <path d="M690 361 H727" stroke="#8956ee" stroke-width="3" marker-end="url(#next)"/>
+  <rect x="40" y="105" width="300" height="136" rx="17" fill="#fff" stroke="#c8b8f4" stroke-width="2"/>
+  <rect x="57" y="123" width="46" height="35" rx="9" fill="#8956ee"/><text x="80" y="147" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">03</text>
+  <text x="117" y="147" fill="#332052" font-size="19" font-weight="700">Incident</text>
+  <text x="57" y="184" fill="#526077" font-size="16">Claire signale une nouvelle panne</text>
+  <text x="57" y="209" fill="#526077" font-size="16">de l'imprimante.</text>
+  <rect x="390" y="105" width="300" height="136" rx="17" fill="#fff" stroke="#c8b8f4" stroke-width="2"/>
+  <rect x="407" y="123" width="46" height="35" rx="9" fill="#8956ee"/><text x="430" y="147" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">04</text>
+  <text x="467" y="147" fill="#332052" font-size="19" font-weight="700">Problème</text>
+  <text x="407" y="184" fill="#526077" font-size="16">Deux incidents simulés montrent</text>
+  <text x="407" y="209" fill="#526077" font-size="16">la récurrence ; la cause est étudiée.</text>
+  <rect x="740" y="105" width="300" height="136" rx="17" fill="#fff" stroke="#c8b8f4" stroke-width="2"/>
+  <rect x="757" y="123" width="46" height="35" rx="9" fill="#8956ee"/><text x="780" y="147" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">05</text>
+  <text x="817" y="147" fill="#332052" font-size="19" font-weight="700">Changement</text>
+  <text x="757" y="184" fill="#526077" font-size="16">Préparer le pilote, le test</text>
+  <text x="757" y="209" fill="#526077" font-size="16">et le plan de repli.</text>
+  <rect x="40" y="286" width="300" height="136" rx="17" fill="#fff" stroke="#b9d4e8" stroke-width="2"/>
+  <rect x="57" y="304" width="46" height="35" rx="9" fill="#1769aa"/><text x="80" y="328" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">06</text>
+  <text x="117" y="328" fill="#17466d" font-size="19" font-weight="700">SLA</text>
+  <text x="57" y="365" fill="#526077" font-size="16">Définir et vérifier les délais</text>
+  <text x="57" y="390" fill="#526077" font-size="16">de prise en charge et de résolution.</text>
+  <rect x="390" y="286" width="300" height="136" rx="17" fill="#fff" stroke="#b9d4e8" stroke-width="2"/>
+  <rect x="407" y="304" width="46" height="35" rx="9" fill="#1769aa"/><text x="430" y="328" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">07</text>
+  <text x="467" y="328" fill="#17466d" font-size="19" font-weight="700">CMDB</text>
+  <text x="407" y="365" fill="#526077" font-size="16">Relier l'imprimante au switch</text>
+  <text x="407" y="390" fill="#526077" font-size="16">pour voir les dépendances.</text>
+  <rect x="740" y="286" width="300" height="136" rx="17" fill="#fff" stroke="#b9d4e8" stroke-width="2"/>
+  <rect x="757" y="304" width="46" height="35" rx="9" fill="#1769aa"/><text x="780" y="328" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">08</text>
+  <text x="817" y="328" fill="#17466d" font-size="19" font-weight="700">Amélioration</text>
+  <text x="757" y="365" fill="#526077" font-size="16">Mesurer, comparer et planifier</text>
+  <text x="757" y="390" fill="#526077" font-size="16">la prochaine action.</text>
+  <text x="540" y="454" text-anchor="middle" fill="#6b5c7f" font-size="14">La cause du problème reste une hypothèse tant que le diagnostic n'a pas été confirmé.</text>
+</svg>
