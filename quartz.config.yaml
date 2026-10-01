@@ -176,7 +176,7 @@ plugins:
           if (node.slugSegments.length !== 0) return;
           const itil = node.children.find(child => child.slugSegment === "itil");
           if (!itil) return;
-          const pages = node.children.filter(child => /^0[1-8]-/.test(child.slugSegment) || child.slugSegment === "Ressources");
+          const pages = node.children.filter(child => /^0[1-8]-/.test(child.slugSegment) || child.slugSegment.toLowerCase() === "ressources");
           itil.children.push(...pages);
           node.children = node.children.filter(child => !pages.includes(child));
         }
