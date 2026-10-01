@@ -407,6 +407,477 @@
     },
   }
 
+  // Questions rédigées pour les deux chapitres théoriques. La position des bonnes
+  // réponses est équilibrée dans la source : cinq A, cinq B, cinq C et cinq D.
+  const theoryQuestions = {
+    "01-introduction-itil": [
+      [
+        "Vocabulaire",
+        "Que signifie le sigle ITIL ?",
+        [
+          "Information Technology Infrastructure Library",
+          "International Technology Integration Language",
+          "Information Tools and Internet Logistics",
+          "Infrastructure Technology Implementation Level",
+        ],
+        0,
+        "ITIL signifie Information Technology Infrastructure Library : une bibliothèque de bonnes pratiques pour la gestion des services informatiques.",
+      ],
+      [
+        "Définition",
+        "Quelle description correspond le mieux à ITIL ?",
+        [
+          "Un logiciel de tickets",
+          "Un référentiel de bonnes pratiques pour gérer les services informatiques",
+          "Une norme ISO obligatoire",
+          "Un langage de programmation",
+        ],
+        1,
+        "ITIL propose des pratiques et un vocabulaire communs pour organiser la gestion des services.",
+      ],
+      [
+        "Portée",
+        "Que fournit ITIL à une organisation ?",
+        [
+          "La configuration technique de chaque serveur",
+          "Une garantie automatique de certification",
+          "Un cadre pour organiser le travail autour des services",
+          "Un outil de supervision prêt à installer",
+        ],
+        2,
+        "ITIL aide à organiser les activités et les décisions liées aux services ; il ne remplace pas les outils techniques.",
+      ],
+      [
+        "Origines",
+        "Dans quel contexte ITIL est-il né ?",
+        [
+          "Dans les réseaux sociaux des années 2010",
+          "Dans un projet de normalisation du matériel",
+          "Dans une entreprise de logiciels américaine",
+          "Dans le secteur public britannique des années 1980",
+        ],
+        3,
+        "ITIL vient d'un recensement de bonnes pratiques lancé au Royaume-Uni pour améliorer les services informatiques.",
+      ],
+      [
+        "Origines",
+        "Pourquoi le mot « Library » figure-t-il dans ITIL ?",
+        [
+          "Les premières pratiques ont été publiées sous forme de livres",
+          "ITIL sert uniquement aux bibliothèques",
+          "Chaque service doit posséder une bibliothèque de code",
+          "La certification exige un catalogue de livres",
+        ],
+        0,
+        "Le référentiel a d'abord été publié dans plusieurs ouvrages, d'où l'idée de bibliothèque.",
+      ],
+      [
+        "Service",
+        "Dans ITIL, un service aide surtout le client à…",
+        [
+          "Posséder tous les composants techniques",
+          "Obtenir le résultat attendu sans gérer les coûts et risques spécifiques",
+          "Administrer lui-même les serveurs",
+          "Supprimer toute dépendance envers un fournisseur",
+        ],
+        1,
+        "Le service facilite un résultat utile tout en laissant au fournisseur la gestion de certains coûts et risques spécifiques.",
+      ],
+      [
+        "Service et produit",
+        "Quel énoncé décrit un service plutôt qu'un produit ?",
+        [
+          "Un routeur livré dans son carton",
+          "Un disque dur acheté par la DSI",
+          "Un accès Wi-Fi utilisable au quotidien",
+          "Une licence stockée dans un inventaire",
+        ],
+        2,
+        "L'accès Wi-Fi est une capacité consommée pour obtenir un résultat ; les autres propositions désignent des composants ou biens.",
+      ],
+      [
+        "Service et produit",
+        "Quelle distinction le cours fait-il entre produit et service ?",
+        [
+          "Le produit est toujours numérique et le service toujours matériel",
+          "Le service est possédé, le produit est utilisé",
+          "Le service n'a pas besoin d'un fournisseur",
+          "Le produit est un bien ou composant ; le service est une capacité utilisée",
+        ],
+        3,
+        "Un produit peut contribuer à un service, mais la valeur du service se manifeste dans son usage.",
+      ],
+      [
+        "Valeur",
+        "Que signifie la cocréation de valeur ?",
+        [
+          "Fournisseur et consommateur contribuent tous deux à la valeur",
+          "Le fournisseur décide seul de la valeur",
+          "Le client fabrique l'infrastructure informatique",
+          "La valeur est égale au prix du matériel",
+        ],
+        0,
+        "La valeur d'un service dépend de ce que le fournisseur permet et de la façon dont le consommateur l'utilise.",
+      ],
+      [
+        "Valeur",
+        "Quel exemple illustre le mieux la valeur d'un service ?",
+        [
+          "Le nombre de serveurs disponibles dans un stock",
+          "La possibilité de communiquer grâce à une messagerie fiable",
+          "La longueur d'une procédure d'installation",
+          "Le prix d'achat d'un commutateur",
+        ],
+        1,
+        "La valeur est liée au résultat utile obtenu grâce au service, ici la communication.",
+      ],
+      [
+        "ITIL v2",
+        "Quel accent caractérise ITIL v2 dans le cours ?",
+        [
+          "L'intégration native de l'IA",
+          "Le cycle de vie en cinq livres",
+          "Une organisation centrée sur les processus",
+          "L'extension aux fonctions RH et finances",
+        ],
+        2,
+        "ITIL v2 a regroupé les pratiques autour des processus de gestion des services.",
+      ],
+      [
+        "ITIL v3",
+        "Autour de quoi ITIL v3 organise-t-il ses cinq livres ?",
+        [
+          "Des fabricants de matériel",
+          "Des certifications techniques",
+          "Des départements de l'entreprise",
+          "Du cycle de vie du service",
+        ],
+        3,
+        "ITIL v3 structure ses ouvrages autour des phases du cycle de vie du service.",
+      ],
+      [
+        "ITIL 4",
+        "Quelle idée occupe une place centrale dans ITIL 4 ?",
+        [
+          "La création de valeur par les services",
+          "La possession de matériel",
+          "La suppression des utilisateurs",
+          "L'obligation d'utiliser un logiciel unique",
+        ],
+        0,
+        "ITIL 4 met au centre la valeur créée par la gestion des services.",
+      ],
+      [
+        "ITIL 4",
+        "Quelles approches ITIL 4 intègre-t-il explicitement dans le cours ?",
+        [
+          "COBOL, FTP et BIOS",
+          "Agile, DevOps et Lean",
+          "Uniquement la méthode en cascade",
+          "La comptabilité et la paie",
+        ],
+        1,
+        "Le cours présente ITIL 4 comme compatible avec Agile, DevOps et Lean.",
+      ],
+      [
+        "ITIL 5",
+        "Quelle évolution est mise en avant pour ITIL 5 dans le cours ?",
+        [
+          "Le retour exclusif aux processus d'ITIL v2",
+          "L'abandon de la gestion des services",
+          "L'intégration de l'IA et l'extension à l'ESM",
+          "Le remplacement de tous les services par du matériel",
+        ],
+        2,
+        "Le cours associe ITIL 5 à l'IA et à l'Enterprise Service Management.",
+      ],
+      [
+        "ESM",
+        "Que désigne l'Enterprise Service Management (ESM) ?",
+        [
+          "L'achat centralisé des serveurs",
+          "La supervision des réseaux seulement",
+          "Une méthode de programmation",
+          "L'application de la gestion des services au-delà de l'informatique",
+        ],
+        3,
+        "L'ESM étend les méthodes de gestion des services à d'autres domaines de l'organisation.",
+      ],
+      [
+        "Certification",
+        "Quel est le niveau d'entrée du parcours de certification ITIL ?",
+        ["Foundation", "Master", "Strategist", "Leader"],
+        0,
+        "Foundation valide la compréhension des notions fondamentales d'ITIL.",
+      ],
+      [
+        "Certification",
+        "Que valide principalement une certification ITIL Foundation ?",
+        [
+          "La capacité à réparer tout équipement",
+          "La connaissance du vocabulaire et des concepts de base",
+          "Le droit d'administrer un logiciel précis",
+          "La maîtrise d'un langage de programmation",
+        ],
+        1,
+        "Foundation porte sur les concepts fondamentaux de la gestion des services.",
+      ],
+      [
+        "Vocabulaire",
+        "Quel terme nomme l'organisation qui fournit un service ?",
+        [
+          "Consommateur de service",
+          "Utilisateur final",
+          "Fournisseur de service",
+          "Équipement de service",
+        ],
+        2,
+        "Le fournisseur de service met à disposition le service ; le consommateur en bénéficie.",
+      ],
+      [
+        "Synthèse",
+        "Quelle affirmation résume le mieux l'intérêt d'ITIL ?",
+        [
+          "ITIL rend inutile l'écoute des utilisateurs",
+          "ITIL remplace automatiquement les outils IT",
+          "ITIL impose une seule technologie",
+          "ITIL donne un langage et des pratiques pour améliorer les services",
+        ],
+        3,
+        "ITIL aide les équipes à partager des notions et à orienter leur travail vers des services utiles.",
+      ],
+    ],
+    "02-concepts-fondamentaux": [
+      [
+        "Dimensions",
+        "Combien de dimensions ITIL 4 invite-t-il à considérer pour gérer un service ?",
+        ["Quatre", "Deux", "Six", "Sept"],
+        0,
+        "ITIL 4 décrit quatre dimensions complémentaires de la gestion des services.",
+      ],
+      [
+        "Dimensions",
+        "Quelle dimension traite des rôles, compétences et responsabilités ?",
+        [
+          "Information et technologie",
+          "Organisations et personnes",
+          "Partenaires et fournisseurs",
+          "Flux de valeur et processus",
+        ],
+        1,
+        "La dimension Organisations et personnes couvre les acteurs, leurs compétences et leur culture de travail.",
+      ],
+      [
+        "Dimensions",
+        "Outils, données et connaissances relèvent surtout de quelle dimension ?",
+        [
+          "Organisations et personnes",
+          "Partenaires et fournisseurs",
+          "Information et technologie",
+          "Flux de valeur et processus",
+        ],
+        2,
+        "La dimension Information et technologie couvre les outils, les données et les connaissances nécessaires aux services.",
+      ],
+      [
+        "Dimensions",
+        "Quelle dimension examine les prestataires externes ?",
+        [
+          "Organisations et personnes",
+          "Information et technologie",
+          "Flux de valeur et processus",
+          "Partenaires et fournisseurs",
+        ],
+        3,
+        "La dimension Partenaires et fournisseurs tient compte des contributions externes.",
+      ],
+      [
+        "Dimensions",
+        "Quelle dimension décrit l'enchaînement des activités qui produit un résultat ?",
+        [
+          "Flux de valeur et processus",
+          "Information et technologie",
+          "Partenaires et fournisseurs",
+          "Organisations et personnes",
+        ],
+        0,
+        "Les flux de valeur et processus décrivent comment les activités transforment une demande en résultat.",
+      ],
+      [
+        "Dimensions",
+        "Comment faut-il comprendre les quatre dimensions ?",
+        [
+          "Comme quatre étapes à exécuter dans l'ordre",
+          "Comme quatre angles complémentaires sur un même service",
+          "Comme quatre niveaux de certification",
+          "Comme quatre logiciels à installer",
+        ],
+        1,
+        "Les dimensions sont des angles d'analyse simultanés, pas des étapes successives.",
+      ],
+      [
+        "PESTLE",
+        "À quoi sert l'analyse PESTLE dans ce chapitre ?",
+        [
+          "À calculer la priorité d'un ticket",
+          "À choisir un logiciel",
+          "À repérer les facteurs externes qui influencent les services",
+          "À décrire les six activités de la chaîne de valeur",
+        ],
+        2,
+        "PESTLE regroupe les influences politiques, économiques, sociales, technologiques, légales et environnementales.",
+      ],
+      [
+        "PESTLE",
+        "Dans PESTLE, quelle catégorie couvre une nouvelle loi sur les données ?",
+        ["Politique", "Sociale", "Technologique", "Légale"],
+        3,
+        "Une règle de droit relève du facteur légal.",
+      ],
+      [
+        "SVS",
+        "Que signifie SVS dans ITIL 4 ?",
+        [
+          "Service Value System, ou système de valeur des services",
+          "Service Verification Standard",
+          "Support and Versioning Scheme",
+          "System Virtual Server",
+        ],
+        0,
+        "Le SVS est le modèle global qui relie les composants de la gestion des services à la création de valeur.",
+      ],
+      [
+        "SVS",
+        "Quel ensemble contient uniquement des composants du SVS ?",
+        [
+          "Incidents, équipements, licences, serveurs, contrats",
+          "Principes directeurs, gouvernance, chaîne de valeur, pratiques, amélioration continue",
+          "PESTLE, matériel, réseau, stockage, sauvegarde",
+          "Planifier, impliquer, construire, fournir, déployer",
+        ],
+        1,
+        "Le SVS réunit cinq éléments : principes directeurs, gouvernance, chaîne de valeur, pratiques et amélioration continue.",
+      ],
+      [
+        "Gouvernance",
+        "Quel est le rôle de la gouvernance dans le SVS ?",
+        [
+          "Résoudre chaque ticket à la place du support",
+          "Écrire le code de toutes les applications",
+          "Fixer des orientations et veiller à leur respect",
+          "Remplacer les quatre dimensions",
+        ],
+        2,
+        "La gouvernance oriente l'organisation et vérifie que les décisions restent cohérentes avec cette direction.",
+      ],
+      [
+        "Principes",
+        "Quel principe recommande d'évaluer l'existant avant de reconstruire ?",
+        [
+          "Optimiser et automatiser",
+          "Se concentrer sur la valeur",
+          "Collaborer et promouvoir la visibilité",
+          "Commencer là où on en est",
+        ],
+        3,
+        "Commencer là où on en est invite à observer et à réutiliser ce qui fonctionne déjà.",
+      ],
+      [
+        "Principes",
+        "Quel principe conduit à avancer par petites étapes avec des retours réguliers ?",
+        [
+          "Progresser de façon itérative",
+          "Penser de façon holistique",
+          "Garder les choses simples et pratiques",
+          "Se concentrer sur la valeur",
+        ],
+        0,
+        "L'itération permet d'apprendre et d'ajuster le travail au fil des retours.",
+      ],
+      [
+        "Principes",
+        "Quel principe demande de considérer le système dans son ensemble ?",
+        [
+          "Optimiser et automatiser",
+          "Penser et travailler de façon holistique",
+          "Commencer là où on en est",
+          "Progresser de façon itérative",
+        ],
+        1,
+        "Une approche holistique tient compte des interactions entre les différentes parties du service.",
+      ],
+      [
+        "Principes",
+        "Quel principe met l'accent sur le partage d'information entre équipes ?",
+        [
+          "Garder les choses simples et pratiques",
+          "Se concentrer sur la valeur",
+          "Collaborer et promouvoir la visibilité",
+          "Optimiser et automatiser",
+        ],
+        2,
+        "Collaborer et promouvoir la visibilité réduit les silos et rend le travail compréhensible pour les parties prenantes.",
+      ],
+      [
+        "Chaîne de valeur",
+        "Quelle activité de la chaîne de valeur définit vision et priorités ?",
+        ["Impliquer", "Obtenir / Construire", "Fournir et supporter", "Planifier"],
+        3,
+        "Planifier définit la direction, la stratégie et les priorités.",
+      ],
+      [
+        "Chaîne de valeur",
+        "Quelle activité sert à comprendre les besoins des parties prenantes ?",
+        ["Impliquer", "Améliorer", "Obtenir / Construire", "Fournir et supporter"],
+        0,
+        "Impliquer entretient les relations et permet de comprendre les besoins des parties prenantes.",
+      ],
+      [
+        "Chaîne de valeur",
+        "Quelle activité concerne l'acquisition ou le développement de composants ?",
+        ["Planifier", "Obtenir / Construire", "Améliorer", "Impliquer"],
+        1,
+        "Obtenir / Construire fournit les composants nécessaires au service.",
+      ],
+      [
+        "Chaîne de valeur",
+        "Comment les activités de la chaîne de valeur s'enchaînent-elles ?",
+        [
+          "Toujours dans un ordre unique",
+          "Uniquement selon le cycle de vie d'ITIL v3",
+          "Selon un parcours adapté à la demande et au résultat visé",
+          "Sans jamais se répéter",
+        ],
+        2,
+        "La chaîne de valeur ITIL 4 est flexible : les activités se combinent selon le besoin.",
+      ],
+      [
+        "Pratiques",
+        "Dans ITIL 4, qu'est-ce qu'une pratique ?",
+        [
+          "Un logiciel obligatoire",
+          "Une étape isolée d'un processus",
+          "Un indicateur financier",
+          "Un ensemble de ressources organisé pour atteindre un objectif",
+        ],
+        3,
+        "Une pratique réunit notamment personnes, outils et procédures autour d'un objectif.",
+      ],
+    ],
+  }
+
+  function buildTheoryQuestions(rows) {
+    return rows.map(function (row) {
+      return {
+        theme: row[0],
+        question: row[1],
+        choices: row[2],
+        answer: row[3],
+        explanation: row[4],
+      }
+    })
+  }
+
   function buildQuestions(concepts) {
     const questions = []
     concepts.forEach(function (concept, index) {
@@ -454,7 +925,9 @@
       title: chapter.title,
       intro: chapter.intro,
       chapterLink: "../../" + id + "/",
-      questions: buildQuestions(chapter.concepts),
+      questions: theoryQuestions[id]
+        ? buildTheoryQuestions(theoryQuestions[id])
+        : buildQuestions(chapter.concepts),
     }
   })
 })()
