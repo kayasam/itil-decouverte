@@ -293,7 +293,7 @@ button,input,select,textarea { font-family:inherit; }
     <tr><td>L'action envisagée</td><td>Replanifier la sauvegarde hors du pic du samedi</td></tr>
     <tr><td>Le bénéfice attendu</td><td>Fin de la lenteur de caisse le samedi matin</td></tr>
     <tr><td>L'effort estimé</td><td>15 minutes de configuration</td></tr>
-    <tr><td>Le responsable et l'échéance</td><td>Thomas, avant fin du mois</td></tr>
+    <tr><td>Le responsable et l'échéance</td><td>Votre compte Super-Admin, avant fin du mois</td></tr>
   </table></div>
   <div class="callout tip">
     <div class="callout-title">Dans GLPI</div>
@@ -339,12 +339,12 @@ button,input,select,textarea { font-family:inherit; }
 <script>
 
 var DATA={
- w1:{k:'Étape 1',t:'Quelle est la vision ?',li:['Où veut-on aller, et pourquoi','Alignée sur le métier, pas sur l\'IT'],ex:'Assurer la continuité IT pour la boutique et le laboratoire.'},
+ w1:{k:'Étape 1',t:'Quelle est la vision ?',li:['Où veut-on aller, et pourquoi','Alignée sur le métier, pas sur l\'IT'],ex:'Assurer la continuité IT pour les sites de Nantes et Rennes.'},
  w2:{k:'Étape 2',t:'Où en sommes-nous ?',li:['État des lieux chiffré','Sans mesure, pas de point de départ'],ex:'3 incidents imprimante en 3 semaines, SLA parfois dépassé, aucune mesure fiable avant GLPI.'},
  w3:{k:'Étape 3',t:'Où voulons-nous aller ?',li:['Objectif concret et mesurable','Une cible, pas une intention'],ex:'Zéro incident récurrent sur l\'imprimante, SLA respecté à 100 %.'},
- w4:{k:'Étape 4',t:'Comment y arriver ?',li:['Le plan d\'action','Découpé en étapes réalisables'],ex:'GPO déployée (ch. 05), SLA configurés (ch. 06), CMDB à compléter (ch. 07).'},
- w5:{k:'Étape 5',t:'Agir',li:['Exécuter le plan','La seule étape que tout le monde fait'],ex:'Le changement a été déployé et clos.'},
- w6:{k:'Étape 6',t:'Sommes-nous arrivés ?',li:['Vérifier que l\'objectif est atteint','Avec les mêmes indicateurs qu\'à l\'étape 2','Systématiquement sautée'],ex:'À vérifier dans 30 jours. Sans cette revue, on ne sait pas si la GPO a réglé quoi que ce soit.'},
+ w4:{k:'Étape 4',t:'Comment y arriver ?',li:['Le plan d\'action','Découpé en étapes réalisables'],ex:'Pilote stable testé (ch. 05), SLA configurés (ch. 06), CMDB à compléter (ch. 07).'},
+ w5:{k:'Étape 5',t:'Agir',li:['Exécuter le plan','La seule étape que tout le monde fait'],ex:'Le changement est préparé ; son exécution et sa mesure restent à confirmer.'},
+ w6:{k:'Étape 6',t:'Sommes-nous arrivés ?',li:['Vérifier que l\'objectif est atteint','Avec les mêmes indicateurs qu\'à l\'étape 2','Systématiquement sautée'],ex:'À vérifier dans 30 jours. Sans cette revue, on ne sait pas si le nouveau pilote a réduit les pannes.'},
  w7:{k:'Étape 7',t:'Comment maintenir l\'élan ?',li:['Ancrer dans la routine','Sinon tout retombe en trois mois'],ex:'Revue mensuelle des statistiques + registre d\'amélioration tenu à jour.'},
  k1:{k:'Indicateur',t:'Taux de respect des SLA',li:['Part des tickets traités dans les délais engagés','Cible courante : plus de 95 %'],ex:'Se lit dans Assistance → Statistiques. Regardez surtout où se concentrent les dépassements.'},
  k2:{k:'Indicateur',t:'MTTR — délai moyen de résolution',li:['Temps moyen entre création et résolution','Cible : moins de 4 h en haute priorité'],ex:'Une moyenne cache les extrêmes : un ticket à 3 jours peut se noyer dans dix tickets à 20 minutes.'},
@@ -373,7 +373,7 @@ var GAME={opts:['Étape 2 — Où en sommes-nous ?','Étape 3 — Où voulons-no
  items:[
   ['« On a eu 3 incidents imprimante en 3 semaines. »',0,'Un constat chiffré de la situation actuelle : étape 2.'],
   ['« On veut zéro incident récurrent d\'ici la fin du trimestre. »',1,'Une cible mesurable : étape 3.'],
-  ['« 30 jours après la GPO, combien de pannes ? »',2,'Une vérification a posteriori : étape 6.'],
+  ['« 30 jours après le changement de pilote, combien de pannes ? »',2,'Une vérification a posteriori : étape 6.'],
   ['« Aujourd\'hui le SLA est respecté à 78 %. »',0,'État des lieux : étape 2.'],
   ['« Objectif : 95 % de SLA respectés. »',1,'Un objectif à atteindre : étape 3.'],
   ['« Le taux est passé de 78 à 96 %, c\'est gagné. »',2,'On compare le résultat à la cible : étape 6.'],

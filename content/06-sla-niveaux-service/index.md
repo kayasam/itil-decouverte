@@ -14,11 +14,9 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
-> - <a href="06-sla-niveaux-service-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[06-tp-serveur-partage|TP — serveur mutualisé]]
-> - [[06-tp-serveur-individuel|TP — serveur individuel]]
-> - [[06-correction|Correction]] _(formateur)_
-> - [[00-INDEX|Sommaire de la formation]]
+> - <a href="https://kayasam.github.io/itil-decouverte/cours/06-sla-niveaux-service-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [Faire l’atelier](/06-sla-niveaux-service/tp/06-tp)
+> - [Sommaire de la formation](/)
 
 ---
 
@@ -85,7 +83,7 @@ L'**OLA** (Operational Level Agreement) est l'engagement **interne** — entre �
 | **Exemple**   | "Les incidents sont résolus sous 4h" | "L'équipe réseau traite les escalades sous 2h" |
 | **Dans GLPI** | Champs TTO / TTR                     | Champs TTO interne / TTR interne               |
 
-> Au Fournil Doré, Thomas travaille seul — les OLA ne sont pas pertinents dans ce contexte. On se concentre sur les SLA.
+> Au Fournil Doré, vous travaillez seul dans ce laboratoire — les OLA ne sont pas nécessaires pour cet exercice. On se concentre sur les SLA.
 
 ---
 

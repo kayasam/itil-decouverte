@@ -1,10 +1,11 @@
-# Découverte ITIL
+# Parcours GLPI puis ITIL
 
-Site Quartz v5 du support de formation **Découverte ITIL** destiné aux élèves.
+Site Quartz v5 du parcours élève **Initiation GLPI → Découverte ITIL**.
 
 Les sources officielles restent dans le coffre Obsidian :
 
-- Cours, TP et images : `C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\itil`
+- Initiation GLPI : `C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\initiation`
+- Découverte ITIL : `C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\itil`
 
 Les corrections restent exclusivement dans le coffre Obsidian et ne sont jamais publiées.
 Le lexique ITIL public est maintenu dans `annexes\lexique-itil.md` du coffre.

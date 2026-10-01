@@ -14,11 +14,9 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
-> - <a href="03-gestion-incidents-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[03-tp-serveur-partage|TP — serveur mutualisé]]
-> - [[03-tp-serveur-individuel|TP — serveur individuel]]
-> - [[03-correction|Correction]] _(formateur)_
-> - [[00-INDEX|Sommaire de la formation]]
+> - <a href="https://kayasam.github.io/itil-decouverte/cours/03-gestion-incidents-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [Faire l’atelier](/03-gestion-incidents/tp/03-tp)
+> - [Sommaire de la formation](/)
 
 ---
 
@@ -39,7 +37,7 @@ L'incident n'est pas forcément une panne totale. Une **dégradation** est aussi
 | ------------------------------------------ | ----------------------------------------------- |
 | Le Wi-Fi est coupé                         | ✅ Oui — interruption totale                    |
 | Le Wi-Fi est très lent depuis ce matin     | ✅ Oui — dégradation de qualité                 |
-| Marie veut un nouveau compte utilisateur   | ❌ Non — c'est une demande de service           |
+| Claire veut un nouveau compte utilisateur  | ❌ Non — c'est une demande de service           |
 | Le serveur tombe en panne toutes les nuits | ✅ Oui — mais aussi potentiellement un problème |
 
 ---

@@ -4,173 +4,46 @@ aliases:
   - "/contexte"
 ---
 
-# 00 — Contexte : Le Fournil Doré
+# 00 — Le laboratoire que vous poursuivez
 
-> [!NOTE] À lire avant de commencer
-> Tous les ateliers de cette formation se déroulent dans la même entreprise fictive : **Le Fournil Doré**. Cette fiche vous donne l'organisation de l'entreprise et les repères GLPI dont vous aurez besoin. Gardez-la ouverte pendant les ateliers, on y revient en permanence.
+> [!NOTE] Point de départ
+> Vous avez terminé l'initiation GLPI sur votre propre VM. La formation ITIL continue sur **la même instance GLPI 11**, avec les mêmes comptes, équipements et tickets. Connectez-vous avec **votre compte Super-Admin** pour les réglages et les traitements. **Claire Rousseau** reste la demandeuse du fil rouge.
 
----
+## L'entreprise et son outil
 
-## Pourquoi cette fiche
+**Le Fournil Doré** est une boulangerie avec des activités à Nantes et Rennes. Le laboratoire utilise un serveur Debian GLPI à `192.168.3.10` et un hôte Windows à `192.168.3.254`. Le DNS du réseau privé est `1.1.1.1`. Les comptes pédagogiques utilisent `a12345!`.
 
-Cette formation ITIL utilise **GLPI** comme outil de mise en pratique. L'environnement a déjà été préparé pour vous : l'entreprise, les utilisateurs, les catégories et le matériel sont créés sur le serveur.
+La VM, le parc et les premiers tickets ont été construits dans les 22 chapitres GLPI. Vous continuez à travailler dans l'entité racine **Le Fournil Doré**, sans « Arborescence ». **Boutique** et **Laboratoire** peuvent exister comme exemples d'entités, mais ce parcours n'y place ni utilisateurs, ni équipements, ni tickets.
 
-Vous n'avez donc **rien à installer ni à configurer**. Vous arrivez dans un GLPI déjà en place, comme un technicien qui prend son poste dans une entreprise existante. Cette fiche joue le rôle du « dossier de reprise » qu'on vous remettrait le premier jour.
+| Repère                                          | Dans ce parcours                                 |
+| ----------------------------------------------- | ------------------------------------------------ |
+| Administrateur                                  | Votre compte Super-Admin de l'initiation GLPI    |
+| Demandeuse                                      | `claire.rousseau` — Claire Rousseau              |
+| Source des nouveaux comptes du chapitre GLPI 22 | LLDAP, pour `n.robin` et `z.roronoa`             |
+| Imprimante suivie                               | `IMP-NAN-OPENSPACE-01`, lieu Nantes > Open space |
+| Entité de tous les objets                       | Le Fournil Doré                                  |
+| Mot de passe pédagogique                        | `a12345!`                                        |
 
----
+Un **lieu** indique où se trouve un équipement. Une **entité** détermine où GLPI classe les données et applique les droits. Le lieu **Nantes > Open space** ne change donc pas l'entité de l'imprimante.
 
-## L'entreprise
+## Du ticket GLPI à la démarche ITIL
 
-**Le Fournil Doré** — boulangerie artisanale.
+L'imprimante `IMP-NAN-OPENSPACE-01` sert de fil rouge. Claire signale une nouvelle panne dans le TP 03. Dans le TP 04, vous ajoutez deux incidents **simulés** pour étudier la récurrence, puis vous ouvrez un problème. Le TP 05 documente un changement de pilote avec un plan de test et de repli ; il ne suppose pas de domaine Active Directory ni de GPO. Les TP 06 à 08 ajoutent des engagements de service, une dépendance du parc et une mesure d'amélioration.
 
-L'entreprise a deux implantations, un laboratoire de production et une boutique. Elle a grandi vite et gère son informatique « à l'oral » : quand quelque chose ne marche pas, on appelle le technicien. Rien n'est tracé, rien n'est mesuré, les mêmes pannes reviennent sans que personne ne s'en rende compte.
+| Chapitre ITIL | Travail réalisé sur votre GLPI                                          |
+| ------------- | ----------------------------------------------------------------------- |
+| 01–02         | Comprendre la valeur du service et le système de valeur ITIL            |
+| 03            | Qualifier et traiter l'incident signalé par Claire                      |
+| 04            | Relier les incidents, rechercher la cause et documenter l'erreur connue |
+| 05            | Préparer le changement de pilote et son retour arrière                  |
+| 06            | Créer des SLA et les lire sur un ticket                                 |
+| 07            | Relier l'imprimante à son switch dans l'analyse d'impact                |
+| 08            | Exploiter les statistiques et planifier l'amélioration                  |
 
-**Vous venez d'être recruté comme technicien IT du Fournil Doré.** Votre mission : structurer tout ça avec ITIL et GLPI.
+## Les comptes et les accès
 
-> Dans tous les ateliers, vous êtes vous-même. Vous vous connectez avec **votre propre compte**, et c'est à ce compte que vous attribuez les tickets.
+Votre Super-Admin sert aux actions de configuration du laboratoire. Pour vérifier l'expérience du demandeur, connectez-vous avec `claire.rousseau / a12345!`, puis revenez au Super-Admin en choisissant **Base interne GLPI** si l'annuaire LLDAP est la source par défaut. Les deux comptes LLDAP du chapitre GLPI 22 ne remplacent pas Claire dans les TP ITIL.
 
----
+Aucun préfixe de nommage n'est nécessaire : chaque élève travaille sur sa propre instance. Les nouveaux tickets, problèmes, changements, SLA et équipements sont créés dans **Le Fournil Doré**.
 
-## Organigramme
-
-![itil-organigramme-fournil-dore.svg](/Ressources/images/itil-organigramme-fournil-dore.svg)
-
-| Login             | Nom             | Rôle dans l'entreprise  | Entité          |
-| ----------------- | --------------- | ----------------------- | --------------- |
-| _votre compte_    | **Vous**        | Technicien IT           | Le Fournil Doré |
-| `lucas.petit`     | Lucas Petit     | Vendeur boutique        | Boutique        |
-| `marie.dupont`    | Marie Dupont    | Secrétaire de direction | Boutique        |
-| `ahmed.benali`    | Ahmed Benali    | Responsable production  | Laboratoire     |
-| `claire.rousseau` | Claire Rousseau | Comptable               | Le Fournil Doré |
-
-> Ces quatre collègues sont vos **utilisateurs**. Vous ne vous connectez jamais avec eux : ils vous servent de **demandeurs** dans les tickets que vous allez créer.
-
----
-
-## Entités
-
-Une **entité** dans GLPI, c'est une unité de gestion : elle cloisonne les données. Un utilisateur rattaché à une entité ne voit que ce qui s'y trouve.
-
-```
-Le Fournil Doré          ← entité racine
-├── Boutique             ← le magasin, la vente
-└── Laboratoire          ← la production, le fournil
-```
-
----
-
-## Lieux
-
-Un **lieu** est un emplacement physique. À ne pas confondre avec l'entité.
-
-```
-Nantes — 32 Bd Vincent Gâche, 44200 Nantes
-├── Salle serveur
-└── Open space           ← postes et équipements bureau/boutique
-
-Rennes — 3 Pl. du Général-Giraud, 35000 Rennes
-├── Salle serveur
-└── Open space
-```
-
-> [!WARNING] Piège classique
-> « Boutique » est une **entité** (qui gère quoi), « Nantes > Open space » est un **lieu** (où c'est physiquement). Un même lieu peut héberger du matériel de plusieurs entités. On confond souvent les deux les premiers jours.
-
----
-
-## Catégories de tickets disponibles
-
-Ces catégories ITIL sont déjà configurées. Vous les retrouverez dans le champ **Catégorie** de chaque ticket.
-
-```
-Matériel
-├── Ordinateur
-└── Imprimante
-
-Réseau
-├── Wi-Fi
-└── Internet
-
-Logiciel
-├── Installation
-└── Dysfonctionnement
-
-Accès & Comptes
-
-Four & Production
-```
-
----
-
-## Le matériel du scénario
-
-Un équipement revient dans presque tous les ateliers — c'est le fil rouge de la formation :
-
-| Nom                    | Type                                                | Entité   | Lieu                | Utilisateur |
-| ---------------------- | --------------------------------------------------- | -------- | ------------------- | ----------- |
-| `IMP-NAN-OPENSPACE-01` | Imprimante laser multifonction Brother MFC-L8900CDW | Boutique | Nantes > Open space | lucas.petit |
-
-Cette imprimante va tomber en panne trois fois en trois semaines. Vous allez traiter ces pannes comme des **incidents** (ch. 03), découvrir qu'elles cachent un **problème** (ch. 04), corriger la cause racine par un **changement** (ch. 05), puis mesurer le résultat (ch. 06 et 08).
-
----
-
-## Votre environnement de travail
-
-### Connexion
-
-Le serveur GLPI est **partagé par tout le groupe**. Le formateur vous a remis :
-
-- une **URL** de connexion
-- un **identifiant nominatif** (votre nom, pas `thomas.martin`)
-- un **mot de passe**
-
-Vous avez un profil **Technicien** : vous pouvez créer et traiter des tickets, gérer le parc, configurer les SLA.
-
-### Règle de nommage — importante
-
-> [!IMPORTANT] Préfixez tout ce que vous créez
-> Vous travaillez tous dans la **même entité**, sur le **même serveur**. Sans convention, dix stagiaires créent dix objets portant exactement le même nom et plus personne ne retrouve son travail.
->
-> **Chaque fois qu'un atelier vous demande de nommer un objet, préfixez-le par votre prénom entre crochets.**
-
-| L'atelier dit                               | Vous saisissez (si vous vous appelez Marie)         |
-| ------------------------------------------- | --------------------------------------------------- |
-| `Imprimante hors ligne`                     | `[Marie] Imprimante hors ligne`                     |
-| `Pannes récurrentes - IMP-NAN-OPENSPACE-01` | `[Marie] Pannes récurrentes - IMP-NAN-OPENSPACE-01` |
-| `SLM Fournil Doré`                          | `[Marie] SLM Fournil Doré`                          |
-| `TTO - Prise en charge incidents`           | `[Marie] TTO - Prise en charge incidents`           |
-
-Ça vaut pour **les tickets, les problèmes, les changements, les SLM, les SLA, les niveaux d'escalade et le matériel** que vous créez.
-
-Pour retrouver votre travail à tout moment : dans n'importe quelle liste GLPI, tapez votre prénom dans la recherche. Vous ne verrez que vos objets.
-
-### Repères d'interface
-
-Vous n'avez jamais utilisé GLPI ? Voici les seuls menus dont vous aurez besoin :
-
-| Menu              | Ce qu'on y fait                                                      | Chapitres          |
-| ----------------- | -------------------------------------------------------------------- | ------------------ |
-| **Assistance**    | Tickets, Problèmes, Changements, Statistiques, Catalogue de services | 03, 04, 05, 07, 08 |
-| **Parc**          | Ordinateurs, Imprimantes, Matériels réseau                           | 04, 07             |
-| **Configuration** | Niveaux de services (SLA)                                            | 06                 |
-
-Le bouton **`+`** (ou **`+ Ajouter`**) en haut d'une liste sert systématiquement à créer un nouvel élément. C'est à peu près tout ce qu'il faut savoir pour démarrer.
-
----
-
-## Récapitulatif — à retenir avant de commencer
-
-| Élément                | Valeur                                                   |
-| ---------------------- | -------------------------------------------------------- |
-| Entreprise             | Le Fournil Doré, boulangerie artisanale                  |
-| Votre rôle             | Technicien IT du Fournil Doré — c'est vous               |
-| Votre connexion        | Compte nominatif fourni par le formateur                 |
-| Demandeurs des tickets | lucas.petit, marie.dupont, claire.rousseau, ahmed.benali |
-| Entités                | Le Fournil Doré > Boutique / Laboratoire                 |
-| Lieu principal         | Nantes > Open space                                      |
-| Équipement fil rouge   | `IMP-NAN-OPENSPACE-01`                                   |
-| Règle absolue          | Préfixer vos créations par `[VotrePrénom]`               |
-
----
-
-Chapitre suivant → [[01-introduction-itil]]
+Suite : [Introduction à ITIL](/01-introduction-itil/).

@@ -1,0 +1,52 @@
+---
+title: "TP 05. Première connexion et configuration initiale"
+---
+
+# TP 05 — Préparer le GLPI du Fournil Doré
+
+> Chapitre associé : [05-cours](/00-glpi/05-configuration-initiale/)
+> Durée indicative : **20 minutes**
+
+> [!NOTE] Mission
+> Partir de l'installation neuve du chapitre 04. Chaque élève crée son compte Super-Admin `admin.fournil` sur sa propre instance. À la fin, ce compte administre GLPI, les comptes de démonstration ne sont plus actifs et l'URL du lab est correcte.
+
+## A — Créer le compte d'administration
+
+1. Depuis Windows `192.168.3.254`, ouvrir `http://192.168.3.10/`.
+2. Se connecter avec `glpi / glpi`.
+3. Dans **Administration → Utilisateurs → Ajouter**, créer `admin.fournil` : nom **Administrateur**, prénom **Fournil**, e-mail `admin@fournil-dore.fr`, mot de passe **`a12345!`**.
+4. Dans la section **Habilitation**, choisir **Super-Admin**, **Entité racine**, **Récursif = Oui**. Cliquer sur **Ajouter**.
+5. Se déconnecter. Se reconnecter avec `admin.fournil / a12345!` et vérifier que le bandeau affiche **Super-Admin**.
+
+![glpi-05-creation-admin.png](/00-glpi/images/glpi-05-creation-admin.png)
+_Repère visuel : l'habilitation se choisit directement dans le formulaire de création de GLPI 11._
+
+> [!WARNING] Point de contrôle
+> Ne poursuivre que lorsque la connexion avec `admin.fournil` fonctionne. Le compte initial `glpi` sera retiré à l'étape suivante.
+
+## B — Retirer les comptes fournis par défaut
+
+Dans **Administration → Utilisateurs**, mettre à la corbeille `glpi`, `tech`, `normal` et `post-only`, un par un. Actualiser la liste active.
+
+**Résultat attendu :** `admin.fournil` et `glpi-system` restent visibles. `glpi-system` est le compte interne de GLPI : ne pas le supprimer.
+
+## C — Définir l'identité du lab
+
+Dans **Configuration → Générale → Configuration générale**, saisir :
+
+| Champ                          | Valeur                   |
+| ------------------------------ | ------------------------ |
+| URL de l'application           | `http://192.168.3.10/`   |
+| Texte sur la page de connexion | `GLPI — Le Fournil Doré` |
+
+Sauvegarder. Ouvrir l'onglet **Valeurs par défaut** et vérifier **Français**. Revenir sur la configuration générale pour confirmer que l'URL a été conservée.
+
+![glpi-05-configuration-generale.png](/00-glpi/images/glpi-05-configuration-generale.png)
+
+## D — Expliquer ce que l'on vient de faire
+
+1. Pourquoi faut-il tester `admin.fournil` avant de retirer `glpi` ?
+2. Quel réglage indique à GLPI l'adresse à placer dans les futurs liens de notification ?
+3. Le mot de passe `a12345!` est-il aussi celui du système Linux ou de MariaDB ?
+
+**Pour aller plus loin — méthode 2 CLI :** les commandes équivalentes sont présentées **après** la procédure graphique dans [05-cours](/00-glpi/05-configuration-initiale/). Ne pas recréer le compte déjà présent.

@@ -1,0 +1,63 @@
+---
+title: "TP : L'agent d'inventaire"
+---
+
+# 11 — L'agent d'inventaire · TP
+
+> Chapitre associé : [11-cours](/00-glpi/11-agent-inventaire/)
+
+## Prérequis
+
+Vérifier que `http://192.168.3.10/` est accessible depuis chaque appareil à inventorier et que l'inventaire est activé dans GLPI. Noter le nom réel de la machine Windows. La fiche `SRV-FOURNIL-01` créée manuellement au chapitre 09 ne sera enrichie que si les règles de liaison la reconnaissent ; sinon, examiner la nouvelle fiche créée par GLPI.
+
+## 1. Remonter un poste Windows
+
+Dans PowerShell **en administrateur**, lancer :
+
+```powershell
+winget install glpi-agent --silent --custom="SERVER='http://192.168.3.10/' RUNNOW=1 TAG=LAB-WINDOWS"
+```
+
+> [!INFO] Paramètres à repérer
+>
+> - `--silent` masque l'assistant d'installation.
+> - `SERVER` indique l'URL du lab.
+> - `RUNNOW=1` lance l'agent après installation.
+> - `TAG=LAB-WINDOWS` ajoute le tag dès cette première remontée.
+
+Si Winget est absent, télécharger le [MSI 1.20](https://github.com/glpi-project/glpi-agent/releases/tag/1.20), puis renseigner **Server** et **Tag** dans l'assistant.
+
+> [!CHECK] Vérification dans GLPI
+>
+> - `Administration` → `Inventaire` → **Agents** : retrouver le nom réel du poste.
+> - `Parc` → `Ordinateurs` : ouvrir sa fiche et vérifier ses caractéristiques.
+
+Pour modifier l'adresse ou le tag ensuite : ouvrir `HKEY_LOCAL_MACHINE\SOFTWARE\GLPI-Agent` avec `regedit`, modifier **server** ou **tag**, puis exécuter `Restart-Service -Name "glpi-agent"` dans PowerShell administrateur. Forcer un inventaire depuis `http://localhost:62354` ou, dans **cmd.exe administrateur**, avec `cd "C:\Program Files\GLPI-Agent"` puis `glpi-agent --force`.
+
+## 2. Remonter une machine Linux
+
+Sur une machine Linux où l'agent n'est pas encore installé :
+
+```bash
+wget -q https://github.com/glpi-project/glpi-agent/releases/download/1.20/glpi-agent-1.20-linux-installer.pl
+sha256sum glpi-agent-1.20-linux-installer.pl
+sudo perl glpi-agent-1.20-linux-installer.pl --server http://192.168.3.10/ --tag LAB-LINUX --runnow
+sudo glpi-agent --force
+```
+
+La somme attendue pour le fichier indiqué est `3ea682924fcf80dfec7622629df1ce08e505acbbb07090c5139c5af736b759db`. Si l'agent est déjà installé, vérifier `glpi-agent --version` et `systemctl is-active glpi-agent` avant toute réinstallation. Pour changer sa configuration, éditer `/etc/glpi-agent/conf.d/00-install.cfg` s'il existe, redémarrer le service, puis lancer `sudo glpi-agent --force`. Vérifier sa fiche sous `Parc` → `Ordinateurs`.
+
+## 3. Remonter un smartphone Android
+
+Avec un Android pouvant joindre le serveur GLPI, installer [GLPI Agent](https://play.google.com/store/apps/details?id=org.glpi.inventory.agent). Ajouter `http://192.168.3.10/` dans la liste des serveurs, sélectionner **Phone / Téléphone**, saisir le tag `LAB-ANDROID` et lancer l'inventaire. Rechercher la fiche sous `Parc` → `Téléphones`. Si le téléphone n'a pas accès au réseau `192.168.3.0/24`, utiliser une URL GLPI accessible depuis son réseau.
+
+## 4. Observer le rôle du tag
+
+Comparer les tags `LAB-WINDOWS`, `LAB-LINUX` et, si utilisé, `LAB-ANDROID` dans les remontées. Un tag seul ne déplace pas une fiche. **Ne pas créer de règle d'affectation à une sous-entité** : tous les actifs importés doivent rester dans **Le Fournil Doré**.
+
+## Contrôle final
+
+- Un agent Windows et un agent Linux sont visibles avec une date de dernier contact récente.
+- Les fiches correspondantes sont retrouvées sous `Parc` → `Ordinateurs` dans **Le Fournil Doré**.
+- Si un téléphone Android a été utilisé, sa fiche figure sous `Parc` → `Téléphones`.
+- Une modification de configuration est suivie d'un redémarrage de l'agent et d'une nouvelle remontée.

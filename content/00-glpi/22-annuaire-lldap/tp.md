@@ -1,0 +1,54 @@
+---
+title: "TP 22. Authentification avec LLDAP"
+---
+
+# TP 22 — Connecter GLPI à LLDAP
+
+> Chapitre associé : [22-cours](/00-glpi/22-annuaire-lldap/)
+
+## Mission
+
+Dans le laboratoire **Le Fournil Doré**, donner accès à GLPI aux deux membres du groupe LLDAP `mugiwara`. Travaillez dans l'entité racine. Votre compte Super-Admin GLPI reste dans la base interne ; les deux nouveaux comptes viennent de LLDAP. Utilisez `a12345!` pour les comptes créés dans cet exercice.
+
+## A — Préparer l'annuaire
+
+1. Suivre la section **Démarrer LLDAP sur Debian** du [cours](/00-glpi/22-annuaire-lldap/). Vérifier que l'interface répond à `http://192.168.3.10:17170`.
+2. Créer le groupe `mugiwara`.
+3. Créer `n.robin`, nom affiché **Nico Robin**, et `z.roronoa`, nom affiché **Roronoa Zoro**. Reprendre les prénoms, noms et adresses du tableau du cours.
+4. Donner `a12345!` aux deux comptes avec la commande LLDAP du cours, puis les ajouter au groupe.
+5. Créer `glpi.bind` avec le même mot de passe et l'ajouter au seul groupe `lldap_strict_readonly`.
+
+![glpi11-22-lldap-utilisateurs.png](/00-glpi/images/glpi11-22-lldap-utilisateurs.png)
+
+_Trois nouvelles fiches : deux futurs utilisateurs GLPI et un compte de lecture de l'annuaire._
+
+**Contrôle :** le groupe `mugiwara` contient **exactement Nico et Zoro**. Il ne contient pas `glpi.bind`.
+
+## B — Relier GLPI
+
+1. Avec votre Super-Admin, ouvrir **Configuration → Authentification → Annuaires LDAP → Ajouter**.
+2. Saisir les paramètres du tableau **Ajouter LLDAP comme source** dans le cours. Employer le nom Docker `ldap` et le port `3890`.
+3. Ouvrir l'onglet **Tester** : les cinq contrôles doivent réussir et la recherche doit retourner **2 entrées**.
+
+![glpi11-22-test-lldap.png](/00-glpi/images/glpi11-22-test-lldap.png)
+
+**Contrôle :** si la recherche retourne plus de deux comptes, revoir le filtre `memberOf`. Si elle en retourne zéro, vérifier les membres du groupe et le BaseDN.
+
+## C — Essayer les deux connexions
+
+1. Se déconnecter. Choisir **LLDAP Fournil Doré** dans **Source de connexion**.
+2. Se connecter avec `n.robin / a12345!`. Vérifier le portail **Self-Service** et l'entité **Le Fournil Doré**, puis se déconnecter.
+3. Faire le même essai avec `z.roronoa / a12345!`.
+
+![glpi11-22-nico-connecte.png](/00-glpi/images/glpi11-22-nico-connecte.png)
+
+_Premier accès de Nico Robin avec la source LLDAP._
+
+![glpi11-22-zoro-connecte.png](/00-glpi/images/glpi11-22-zoro-connecte.png)
+
+_Premier accès de Roronoa Zoro avec la même source._
+
+4. Revenir sur le Super-Admin en choisissant **Base interne GLPI**. Dans **Administration → Utilisateurs**, retrouver les deux fiches importées.
+5. Facultatif : rejouer la **méthode 2 CLI** du cours pour synchroniser ces deux fiches.
+
+**Résultat attendu :** deux connexions réussies, deux fiches GLPI dans la racine et aucune fiche GLPI pour `glpi.bind`. Claire Rousseau et ses tickets des chapitres précédents restent dans la racine.

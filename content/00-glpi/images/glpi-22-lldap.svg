@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+<title id="title">Connexion de GLPI à LLDAP pour le Fournil Doré</title>
+<desc id="desc">Le navigateur Windows accède à GLPI sur la VM Debian. GLPI interroge LLDAP sur le réseau Docker avec le compte de lecture glpi.bind. Seuls Nico Robin et Roronoa Zoro, membres du groupe mugiwara, sont autorisés par la source LLDAP. Le compte Super-Admin utilise la base interne GLPI.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#34566f"/></marker>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#18364a}
+.heading{font-size:24px;font-weight:700}
+.label{font-size:19px;font-weight:700}
+.body{font-size:16px}
+.small{font-size:14px}
+.box{stroke:#3a6177;stroke-width:2}
+.line{stroke:#34566f;stroke-width:3;fill:none;marker-end:url(#arrow)}
+</style>
+</defs>
+<rect width="1200" height="580" rx="18" fill="#f5f8fb"/>
+<text x="40" y="48" class="heading">Du navigateur au compte GLPI</text>
+<rect x="35" y="110" width="265" height="180" rx="18" fill="#e1f1ff" class="box"/>
+<text x="60" y="151" class="label">Windows</text>
+<text x="60" y="185" class="body">Navigateur</text>
+<text x="60" y="218" class="body">192.168.3.254</text>
+<text x="60" y="250" class="small">Choix de la source à la connexion</text>
+<rect x="415" y="110" width="320" height="180" rx="18" fill="#fff0d8" class="box"/>
+<text x="440" y="151" class="label">GLPI 11 · Debian</text>
+<text x="440" y="185" class="body">192.168.3.10</text>
+<text x="440" y="218" class="body">Source : LLDAP Fournil Doré</text>
+<text x="440" y="250" class="small">Filtre sur le groupe mugiwara</text>
+<rect x="855" y="110" width="310" height="180" rx="18" fill="#e4f4eb" class="box"/>
+<text x="880" y="151" class="label">LLDAP · même Debian</text>
+<text x="880" y="185" class="body">ldap:3890 (réseau Docker)</text>
+<text x="880" y="218" class="body">Lecture : glpi.bind</text>
+<text x="880" y="250" class="small">Base : dc=fournil-dore,dc=fr</text>
+<path d="M300 200 H405" class="line"/>
+<text x="322" y="187" class="small">HTTP</text>
+<path d="M735 200 H845" class="line"/>
+<text x="758" y="187" class="small">LDAP</text>
+<rect x="760" y="360" width="405" height="150" rx="18" fill="#f0eaff" class="box"/>
+<text x="785" y="397" class="label">Groupe mugiwara</text>
+<text x="785" y="432" class="body">n.robin → Nico Robin</text>
+<text x="785" y="463" class="body">z.roronoa → Roronoa Zoro</text>
+<path d="M1005 290 V350" class="line"/>
+<rect x="90" y="360" width="545" height="150" rx="18" fill="#fff" class="box"/>
+<text x="115" y="397" class="label">Après la première connexion</text>
+<text x="115" y="432" class="body">GLPI crée chaque fiche dans Le Fournil Doré.</text>
+<text x="115" y="463" class="body">Super-Admin : base interne GLPI.</text>
+<path d="M575 290 V350" class="line"/>
+</svg>

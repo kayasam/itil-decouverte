@@ -6,9 +6,7 @@ title: "08. L'amélioration continue"
 
 > [!TIP] Ressources du chapitre
 > - <a href="08-amelioration-continue-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[08-tp-serveur-partage|TP — serveur mutualisé]]
-> - [[08-tp-serveur-individuel|TP — serveur individuel]]
-> - [[08-correction|Correction]] *(formateur)*
+> - [[08-tp|Faire l’atelier]]
 > - [[00-INDEX|Sommaire de la formation]]
 
 ---
@@ -39,11 +37,11 @@ ITIL 4 propose un modèle structuré en 7 questions successives :
 | Étape | Question | Exemple Fournil Doré |
 |-------|----------|----------------------|
 | 1 | Quelle est la vision ? | "Assurer la continuité IT pour permettre la production et la vente" |
-| 2 | Où en sommes-nous ? | 12 incidents ce mois, 3 dépassements de SLA, 80% liés à l'imprimante |
-| 3 | Où voulons-nous aller ? | 0 dépassement de SLA, incidents imprimante réduits de 50% |
-| 4 | Comment y arriver ? | Mettre à jour le driver Brother, bloquer les mises à jour auto via GPO |
-| 5 | Agir | Création et déploiement du changement (chapitres 04 & 05) |
-| 6 | Sommes-nous arrivés ? | Vérifier les stats du mois suivant : incidents réduits ? SLA respectés ? |
+| 2 | Où en sommes-nous ? | Relever dans GLPI les trois incidents imprimante du TP 04 et les autres tickets réellement créés |
+| 3 | Où voulons-nous aller ? | Réduire la répétition des pannes d'impression et suivre les délais SLA |
+| 4 | Comment y arriver ? | Tester une version stable du pilote Brother et prévoir un retour arrière |
+| 5 | Agir | Documenter le changement du TP 05 ; le tester si le pilote est disponible |
+| 6 | Sommes-nous arrivés ? | Prévoir une mesure ultérieure : les incidents diminuent-ils, les SLA sont-ils respectés ? |
 | 7 | Comment maintenir l'élan ? | Documenter la solution, planifier une revue mensuelle des stats |
 
 > [!TIP] Ce modèle s'applique à toutes les échelles
@@ -66,7 +64,7 @@ Quelques KPI courants en ITSM :
 | Nombre d'incidents par catégorie | Identification des points chauds | Imprimante : 3/mois max |
 | Satisfaction utilisateurs | Perception du service | Formulaire de clôture de ticket |
 
-> Au Fournil Doré, Thomas n'a pas encore de tableau de bord formel. Les statistiques GLPI lui donnent un premier niveau de visibilité suffisant pour démarrer.
+> Au Fournil Doré, vous n'avez pas encore de tableau de bord formel. Les statistiques GLPI lui donnent un premier niveau de visibilité suffisant pour démarrer.
 
 ---
 
@@ -76,7 +74,7 @@ Le **registre d'amélioration** (Improvement Register) est un document — ou un
 
 | Idée | Source | Priorité | Statut |
 |------|--------|----------|--------|
-| Bloquer MAJ auto driver Brother | Analyse problème | Haute | ✅ Réalisé (ch05) |
+| Tester un pilote stable Brother | Analyse du problème | Haute | À vérifier après le TP 05 |
 | Créer SLA formels | Réunion direction | Haute | ✅ Réalisé (ch06) |
 | Ajouter un formulaire "Demande d'accès" au catalogue | Retour utilisateurs | Moyenne | 🔲 À planifier |
 | Former les utilisateurs à créer leurs tickets via le catalogue | Constat tickets mal qualifiés | Basse | 🔲 À planifier |

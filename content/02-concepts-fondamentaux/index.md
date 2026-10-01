@@ -14,10 +14,9 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
-> - <a href="02-concepts-fondamentaux-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[02-tp|TP du chapitre]]
-> - [[02-correction|Correction]] _(formateur)_
-> - [[00-INDEX|Sommaire de la formation]]
+> - <a href="https://kayasam.github.io/itil-decouverte/cours/02-concepts-fondamentaux-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [TP du chapitre](/02-concepts-fondamentaux/tp/02-tp)
+> - [Sommaire de la formation](/)
 
 ---
 
@@ -43,7 +42,7 @@ Un service repose sur des **êtres humains** : techniciens, responsables, utilis
 - La culture d'entreprise soit favorable à la collaboration
 - Les compétences soient au bon niveau
 
-> **Au Fournil Doré** : Thomas est le seul technicien. Si personne ne sait qu'il est responsable des incidents réseau, les pannes ne seront jamais signalées correctement.
+> **Au Fournil Doré** : vous êtes chargé du support. Si personne ne sait que vous êtes responsable des incidents réseau, les pannes risquent d’être mal orientées.
 
 ### Dimension 2 — Information et technologie
 
@@ -54,7 +53,7 @@ Il s'agit des **outils, logiciels, données et connaissances** nécessaires pour
 - Outils de surveillance et d'automatisation
 - Documentation technique
 
-> **Au Fournil Doré** : GLPI est l'outil qui centralise les tickets. Sans lui, Thomas gère les incidents par email ou à l'oral — et perd tout historique.
+> **Au Fournil Doré** : GLPI est l'outil qui centralise les tickets. Sans lui, vous gérez les incidents par email ou à l'oral — et perdez tout historique.
 
 ### Dimension 3 — Partenaires et fournisseurs
 
@@ -65,7 +64,7 @@ Aucune DSI ne fait tout en interne. Des **prestataires externes** interviennent 
 - Prestataire de maintenance matérielle
 - Éditeur logiciel
 
-> **Au Fournil Doré** : OVH héberge le serveur GLPI. Si OVH a une panne, Thomas ne peut rien faire — il doit le savoir et avoir un contrat avec des engagements de disponibilité.
+> **Au Fournil Doré** : Le fournisseur Informatique Atlantique assure une partie de la maintenance des postes. Une panne ou un retard de sa part affecte le service : il faut connaître ses engagements.
 
 ### Dimension 4 — Flux de valeur et processus
 
@@ -75,7 +74,7 @@ Ce sont les **enchaînements d'activités** qui transforment une demande en rés
 - Comment une nouvelle application est déployée ?
 - Comment une demande d'accès est traitée ?
 
-> **Au Fournil Doré** : Marie signale un problème d'imprimante → Thomas crée un ticket → diagnostique → résout → ferme le ticket. Ce flux doit être défini, sinon chaque incident se gère différemment.
+> **Au Fournil Doré** : Claire signale un problème d'imprimante → vous créez un ticket → vous diagnostiquez, résolvez puis clôturez selon le processus. Ce flux doit être défini, sinon chaque incident se gère différemment.
 
 ### Les facteurs PESTLE
 

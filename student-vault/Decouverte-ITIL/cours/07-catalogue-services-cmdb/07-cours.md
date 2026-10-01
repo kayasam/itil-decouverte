@@ -6,9 +6,7 @@ title: "07. Catalogue de services et CMDB"
 
 > [!TIP] Ressources du chapitre
 > - <a href="07-catalogue-services-cmdb-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[07-tp-serveur-partage|TP — serveur mutualisé]]
-> - [[07-tp-serveur-individuel|TP — serveur individuel]]
-> - [[07-correction|Correction]] *(formateur)*
+> - [[07-tp|Faire l’atelier]]
 > - [[00-INDEX|Sommaire de la formation]]
 
 ---
@@ -44,7 +42,7 @@ Avec un catalogue :
 
 **Catalogue de services technique** — Ce que voit l'IT. Détaille les composants, les dépendances, les contrats. Moins visible, mais essentiel pour la gestion interne.
 
-> Au Fournil Doré, Thomas commence par le catalogue métier — c'est ce que verront Marie, Ahmed et Claire au quotidien.
+> Au Fournil Doré, vous commencez par le catalogue métier — c'est ce que Claire verra pour ses demandes.
 
 ---
 
@@ -60,7 +58,7 @@ Un **CI** (Configuration Item — Élément de Configuration) est tout ce qui do
 
 La CMDB répond à la question : **"Si cet élément tombe en panne, qu'est-ce qui est impacté ?"**
 
-> Exemple : l'imprimante IMP-NAN-OPENSPACE-01 est connectée au switch réseau SW-NAN-01. Si le switch tombe, l'imprimante devient inaccessible. Si la CMDB documente ce lien, GLPI peut afficher automatiquement tous les équipements impactés lors d'un incident sur le switch.
+> Exemple : l'imprimante IMP-NAN-OPENSPACE-01 est connectée au switch réseau SW-NAN-SRVROOM-01. Si le switch tombe, l'imprimante devient inaccessible. Si la CMDB documente ce lien, GLPI peut afficher automatiquement tous les équipements impactés lors d'un incident sur le switch.
 
 La CMDB est aussi la mémoire du parc : versions logicielles, dates d'achat, garanties, relations entre équipements.
 

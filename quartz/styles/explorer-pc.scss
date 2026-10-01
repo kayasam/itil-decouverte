@@ -11,6 +11,16 @@
   --pc-explorer-08: #64748b;
 }
 
+/* Le parcours GLPI ouvre la progression, avant les chapitres ITIL. */
+.explorer-content ul.explorer-ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.explorer-content ul.explorer-ul > li:has(> .folder-container[data-folderpath="00-glpi/index"]) {
+  order: -1;
+}
+
 .explorer-content ul.explorer-ul > li > .folder-container {
   --chapter-accent: var(--secondary);
   --chapter-icon: none;
@@ -146,6 +156,15 @@
   --chapter-accent: var(--secondary);
   --chapter-label: "PROGRÈS";
   --chapter-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19V9m6 10V5m6 14v-7m4 7H2'/%3E%3C/svg%3E");
+}
+
+.explorer-content .folder-container[data-folderpath^="00-glpi/"] {
+  --chapter-accent: #1769aa;
+  --chapter-label: "GLPI";
+}
+
+.explorer-content [data-folderpath^="00-glpi/"] .folder-container {
+  --chapter-accent: #1769aa;
 }
 
 /* Les TP deviennent une sous-section claire de leur chapitre. */

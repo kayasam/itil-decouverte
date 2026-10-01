@@ -27,7 +27,7 @@
   <rect x="510" y="104" width="330" height="42" rx="14" fill="#2563eb"/>
   <rect x="510" y="132" width="330" height="14" fill="#2563eb"/>
   <text x="675" y="132" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">CLIENT / UTILISATEUR</text>
-  <text x="675" y="172" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">Marie, la boulangère</text>
+  <text x="675" y="172" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">Claire, demandeuse</text>
   <circle cx="540" cy="203" r="3.5" fill="#2563eb"/><text x="554" y="208" font-size="13.5" fill="#475569">Sait comment s'en servir</text>
   <circle cx="540" cy="233" r="3.5" fill="#2563eb"/><text x="554" y="238" font-size="13.5" fill="#475569">Fait confiance au service</text>
   <circle cx="540" cy="263" r="3.5" fill="#2563eb"/><text x="554" y="268" font-size="13.5" fill="#475569">Signale les problèmes</text>
@@ -38,6 +38,6 @@
 
   <rect x="230" y="368" width="440" height="86" rx="14" fill="#16a34a" filter="url(#sh)"/>
   <text x="450" y="400" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">VALEUR CRÉÉE</text>
-  <text x="450" y="424" text-anchor="middle" font-size="13" fill="#dcfce7">Marie prend ses commandes en ligne</text>
+  <text x="450" y="424" text-anchor="middle" font-size="13" fill="#dcfce7">Claire utilise le service en ligne</text>
   <text x="450" y="442" text-anchor="middle" font-size="13" fill="#dcfce7">depuis sa tablette</text>
 </svg>

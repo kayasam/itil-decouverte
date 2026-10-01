@@ -14,10 +14,9 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
-> - <a href="01-introduction-itil-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[01-tp|TP du chapitre]]
-> - [[01-correction|Correction]] _(formateur)_
-> - [[00-INDEX|Sommaire de la formation]]
+> - <a href="https://kayasam.github.io/itil-decouverte/cours/01-introduction-itil-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [TP du chapitre](/01-introduction-itil/tp/01-tp)
+> - [Sommaire de la formation](/)
 
 ---
 
@@ -94,7 +93,7 @@ En clair : un service IT permet à quelqu'un d'obtenir quelque chose d'utile, sa
 
 ### Les services IT au quotidien
 
-Un service IT n'est pas forcément visible. Quand Marie au Fournil Doré envoie un email, elle utilise :
+Un service IT n'est pas forcément visible. Quand Claire au Fournil Doré envoie un email, elle utilise :
 
 - Le service de messagerie
 - Le service réseau

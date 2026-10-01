@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="270" viewBox="0 0 960 270" role="img" aria-labelledby="title desc">
+<title id="title">Normalisation du logiciel</title>
+<desc id="desc">Les règles du dictionnaire s’appliquent aux imports et peuvent être rejouées.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#355c7d"/></marker></defs>
+<rect width="960" height="270" rx="16" fill="#f7fafc"/>
+<text x="480" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#17263e">Normalisation du logiciel</text>
+<rect x="24" y="72" width="275" height="135" rx="13" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+<text x="161" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#0c4a6e">Inventaire</text>
+<text x="161" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#334155">Microsoft Corp.</text>
+<text x="161" y="177" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">Valeur reçue</text>
+<path d="M301 140H337" stroke="#355c7d" stroke-width="3" marker-end="url(#a)"/>
+<rect x="340" y="72" width="275" height="135" rx="13" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="477" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#14532d">Dictionnaire</text>
+<text x="477" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#334155">Critère + action</text>
+<text x="477" y="177" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">Test puis rejouer</text>
+<path d="M617 140H653" stroke="#355c7d" stroke-width="3" marker-end="url(#a)"/>
+<rect x="656" y="72" width="275" height="135" rx="13" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="793" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#78350f">Parc</text>
+<text x="793" y="147" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#334155">Microsoft Corporation</text>
+<text x="793" y="177" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">Valeur unifiée</text>
+<text x="480" y="244" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#334155">Les règles du dictionnaire s’appliquent aux imports et peuvent être rejouées.</text>
+</svg>

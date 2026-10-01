@@ -1,22 +1,30 @@
 ---
-title: Découverte ITIL
-description: Parcours élève pour comprendre les fondamentaux ITIL et les mettre en pratique dans GLPI.
+title: Parcours GLPI puis ITIL
+description: "Parcours élève en deux étapes : initiation GLPI puis découverte ITIL."
 ---
 
-# Formation — Découverte ITIL
+# Parcours — GLPI puis ITIL
 
 <section class="pc-hero">
-  <span class="pc-kicker">Support élève · ITIL & GLPI</span>
-  <h2>Comprendre les services. Organiser le support.</h2>
-  <p>Huit chapitres progressifs pour découvrir ITIL, traiter les incidents, maîtriser problèmes et changements, puis piloter les services avec les SLA, la CMDB et l’amélioration continue.</p>
+  <span class="pc-kicker">Support élève · GLPI puis ITIL</span>
+  <h2>Installer le helpdesk. Comprendre les services.</h2>
+  <p>Commencer par installer et utiliser GLPI 11 dans le laboratoire du Fournil Doré. Poursuivre avec huit chapitres ITIL pour comprendre les pratiques qui donnent du sens au travail dans GLPI.</p>
   <div class="pc-actions">
-    <a href="./00-contexte/">Découvrir le contexte →</a>
-    <a href="./01-introduction-itil/">Commencer le cours</a>
-    <a href="./annexes/lexique-itil">Consulter le lexique</a>
+    <a href="./00-glpi/">Commencer par GLPI →</a>
+    <a href="./01-introduction-itil/">Continuer avec ITIL</a>
   </div>
 </section>
 
-## Parcours de formation
+## 1. Initiation GLPI
+
+<div class="pc-path">
+  <a class="pc-card" href="./00-glpi/"><span class="pc-card__number">01</span><small>Première étape</small><strong>Initiation GLPI</strong><span>24 étapes : installation, parc, tickets, messagerie, automatisation et connexion LLDAP.</span></a>
+  <a class="pc-card" href="./00-glpi/01-presentation-glpi/"><span class="pc-card__number">→</span><small>Départ</small><strong>Présentation de GLPI</strong><span>Ouvrir le premier chapitre du laboratoire Le Fournil Doré.</span></a>
+</div>
+
+## 2. Découverte ITIL
+
+Une fois le laboratoire GLPI terminé, [relire le contexte commun](./00-contexte/) puis utiliser la même instance pour étudier les pratiques ITIL.
 
 <div class="pc-path">
   <a class="pc-card" href="./01-introduction-itil/"><span class="pc-card__number">01</span><small>Repères</small><strong>Introduction à ITIL</strong><span>Origines, versions, services, valeur et certifications.</span></a>
@@ -29,7 +37,13 @@ description: Parcours élève pour comprendre les fondamentaux ITIL et les mettr
   <a class="pc-card" href="./08-amelioration-continue/"><span class="pc-card__number">08</span><small>Progrès</small><strong>Amélioration continue</strong><span>Modèle en 7 étapes, KPI, registre et statistiques GLPI.</span></a>
 </div>
 
-## Emporter la formation
+## Emporter les formations
+
+<div class="obsidian-download">
+  <div class="obsidian-download__icon" aria-hidden="true">GLPI</div>
+  <div class="obsidian-download__content"><strong>Initiation GLPI hors ligne</strong><span>Cours, ateliers, schémas et captures du laboratoire.</span></div>
+  <a class="obsidian-download__button" href="./glpi-initiation-obsidian.zip" download>Télécharger le ZIP</a>
+</div>
 
 <div class="obsidian-download">
   <div class="obsidian-download__icon" aria-hidden="true">ITIL</div>

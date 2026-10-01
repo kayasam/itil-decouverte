@@ -6,9 +6,7 @@ title: "05. La gestion des changements"
 
 > [!TIP] Ressources du chapitre
 > - <a href="05-gestion-changements-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[05-tp-serveur-partage|TP — serveur mutualisé]]
-> - [[05-tp-serveur-individuel|TP — serveur individuel]]
-> - [[05-correction|Correction]] *(formateur)*
+> - [[05-tp|Faire l’atelier]]
 > - [[00-INDEX|Sommaire de la formation]]
 
 ---

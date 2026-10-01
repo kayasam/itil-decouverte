@@ -7,7 +7,6 @@ title: "01. Introduction à ITIL"
 > [!TIP] Ressources du chapitre
 > - <a href="01-introduction-itil-interactif.html" target="_blank">Ouvrir le cours interactif</a>
 > - [[01-tp|TP du chapitre]]
-> - [[01-correction|Correction]] *(formateur)*
 > - [[00-INDEX|Sommaire de la formation]]
 
 ---
@@ -83,7 +82,7 @@ En clair : un service IT permet à quelqu'un d'obtenir quelque chose d'utile, sa
 
 ### Les services IT au quotidien
 
-Un service IT n'est pas forcément visible. Quand Marie au Fournil Doré envoie un email, elle utilise :
+Un service IT n'est pas forcément visible. Quand Claire au Fournil Doré envoie un email, elle utilise :
 - Le service de messagerie
 - Le service réseau
 - Le service d'authentification (pour se connecter)

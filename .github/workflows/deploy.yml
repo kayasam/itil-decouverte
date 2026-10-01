@@ -66,6 +66,11 @@ jobs:
           done
           find content -mindepth 3 -maxdepth 3 -type f -name "*.md" -path "content/[0-9][0-9]-*/tp/*" ! -name "index.md" -exec cp {} public/telechargements/tp/ \;
 
+      - name: Publish GLPI interactive HTML
+        run: |
+          mkdir -p public/00-glpi/20-notifications
+          cp content/00-glpi/20-notifications/schema-notifications-interactif.html public/00-glpi/20-notifications/
+
       - name: Create Obsidian archive
         run: |
           cp -R student-vault download
@@ -77,10 +82,24 @@ jobs:
           tp_count="$(unzip -Z1 "$archive" | grep -cE '/tp/[^/]+\.md$' || true)"
           media_count="$(unzip -Z1 "$archive" | grep -ciE '/Ressources/images/[^/]+\.(svg|png|jpe?g|webp|gif)$' || true)"
           forbidden_count="$(unzip -Z1 "$archive" | grep -ciE '(^|/)(assets?|programme|corrections?)(/|$)' || true)"
-          if [ "$course_count" -ne 8 ] || [ "$tp_count" -ne 14 ] || [ "$media_count" -lt 10 ] || [ "$forbidden_count" -ne 0 ]; then
+          if [ "$course_count" -ne 8 ] || [ "$tp_count" -ne 8 ] || [ "$media_count" -lt 10 ] || [ "$forbidden_count" -ne 0 ]; then
             echo "Archive invalide : cours=$course_count, TP=$tp_count, médias=$media_count, éléments interdits=$forbidden_count"
             exit 1
           fi
+
+      - name: Create GLPI Obsidian archive
+        run: |
+          cd student-vault
+          courses="$(find Initiation-GLPI -type f -name '*-cours*.md' | wc -l)"
+          tps="$(find Initiation-GLPI -type f -name '*-tp.md' | wc -l)"
+          media="$(find Initiation-GLPI/ressources/images -type f | wc -l)"
+          html="$(find Initiation-GLPI -type f -name '*-interactif.html' | wc -l)"
+          forbidden="$(find Initiation-GLPI -type f -iname '*corrig*' | wc -l)"
+          if [ "$courses" -ne 24 ] || [ "$tps" -ne 19 ] || [ "$media" -lt 20 ] || [ "$html" -ne 1 ] || [ "$forbidden" -ne 0 ]; then
+            echo "Archive GLPI invalide : cours=$courses, TP=$tps, médias=$media, HTML=$html, corrigés=$forbidden"
+            exit 1
+          fi
+          zip -qr ../public/glpi-initiation-obsidian.zip Initiation-GLPI
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4

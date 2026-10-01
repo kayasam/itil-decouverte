@@ -209,11 +209,11 @@ button,input,select,textarea { font-family:inherit; }
   <div class="callout note">
     <div class="callout-title">Le critère qui tranche</div>
     Est-ce que ça <b>modifie durablement l'état</b> d'un élément de configuration ? Rétablir un service n'est pas le modifier.
-    <br><br>Redémarrer un service planté restaure l'état existant : c'est de la gestion d'incident. Déployer une GPO sur tous les postes crée un « avant » et un « après » : c'est un changement.
+    <br><br>Redémarrer un service planté restaure l'état existant : c'est de la gestion d'incident. Changer le pilote sur le poste de Claire crée un « avant » et un « après » : c'est un changement.
   </div>
   <div class="table-wrap"><table>
-    <tr><th></th><th>Redémarrer le service d'impression</th><th>Déployer la GPO</th></tr>
-    <tr><td>Portée</td><td>Un poste</td><td>Tous les postes de la boutique</td></tr>
+    <tr><th></th><th>Redémarrer le service d'impression</th><th>Changer le pilote</th></tr>
+    <tr><td>Portée</td><td>Un poste</td><td>Le poste de Claire</td></tr>
     <tr><td>Effet</td><td>Restaure l'état existant</td><td>Modifie durablement la configuration</td></tr>
     <tr><td>Réversibilité</td><td>Immédiate</td><td>Nécessite un plan de repli documenté</td></tr>
     <tr><td>Pratique ITIL</td><td>Gestion des <b>incidents</b></td><td>Gestion des <b>changements</b></td></tr>
@@ -271,7 +271,7 @@ button,input,select,textarea { font-family:inherit; }
   <p class="lead">Ce n'est pas de la paperasse : c'est ce qui borne le risque.</p>
   <div class="callout danger">
     <div class="callout-title">Le scénario catastrophe</div>
-    GPO déployée sans plan de repli, l'impression tombe sur tous les postes un <b>samedi matin</b>. Jour de forte affluence, technicien absent, personne sur place ne sait revenir en arrière.
+    Pilote changé sans plan de repli, l'impression tombe sur le poste de Claire un <b>samedi matin</b>. Jour de forte affluence, technicien absent, personne sur place ne sait revenir en arrière.
     <br><br>Un changement mal maîtrisé vient de <b>créer un incident majeur</b>, plus grave que le problème qu'il devait résoudre.
   </div>
   <h2>Les 4 sections à remplir</h2>
@@ -319,26 +319,26 @@ button,input,select,textarea { font-family:inherit; }
 
 var DATA={
  std:{k:'Type 1',t:'Changement standard',li:['Pré-autorisé une fois pour toutes','Risque faible','Procédure connue et répétée','Aucune approbation à chaque exécution'],ex:'Ajout d\'un compte utilisateur, installation d\'une imprimante déjà référencée, renouvellement d\'un certificat selon procédure.'},
- nor:{k:'Type 2',t:'Changement normal',li:['Passe par un processus d\'approbation','Risque modéré à élevé','Évalué par le CAB','Planifié avant mise en œuvre'],ex:'La GPO du chapitre 05 : elle touche plusieurs postes, le risque est modéré, il n\'y a pas d\'urgence puisqu\'un contournement existe.'},
+ nor:{k:'Type 2',t:'Changement normal',li:['Passe par un processus d\'approbation','Risque modéré à élevé','Évalué par le CAB','Planifié avant mise en œuvre'],ex:'Le changement de pilote du chapitre 05 : il modifie la configuration du poste de Claire, le risque est modéré, il n\'y a pas d\'urgence puisqu\'un contournement existe.'},
  urg:{k:'Type 3',t:'Changement d\'urgence',li:['Approbation accélérée par l\'ECAB','Risque accepté sciemment','Documenté après coup — jamais « pas du tout »'],ex:'Correctif de sécurité critique, ou rétablissement après une panne majeure. Rare, et il doit le rester.'},
- s1:{k:'Statut 1',t:'Nouveau',li:['La demande de changement est créée','En attente d\'examen'],ex:'Thomas saisit le changement dans GLPI après avoir identifié la cause racine.'},
+ s1:{k:'Statut 1',t:'Nouveau',li:['La demande de changement est créée','En attente d\'examen'],ex:'Vous saisissez le changement dans GLPI après avoir identifié la cause racine.'},
  s2:{k:'Statut 2',t:'Évaluation',li:['Analyse d\'impact','Estimation des risques','Préparation du dossier'],ex:'Combien de postes ? Quelle durée ? Quelle fenêtre de maintenance ?'},
  s3:{k:'Statut 3',t:'Validation',li:['Dossier soumis au CAB ou au responsable','C\'est ici que ça se joue'],ex:'Au Fournil Doré, le dossier passe devant le directeur.'},
- s4:{k:'Statut 4',t:'Accepté',li:['Approuvé','Créneau de déploiement confirmé'],ex:'Lundi 7h-8h30, avant l\'ouverture de la boutique.'},
- s5:{k:'Statut 5',t:'En test',li:['Déploiement sur un poste pilote','Vérification avant généralisation'],ex:'On applique la GPO sur un seul poste et on imprime pour vérifier.'},
- s6:{k:'Statut 6',t:'Appliqué',li:['Changement déployé en production','Sur l\'ensemble du périmètre'],ex:'La GPO est appliquée à toute l\'OU Boutique.'},
+ s4:{k:'Statut 4',t:'Accepté',li:['Approuvé','Créneau de déploiement confirmé'],ex:'Lundi 7h-8h30, avant les commandes du matin.'},
+ s5:{k:'Statut 5',t:'En test',li:['Déploiement sur un poste pilote','Vérification avant généralisation'],ex:'On installe le pilote sur le poste de Claire et on imprime pour vérifier.'},
+ s6:{k:'Statut 6',t:'Appliqué',li:['Changement déployé en production','Sur l\'ensemble du périmètre'],ex:'Le nouveau pilote est conservé sur le poste après les tests.'},
  s7:{k:'Statut 7',t:'Revue',li:['Vérification post-déploiement','L\'objectif est-il atteint ?'],ex:'Étape systématiquement sautée en pratique. Sans elle, on espère que ça a marché, on ne le sait pas.'},
  s8:{k:'Statut 8',t:'Clos',li:['Dossier fermé','Documentation finalisée','Le problème associé peut être clos à son tour'],ex:'On relie le changement au problème du chapitre 04 : la boucle est bouclée.'},
  ref:{k:'Issue alternative',t:'Refusé',li:['Le CAB ou le responsable n\'approuve pas','Risque jugé trop élevé, ou créneau impossible'],ex:'Un changement refusé n\'est pas un échec : c\'est le processus qui fonctionne. Il a évité une panne.'},
- an:{k:'Section',t:'Analyse d\'impact',li:['Qui est touché','Quelle durée d\'intervention','Quelle fenêtre de maintenance'],ex:'Tous les PC de la boutique. 30 minutes. Lundi matin avant ouverture, 7h-8h30.'},
- dep:{k:'Section',t:'Plan de déploiement',li:['Les étapes concrètes, dans l\'ordre','Assez précis pour qu\'un collègue puisse exécuter'],ex:'Créer la GPO, désactiver la MAJ auto des pilotes, appliquer sur l\'OU Boutique, gpupdate /force, vérifier l\'impression.'},
- rep:{k:'Section',t:'Plan de repli',li:['Comment revenir à l\'état antérieur','En combien de temps','Obligatoire, sans exception'],ex:'Désactiver la GPO, gpupdate /force, réinstaller le pilote v3.1 à la main. 20 minutes.'},
+ an:{k:'Section',t:'Analyse d\'impact',li:['Qui est touché','Quelle durée d\'intervention','Quelle fenêtre de maintenance'],ex:'Le poste de Claire. 30 minutes. Lundi matin avant ouverture, 7h-8h30.'},
+ dep:{k:'Section',t:'Plan de déploiement',li:['Les étapes concrètes, dans l\'ordre','Assez précis pour qu\'un collègue puisse exécuter'],ex:'Relever la version actuelle, installer le pilote stable, vérifier une page de test.'},
+ rep:{k:'Section',t:'Plan de repli',li:['Comment revenir à l\'état antérieur','En combien de temps','Obligatoire, sans exception'],ex:'Réinstaller le pilote précédent et vérifier une page de test. 20 minutes.'},
  ver:{k:'Section',t:'Liste de vérifications',li:['Comment savoir que ça a marché','Critères objectifs, pas une impression'],ex:'Imprimante visible depuis le PC du comptoir, impression test réussie, aucune MAJ auto au prochain cycle Windows Update.'}
 };
 var QUIZ=[
  {q:'Redémarrer un service d\'impression planté est…',o:['a) Un changement standard','b) De la gestion d\'incident','c) Un changement d\'urgence'],good:'b',
   fb:{b:'Exact — ça restaure l\'état existant sans rien modifier durablement.',wrong:'Non : rétablir un service n\'est pas le modifier. C\'est de la gestion d\'incident.'}},
- {q:'Déployer une GPO sur tous les postes de la boutique est un changement…',o:['a) Standard','b) Normal','c) D\'urgence'],good:'b',
+ {q:'Changer le pilote sur le poste de Claire est un changement…',o:['a) Standard','b) Normal','c) D\'urgence'],good:'b',
   fb:{b:'Exact — plusieurs postes, risque modéré, pas d\'urgence puisqu\'un contournement existe.',wrong:'Non : ce n\'est pas pré-autorisé (donc pas standard) et le service fonctionne (donc pas urgence). C\'est un changement normal.'}},
  {q:'Le rôle du CAB est…',o:['a) D\'exécuter les changements','b) D\'évaluer et d\'autoriser','c) De rédiger les procédures techniques'],good:'b',
   fb:{b:'Exact — il autorise ou refuse. La mise en œuvre reste aux équipes techniques.',wrong:'Non : le CAB évalue et autorise. Il n\'exécute pas.'}},
@@ -356,7 +356,7 @@ var GAME={opts:['Standard','Normal','Urgence'],
       'Sans faute. Le classement conditionne tout le reste du processus.'],
  items:[
   ['Créer le compte du nouveau vendeur qui arrive lundi.',0,'Procédure connue et répétée, risque faible : standard.'],
-  ['Déployer une GPO sur tous les postes de la boutique.',1,'Plusieurs postes, risque modéré, pas d\'urgence : normal.'],
+  ['Changer le pilote sur le poste de Claire.',1,'Configuration du poste modifiée, risque modéré, pas d\'urgence : normal.'],
   ['Appliquer un correctif de sécurité critique exploité activement.',2,'Le risque de ne rien faire dépasse celui d\'agir : urgence.'],
   ['Installer une imprimante d\'un modèle déjà référencé.',0,'Cas connu, pré-autorisé : standard.'],
   ['Migrer le serveur GLPI vers une nouvelle machine.',1,'Impact large, planification nécessaire : normal.'],

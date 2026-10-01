@@ -282,7 +282,7 @@ button,input,select,textarea { font-family:inherit; }
   <div class="callout danger">
     <div class="callout-title">Traitement particulier</div>
     Impact critique sur l'activité. Il déclenche une <b>cellule de crise</b>, une communication vers les utilisateurs, et un <b>post-mortem obligatoire</b> après résolution.
-    <br><br>Au Fournil Doré : le four à l'arrêt un samedi matin, c'est un incident majeur — la production s'arrête et la boutique ferme à midi.
+    <br><br>Au Fournil Doré : le four à l'arrêt un samedi matin, c'est un incident majeur — la production s'arrête et la vente devient difficile.
   </div>
 </div>
 
@@ -325,13 +325,13 @@ var DATA={
  m00:{k:'Priorité critique',t:'Impact élevé × Urgence élevée',li:['Traitement immédiat, avant tout le reste','Peut déclencher une cellule de crise'],ex:'La caisse refuse les CB avec une file de clients : chaque minute est du chiffre d\'affaires perdu.'},
  m01:{k:'Priorité haute',t:'Impact élevé × Urgence moyenne',li:['Beaucoup d\'utilisateurs touchés','Mais un contournement existe'],ex:'Le serveur de fichiers est lent : tout le monde travaille, mais mal.'},
  m02:{k:'Priorité moyenne',t:'Impact élevé × Urgence faible',li:['Large portée, mais aucune échéance proche'],ex:'Un certificat expire dans trois semaines : à traiter, sans précipitation.'},
- m10:{k:'Priorité haute',t:'Impact moyen × Urgence élevée',li:['Un service important est bloqué','Quelqu\'un attend maintenant'],ex:'Marie ne peut plus se connecter à GLPI et elle est bloquée toute la matinée.'},
+ m10:{k:'Priorité haute',t:'Impact moyen × Urgence élevée',li:['Un service important est bloqué','Quelqu\'un attend maintenant'],ex:'Claire ne peut plus se connecter à GLPI et elle est bloquée toute la matinée.'},
  m11:{k:'Priorité moyenne',t:'Impact moyen × Urgence moyenne',li:['Le cas le plus fréquent','À traiter dans la journée'],ex:'Claire n\'accède plus au dossier partagé Comptabilité.'},
  m12:{k:'Priorité basse',t:'Impact moyen × Urgence faible',li:['Gêne réelle mais différable'],ex:'Un poste met trois minutes à démarrer. Agaçant, pas bloquant.'},
  m20:{k:'Priorité moyenne',t:'Impact faible × Urgence élevée',li:['Une seule personne, mais elle est bloquée maintenant'],ex:'Le comptable doit envoyer la TVA avant midi et son imprimante ne répond pas.'},
  m21:{k:'Priorité basse',t:'Impact faible × Urgence moyenne',li:['Une personne, pas d\'échéance dure'],ex:'Un raccourci ne fonctionne plus sur un poste.'},
- m22:{k:'Priorité très basse',t:'Impact faible × Urgence faible',li:['À planifier quand il y a du temps'],ex:'L\'imprimante boutique est hors ligne mais personne n\'attend d\'impression.'},
- e1:{k:'Étape 1',t:'Détection',li:['Un utilisateur signale, ou la supervision alerte','Plus c\'est tôt, moins ça coûte'],ex:'Lucas passe la tête par la porte : « ça n\'imprime plus ».'},
+ m22:{k:'Priorité très basse',t:'Impact faible × Urgence faible',li:['À planifier quand il y a du temps'],ex:'L\'imprimante de Nantes est hors ligne mais personne n\'attend d\'impression.'},
+ e1:{k:'Étape 1',t:'Détection',li:['Un utilisateur signale, ou la supervision alerte','Plus c\'est tôt, moins ça coûte'],ex:'Claire passe la tête par la porte : « ça n\'imprime plus ».'},
  e2:{k:'Étape 2',t:'Enregistrement',li:['Créer le ticket avec toutes les informations','Demandeur, description, équipement concerné'],ex:'Sans ticket, aucune trace — et le chapitre 04 devient impossible.'},
  e3:{k:'Étape 3',t:'Catégorisation',li:['Quel type ? Quel service concerné ?','Conditionne le routage et les statistiques'],ex:'Matériel > Imprimante. Une catégorie fausse fausse tout le reporting.'},
  e4:{k:'Étape 4',t:'Priorisation',li:['Impact × Urgence = Priorité','C\'est GLPI qui calcule'],ex:'Impact faible, urgence faible : le ticket imprimante passe après la caisse.'},

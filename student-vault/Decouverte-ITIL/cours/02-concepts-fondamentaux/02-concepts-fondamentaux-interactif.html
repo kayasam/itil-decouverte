@@ -412,8 +412,8 @@ button,input,select,textarea { font-family:inherit; }
 var DATA={
  d1:{k:'Dimension 1',t:'Organisations et personnes',li:['Rôles et responsabilités clairement définis','Culture d\'entreprise favorable à la collaboration','Compétences au bon niveau'],ex:'Un seul technicien IT, aucun remplaçant. Si personne ne sait qu\'il est responsable des incidents réseau, les pannes ne remontent jamais correctement.'},
  d2:{k:'Dimension 2',t:'Information et technologie',li:['Logiciels de gestion (GLPI)','Bases de données et documentation','Outils de surveillance et d\'automatisation'],ex:'GLPI centralise les tickets. Sans lui, les incidents se gèrent par mail ou à l\'oral — et tout l\'historique est perdu.'},
- d3:{k:'Dimension 3',t:'Partenaires et fournisseurs',li:['Fournisseur d\'accès Internet, hébergeur','Prestataire de maintenance matérielle','Éditeurs logiciels et contrats associés'],ex:'OVH héberge le serveur GLPI. Si OVH tombe, le technicien ne peut rien faire — d\'où l\'importance d\'un contrat avec engagement de disponibilité.'},
- d4:{k:'Dimension 4',t:'Flux de valeur et processus',li:['Enchaînement des activités du signalement à la clôture','Comment une demande d\'accès est traitée','Chasse aux étapes inutiles'],ex:'Marie signale une panne d\'imprimante → ticket → diagnostic → résolution → clôture. Sans ce flux défini, chaque incident se gère différemment.'},
+ d3:{k:'Dimension 3',t:'Partenaires et fournisseurs',li:['Fournisseur d\'accès Internet, hébergeur','Prestataire de maintenance matérielle','Éditeurs logiciels et contrats associés'],ex:'Informatique Atlantique maintient les postes. Un retard du prestataire peut affecter le service.'},
+ d4:{k:'Dimension 4',t:'Flux de valeur et processus',li:['Enchaînement des activités du signalement à la clôture','Comment une demande d\'accès est traitée','Chasse aux étapes inutiles'],ex:'Claire signale une panne d\'imprimante → ticket → diagnostic → résolution → clôture. Sans ce flux défini, chaque incident se gère différemment.'},
  P:{k:'PESTEL — P',t:'Facteurs politiques',li:['Décisions publiques, réglementation sectorielle','Stabilité et orientations de l\'État'],ex:'Obligation d\'héberger les données de l\'entreprise sur le territoire national.'},
  E:{k:'PESTEL — E',t:'Facteurs économiques',li:['Budget disponible, inflation, coût du matériel','Santé financière de l\'entreprise'],ex:'Budget informatique réduit : on arbitre entre renouveler les postes et souscrire une maintenance.'},
  S:{k:'PESTEL — S',t:'Facteurs socioculturels',li:['Habitudes de travail, attentes des utilisateurs','Démographie, formation des équipes'],ex:'Le télétravail change les usages : il faut un accès distant qui n\'existait pas avant.'},
@@ -426,10 +426,10 @@ var DATA={
  s4:{k:'Composant 4',t:'Pratiques',li:['34 au total','14 management, 17 services, 3 techniques','Ce sont des boîtes à outils, pas des procédures figées'],ex:'Les chapitres 03 à 08 en couvrent 6 : incidents, problèmes, changements, SLA, CMDB, amélioration continue.'},
  s5:{k:'Composant 5',t:'Amélioration continue',li:['Mécanisme permanent','S\'applique à tous les autres composants','Modèle en 7 étapes'],ex:'C\'est le chapitre 08. C\'est aussi ce que la plupart des organisations abandonnent en premier.'},
  v1:{k:'Activité',t:'Planifier',li:['Définir la vision et la stratégie','Fixer les priorités','Encadre toutes les autres activités'],ex:'« On veut zéro incident récurrent sur l\'imprimante d\'ici 3 mois. »'},
- v2:{k:'Activité',t:'Impliquer',li:['Comprendre les besoins des parties prenantes','Gérer la relation avec les utilisateurs','Point d\'entrée de toute demande'],ex:'Lucas passe la tête par la porte : « ça n\'imprime plus ». C\'est ici que tout commence.'},
+ v2:{k:'Activité',t:'Impliquer',li:['Comprendre les besoins des parties prenantes','Gérer la relation avec les utilisateurs','Point d\'entrée de toute demande'],ex:'Claire passe la tête par la porte : « ça n\'imprime plus ». C\'est ici que tout commence.'},
  v3:{k:'Activité',t:'Concevoir et faire évoluer',li:['Concevoir les services et les pratiques','Faire évoluer l\'existant','Prendre en compte les 4 dimensions'],ex:'Écrire la procédure de dépannage imprimante en 4 étapes maximum.'},
- v4:{k:'Activité',t:'Obtenir / Construire',li:['Acquérir ou développer les composants','Achat, développement, configuration'],ex:'Commander le pilote Brother v3.2 stable et préparer la GPO.'},
- v5:{k:'Activité',t:'Fournir et supporter',li:['Délivrer les services au quotidien','Gérer les incidents et les demandes','C\'est le travail du service desk'],ex:'Traiter le ticket de Lucas, redémarrer le service d\'impression, écrire la solution.'},
+ v4:{k:'Activité',t:'Obtenir / Construire',li:['Acquérir ou développer les composants','Achat, développement, configuration'],ex:'Préparer une version stable du pilote Brother et son test sur le poste de Claire.'},
+ v5:{k:'Activité',t:'Fournir et supporter',li:['Délivrer les services au quotidien','Gérer les incidents et les demandes','C\'est le travail du service desk'],ex:'Traiter le ticket de Claire, redémarrer le service d\'impression et écrire la solution.'},
  v6:{k:'Activité',t:'Améliorer',li:['Identifier les axes de progrès','À tous les niveaux, en permanence','Alimentée par les mesures'],ex:'Constater 3 incidents en 3 semaines et décider d\'ouvrir un problème.'}
 };
 var PRINCIPES=[
@@ -442,7 +442,7 @@ var PRINCIPES=[
  ['Optimiser et automatiser','Réduire les tâches répétitives, utiliser l\'automatisation intelligemment.','Optimiser d\'abord, automatiser ensuite. Automatiser un processus bancal accélère le désordre.']
 ];
 var TRACES={
- inc:{n:'Un incident imprimante',p:['v2','v5','v6'],txt:'Lucas signale (Impliquer) → on traite le ticket (Fournir et supporter) → on note que ça se répète (Améliorer). Ni conception, ni achat : trois activités suffisent.'},
+ inc:{n:'Un incident imprimante',p:['v2','v5','v6'],txt:'Claire signale (Impliquer) → on traite le ticket (Fournir et supporter) → on note que ça se répète (Améliorer). Ni conception, ni achat : trois activités suffisent.'},
  dep:{n:'Déployer un nouveau logiciel',p:['v1','v2','v3','v4','v5'],txt:'On planifie, on recueille le besoin, on conçoit, on acquiert, puis on livre et on supporte. Le chemin le plus long — et c\'est normal.'},
  idee:{n:'Une idée d\'amélioration',p:['v6','v1','v3'],txt:'L\'idée naît d\'un constat (Améliorer), elle est arbitrée (Planifier), puis traduite en évolution (Concevoir). On peut entrer par n\'importe quelle activité.'}
 };

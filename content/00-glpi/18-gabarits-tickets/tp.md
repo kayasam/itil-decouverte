@@ -1,0 +1,36 @@
+---
+title: "TP 18. Gabarit de ticket"
+---
+
+# TP 18 — Préparer le diagnostic Internet
+
+> Chapitre associé : [18-cours](/00-glpi/18-gabarits-tickets/)
+
+## Mission
+
+Créer avec votre compte Super-Admin un gabarit pour les **nouveaux incidents Réseau → Internet** de Claire, dans **Le Fournil Doré**.
+
+## A — Créer le gabarit
+
+1. Ouvrir **Assistance → Tickets → Gabarits de tickets → Ajouter**.
+2. Nommer le gabarit `Incident réseau — diagnostic guidé` et l'enregistrer.
+3. Dans **Champs obligatoires**, ajouter **Titre** et **Lieu**.
+4. Dans **Champs prédéfinis**, ajouter **Description** avec ce texte :
+
+   - Poste concerné : `PC-REN-02` ou autre poste précisé par Claire.
+   - Symptôme et heure de début : …
+   - Test d'accès à une IP : …
+   - Test DNS : …
+   - Résultat et interprétation : …
+
+5. Laisser l'urgence non prédéfinie.
+
+## B — Lier le gabarit
+
+Dans **Configuration → Intitulés → Catégories ITIL → Réseau → Internet**, choisir **Incident réseau — diagnostic guidé** pour **Gabarit pour un incident**. Enregistrer. Laisser le gabarit de **demande** distinct.
+
+## C — Vérifier
+
+Ouvrir un nouveau ticket de type **Incident**, catégorie **Réseau → Internet**, sans l'envoyer. Vérifier que **Titre** et **Lieu** sont obligatoires et que la description préparée apparaît.
+
+Pour interpréter les tests réseau, voir les commandes du [cours](/00-glpi/18-gabarits-tickets/). Un test effectué sur le serveur GLPI renseigne sur le serveur, pas sur `PC-REN-02`.

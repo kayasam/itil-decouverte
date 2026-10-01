@@ -259,7 +259,7 @@ button,input,select,textarea { font-family:inherit; }
         <text x="215" y="472" font-size="11.5" font-weight="700" fill="#d1a000" text-anchor="middle" font-family="'Segoe UI',sans-serif">TEMPORAIRE</text></g>
       <g class="node" data-k="sd"><rect x="555" y="378" width="340" height="102" rx="14" fill="none" stroke="#2f9e6e" stroke-width="2.5"/>
         <text x="725" y="410" font-size="15" font-weight="700" fill="#2f9e6e" text-anchor="middle" font-family="'Segoe UI',sans-serif">Solution définitive</text>
-        <text class="figtext" x="725" y="435" font-size="12.5" text-anchor="middle">GPO désactivant la MAJ auto</text>
+        <text class="figtext" x="725" y="435" font-size="12.5" text-anchor="middle">Test du pilote stable</text>
         <text class="figtext" x="725" y="454" font-size="12.5" text-anchor="middle">30 min, une seule fois</text>
         <text x="725" y="472" font-size="11.5" font-weight="700" fill="#2f9e6e" text-anchor="middle" font-family="'Segoe UI',sans-serif">PASSE PAR UN CHANGEMENT</text></g>
     </svg>
@@ -350,10 +350,10 @@ var DATA={
  pro:{k:'Mode',t:'Proactif',li:['Déclenché par l\'analyse des données','Avant que la panne n\'arrive','Demande du temps — c\'est pour ça qu\'on le saute'],ex:'Les statistiques montrent que 60 % des tickets viennent des postes du comptoir. On investigue avant la prochaine panne.'},
  i1:{k:'Semaine 1',t:'Premier incident',li:['File d\'impression bloquée','Résolu par un redémarrage du service','Aucun soupçon à ce stade'],ex:'Un incident isolé ne justifie pas d\'ouvrir un problème. On rétablit et on passe.'},
  i2:{k:'Semaine 2',t:'Deuxième incident',li:['L\'imprimante n\'apparaît plus sur le réseau','Symptôme différent, même équipement','C\'est ici qu\'il fallait ouvrir le problème'],ex:'Deux incidents sur le même équipement en moins d\'un mois : le signal est clair. Attendre coûte une troisième panne.'},
- i3:{k:'Semaine 3',t:'Troisième incident',li:['L\'imprimante ne répond plus du tout','Le doute n\'est plus permis'],ex:'Trois interruptions pour Lucas, trois interventions du technicien. Tout ça était évitable.'},
+ i3:{k:'Semaine 3',t:'Troisième incident',li:['L\'imprimante ne répond plus du tout','Le doute n\'est plus permis'],ex:'Trois interruptions pour Claire, trois interventions du technicien. Tout ça était évitable.'},
  pb:{k:'Le problème',t:'Cause racine identifiée',li:['Le pilote se corrompt à chaque mise à jour Windows','Bug confirmé par Brother','Pilote stable annoncé sous 2 semaines'],ex:'Le problème regroupe les 3 incidents. Il se ferme quand la cause disparaît, pas quand l\'imprimante réimprime.'},
  wa:{k:'Sortie 1',t:'Le contournement',li:['Réinstaller le pilote manuellement','15 minutes, à rejouer après chaque mise à jour','Documenté en base de connaissance'],ex:'Le statut du problème passe à « Erreur connue » : cause identifiée, contournement disponible, correction en attente.'},
- sd:{k:'Sortie 2',t:'La solution définitive',li:['GPO désactivant la mise à jour automatique du pilote','30 minutes, une seule fois','Modifie durablement plusieurs postes'],ex:'Parce qu\'elle modifie durablement la configuration, elle doit passer par un changement — c\'est le chapitre 05.'},
+ sd:{k:'Sortie 2',t:'La solution définitive',li:['Pilote stable testé sur le poste de Claire','30 minutes, une seule fois','Modifie durablement plusieurs postes'],ex:'Parce qu\'elle modifie durablement la configuration, elle doit passer par un changement — c\'est le chapitre 05.'},
  ec:{k:'Concept',t:'Erreur connue',li:['La cause est identifiée','La correction n\'est pas encore déployée','Statut GLPI dédié'],ex:'On sait pourquoi ça casse, on sait comment tenir en attendant. C\'est déjà énorme.'},
  wk:{k:'Concept',t:'Contournement (workaround)',li:['Temporaire, pas définitif','Réduit l\'impact sans supprimer la cause','Doit rester visible comme provisoire'],ex:'Réinstaller le pilote à la main. Ça marche, mais ça ne règle rien.'},
  kb:{k:'Concept',t:'Base de connaissance',li:['Là où le contournement est écrit','Accessible à toute l\'équipe','Chaque problème résolu devrait y laisser une fiche'],ex:'La prochaine fois qu\'un technicien voit le symptôme, il trouve la procédure en 30 secondes.'},
@@ -362,7 +362,7 @@ var DATA={
  q3:{k:'Étape 3',t:'Catégorisation',li:['Même logique que pour les incidents'],ex:'Matériel / Impression.'},
  q4:{k:'Étape 4',t:'Investigation',li:['Analyse de la cause racine','Logs, tests, historique, contact éditeur'],ex:'C\'est l\'étape qui demande du temps — celle qu\'on n\'a jamais dans l\'urgence quotidienne.'},
  q5:{k:'Étape 5',t:'Erreur connue',li:['Documenter la cause et le contournement','Statut dédié dans GLPI'],ex:'L\'étape la plus rentable : à partir d\'ici, les incidents suivants coûtent des minutes.'},
- q6:{k:'Étape 6',t:'Résolution',li:['Appliquer le correctif définitif','Passe souvent par un changement'],ex:'Déploiement de la GPO — voir chapitre 05.'},
+ q6:{k:'Étape 6',t:'Résolution',li:['Appliquer le correctif définitif','Passe souvent par un changement'],ex:'Test du pilote stable — voir chapitre 05.'},
  q7:{k:'Étape 7',t:'Clôture',li:['Vérifier que la cause a bien disparu','Mettre à jour la documentation'],ex:'On ne ferme pas parce que l\'imprimante marche aujourd\'hui, mais parce qu\'elle ne peut plus tomber pour cette raison.'}
 };
 var QUIZ=[
@@ -387,9 +387,9 @@ var GAME={opts:['Incident','Problème'],
  items:[
   ['La caisse ne répond plus, là, maintenant.',0,'Un service interrompu ici et maintenant : incident.'],
   ['Trois postes du comptoir plantent chaque lundi matin depuis un mois.',1,'Récurrence + motif : c\'est un problème.'],
-  ['Marie ne peut pas se connecter ce matin.',0,'Un cas isolé à rétablir : incident.'],
+  ['Claire ne peut pas se connecter ce matin.',0,'Un cas isolé à rétablir : incident.'],
   ['On ignore pourquoi le Wi-Fi du fournil coupe entre 5h et 7h.',1,'Cause inconnue derrière des incidents répétés : problème.'],
-  ['L\'imprimante est hors ligne, Lucas attend ses bons.',0,'Interruption ponctuelle : incident.'],
+  ['L\'imprimante est hors ligne, Claire attend ses bons.',0,'Interruption ponctuelle : incident.'],
   ['Le même message d\'erreur revient sur 8 postes depuis la dernière mise à jour.',1,'Cause commune identifiable : problème.'],
   ['Le terminal de paiement refuse les CB depuis 10 minutes.',0,'Rétablir d\'abord : incident.'],
   ['On a redémarré le service d\'impression 6 fois ce mois-ci.',1,'La répétition est le signal : ouvrir un problème.']

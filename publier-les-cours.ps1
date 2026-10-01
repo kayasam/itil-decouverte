@@ -1,22 +1,24 @@
 param([string]$Message, [switch]$PrepareOnly)
 $ErrorActionPreference = "Stop"
 $sourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\itil"
+$glpiSourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\initiation"
 $projectRoot = "D:\Projet-git\itil-decouverte"
 $staticRoot = Join-Path $projectRoot "site-content"
 $stageRoot = Join-Path $projectRoot ".publication-stage"
 $vaultStage = Join-Path $projectRoot ".student-vault-stage\Decouverte-ITIL"
 $vaultDestination = Join-Path $projectRoot "student-vault\Decouverte-ITIL"
+$glpiVaultDestination = Join-Path $projectRoot "student-vault\Initiation-GLPI"
 $utf8 = [Text.UTF8Encoding]::new($false)
 
 $chapters = @(
   @{Slug="01-introduction-itil";Title="01. Introduction à ITIL";Course="01-cours.md";Tps=@("01-tp.md")},
   @{Slug="02-concepts-fondamentaux";Title="02. Concepts fondamentaux d'ITIL 4";Course="02-cours.md";Tps=@("02-tp.md")},
-  @{Slug="03-gestion-incidents";Title="03. Gestion des incidents";Course="03-cours.md";Tps=@("03-tp-serveur-individuel.md","03-tp-serveur-partage.md")},
-  @{Slug="04-gestion-problemes";Title="04. Gestion des problèmes";Course="04-cours.md";Tps=@("04-tp-serveur-individuel.md","04-tp-serveur-partage.md")},
-  @{Slug="05-gestion-changements";Title="05. Gestion des changements";Course="05-cours.md";Tps=@("05-tp-serveur-individuel.md","05-tp-serveur-partage.md")},
-  @{Slug="06-sla-niveaux-service";Title="06. SLA et niveaux de service";Course="06-cours.md";Tps=@("06-tp-serveur-individuel.md","06-tp-serveur-partage.md")},
-  @{Slug="07-catalogue-services-cmdb";Title="07. Catalogue de services et CMDB";Course="07-cours.md";Tps=@("07-tp-serveur-individuel.md","07-tp-serveur-partage.md")},
-  @{Slug="08-amelioration-continue";Title="08. Amélioration continue";Course="08-cours.md";Tps=@("08-tp-serveur-individuel.md","08-tp-serveur-partage.md")}
+  @{Slug="03-gestion-incidents";Title="03. Gestion des incidents";Course="03-cours.md";Tps=@("03-tp.md")},
+  @{Slug="04-gestion-problemes";Title="04. Gestion des problèmes";Course="04-cours.md";Tps=@("04-tp.md")},
+  @{Slug="05-gestion-changements";Title="05. Gestion des changements";Course="05-cours.md";Tps=@("05-tp.md")},
+  @{Slug="06-sla-niveaux-service";Title="06. SLA et niveaux de service";Course="06-cours.md";Tps=@("06-tp.md")},
+  @{Slug="07-catalogue-services-cmdb";Title="07. Catalogue de services et CMDB";Course="07-cours.md";Tps=@("07-tp.md")},
+  @{Slug="08-amelioration-continue";Title="08. Amélioration continue";Course="08-cours.md";Tps=@("08-tp.md")}
 )
 
 function Assert-File([string]$Path) { if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { throw "Fichier introuvable : $Path" } }
@@ -117,19 +119,26 @@ Get-ChildItem -LiteralPath (Join-Path $sourceRoot "annexes") -File -Filter "*.md
 Mirror (Join-Path $sourceRoot "Ressources\images") (Join-Path $stageRoot "Ressources\images")
 Mirror (Join-Path $sourceRoot "Ressources\images") (Join-Path $vaultStage "Ressources\images")
 
+& python (Join-Path $projectRoot "scripts\prepare-glpi.py") $glpiSourceRoot $stageRoot (Split-Path $vaultStage)
+if ($LASTEXITCODE) { throw "Échec de la préparation GLPI." }
+& python (Join-Path $projectRoot "scripts\fix-itil-links.py") $stageRoot
+if ($LASTEXITCODE) { throw "Échec de la résolution des liens ITIL." }
+
 $imagePattern = '!\[\[([^]|]+\.(?:svg|jpe?g|png|webp|gif))(?:\|[^]]+)?\]\]'
 Get-ChildItem $stageRoot -Recurse -File -Filter "*.md" | ForEach-Object {
   $body = [IO.File]::ReadAllText($_.FullName)
   $body = [regex]::Replace($body, $imagePattern, { param($m) "![$($m.Groups[1].Value)](/Ressources/images/$($m.Groups[1].Value))" }, 'IgnoreCase')
   [IO.File]::WriteAllText($_.FullName, $body, $utf8)
 }
-$forbidden = Get-ChildItem $stageRoot, $vaultStage -Recurse -File | Where-Object Name -Match 'correction|corrig[eé]'
+$glpiVaultStage = Join-Path (Split-Path $vaultStage) "Initiation-GLPI"
+$forbidden = Get-ChildItem $stageRoot, $vaultStage, $glpiVaultStage -Recurse -File | Where-Object Name -Match 'correction|corrig[eé]'
 if ($forbidden) { throw "Correction détectée dans le contenu élève." }
 $quizFiles = Get-ChildItem (Join-Path $stageRoot "cours\quiz") -File -Filter "*.html" | Where-Object Name -ne "quiz-template.html"
 if ($quizFiles.Count -ne 8) { throw "8 quiz attendus, $($quizFiles.Count) trouvés." }
 Remove-Item (Join-Path $stageRoot "cours\quiz\quiz-template.html") -Force
 Mirror $stageRoot (Join-Path $projectRoot "content")
 Mirror $vaultStage $vaultDestination
+Mirror $glpiVaultStage $glpiVaultDestination
 Remove-Safe $stageRoot; Remove-Safe (Split-Path $vaultStage)
 
 Push-Location $projectRoot
@@ -138,6 +147,10 @@ try {
   if ($LASTEXITCODE) { throw "Échec du formatage." }
   & npx quartz build
   if ($LASTEXITCODE) { throw "Échec du build Quartz." }
+  $glpiHtml = "00-glpi\20-notifications\schema-notifications-interactif.html"
+  $glpiHtmlPublic = Join-Path (Join-Path $projectRoot "public") $glpiHtml
+  New-Item -ItemType Directory -Path (Split-Path $glpiHtmlPublic) -Force | Out-Null
+  Copy-Item -LiteralPath (Join-Path (Join-Path $projectRoot "content") $glpiHtml) -Destination $glpiHtmlPublic -Force
   if ($PrepareOnly) { Write-Host "Préparation et build terminés." -ForegroundColor Green; exit 0 }
   if (-not (git status --porcelain)) { Write-Host "Aucune modification."; exit 0 }
   if (-not $Message) { $Message = Read-Host "Message de publication" }

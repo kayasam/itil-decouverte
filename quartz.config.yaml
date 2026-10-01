@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Découverte ITIL
+  pageTitle: Parcours GLPI puis ITIL
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true

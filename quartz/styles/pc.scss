@@ -68,6 +68,7 @@
 }
 
 .pc-actions a,
+.pc-actions a.internal,
 .obsidian-download a.obsidian-download__button {
   padding: 0.7rem 1rem;
   border: 1px solid var(--secondary);
@@ -78,7 +79,8 @@
   text-decoration: none;
 }
 
-.pc-actions a:last-child {
+.pc-actions a:last-child,
+.pc-actions a.internal:last-child {
   color: var(--secondary);
   background: transparent;
 }
@@ -90,7 +92,8 @@
   margin: 1rem 0 2rem;
 }
 
-.pc-card {
+.pc-card,
+.pc-card.internal {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.15rem 0.9rem;

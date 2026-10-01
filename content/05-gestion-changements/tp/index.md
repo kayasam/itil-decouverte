@@ -4,5 +4,4 @@ title: "Travaux pratiques"
 
 # Travaux pratiques
 
-- [[05-tp-serveur-individuel|05 tp serveur individuel]]
-- [[05-tp-serveur-partage|05 tp serveur partage]]
+- [05 tp](/05-gestion-changements/tp/05-tp)

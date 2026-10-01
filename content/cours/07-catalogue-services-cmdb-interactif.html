@@ -1094,10 +1094,10 @@
               filter="url(#sf7)"
             />
             <text class="figlabel" x="120" y="388" font-size="13" text-anchor="middle">
-              Lucas Petit
+              Claire Rousseau
             </text>
             <text class="figsub" x="120" y="408" font-size="11.5" text-anchor="middle">
-              vendeur boutique
+              demandeuse du fil rouge
             </text>
           </g>
           <g class="node usr" id="nU2" data-k="u2">
@@ -1111,10 +1111,10 @@
               filter="url(#sf7)"
             />
             <text class="figlabel" x="450" y="388" font-size="13" text-anchor="middle">
-              Marie Dupont
+              Service impression
             </text>
             <text class="figsub" x="450" y="408" font-size="11.5" text-anchor="middle">
-              secrétariat
+              service métier
             </text>
           </g>
           <g class="node usr" id="nU3" data-k="u3">
@@ -1128,10 +1128,10 @@
               filter="url(#sf7)"
             />
             <text class="figlabel" x="780" y="388" font-size="13" text-anchor="middle">
-              Claire Rousseau
+              Bons de commande
             </text>
             <text class="figsub" x="780" y="408" font-size="11.5" text-anchor="middle">
-              comptabilité
+              activité métier
             </text>
           </g>
           <text
@@ -1207,7 +1207,7 @@
             "Les composants derrière chaque service",
             "Sert au diagnostic et aux changements",
           ],
-          ex: "Derrière « impression boutique » : l'imprimante, le switch, le serveur d'impression, le pilote.",
+          ex: "Derrière « impression de Nantes » : l'imprimante, le switch, le serveur d'impression, le pilote.",
         },
         sw: {
           k: "CI — infrastructure",
@@ -1223,21 +1223,21 @@
         },
         u1: {
           k: "Utilisateur impacté",
-          t: "Lucas Petit",
-          li: ["Vendeur en boutique", "Imprime les bons de commande"],
-          ex: "C'est lui qui a signalé les trois pannes. Sans imprimante, il écrit à la main.",
+          t: "Claire Rousseau",
+          li: ["Demandeuse", "Imprime les bons de commande"],
+          ex: "Claire a signalé les trois pannes. Sans imprimante, elle doit utiliser un contournement.",
         },
         u2: {
-          k: "Utilisateur impacté",
-          t: "Marie Dupont",
-          li: ["Secrétaire de direction", "Impressions administratives"],
-          ex: "Impact moindre que Lucas : ses documents peuvent attendre.",
+          k: "Service impacté",
+          t: "Service impression",
+          li: ["Dépend de l'imprimante", "Permet de produire les documents"],
+          ex: "Le service devient indisponible si le switch ou l'imprimante tombe.",
         },
         u3: {
-          k: "Utilisateur impacté",
-          t: "Claire Rousseau",
-          li: ["Comptable", "Impressions comptables et fiscales"],
-          ex: "Impact variable : très fort en période de déclaration, faible le reste du temps.",
+          k: "Activité impactée",
+          t: "Bons de commande",
+          li: ["Production des documents de vente", "Utilisés par Claire"],
+          ex: "Une panne retarde la préparation des commandes.",
         },
       }
       var QUIZ = [
@@ -1339,7 +1339,7 @@
             "Un équipement géré, avec des dépendances : c'est un CI.",
           ],
           [
-            "Le ticket n°42 ouvert par Lucas",
+            "Le ticket n°42 ouvert par Claire",
             1,
             "Un ticket n'est pas un élément de configuration, c'est un enregistrement d'activité.",
           ],

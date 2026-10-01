@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="335" viewBox="0 0 960 335" role="img" aria-labelledby="title desc">
+<title id="title">Entités du Fournil Doré</title><desc id="desc">La racine Le Fournil Doré accueille tous les comptes, tickets et équipements du fil rouge. Boutique et Laboratoire sont deux enfants laissés vides.</desc>
+<rect width="960" height="335" rx="16" fill="#f7fafc"/><g font-family="Arial,sans-serif" text-anchor="middle">
+<rect x="270" y="24" width="420" height="125" rx="13" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="480" y="59" font-size="23" font-weight="700" fill="#14532d">Le Fournil Doré</text><text x="480" y="85" font-size="17" fill="#334155">Entité racine · contexte de travail</text><text x="480" y="113" font-size="15" fill="#14532d">Admin · Claire · tickets · équipements</text>
+<path d="M480 149V184M480 184H240M480 184H720M240 184V208M720 184V208" fill="none" stroke="#475569" stroke-width="3"/>
+<rect x="85" y="208" width="310" height="78" rx="12" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/><text x="240" y="241" font-size="21" font-weight="700" fill="#334155">Boutique</text><text x="240" y="267" font-size="15" fill="#475569">Sous-entité d'exemple · vide</text>
+<rect x="565" y="208" width="310" height="78" rx="12" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/><text x="720" y="241" font-size="21" font-weight="700" fill="#334155">Laboratoire</text><text x="720" y="267" font-size="15" fill="#475569">Sous-entité d'exemple · vide</text>
+<text x="480" y="319" font-size="15" fill="#334155">Sélectionner « Le Fournil Doré » sans « Arborescence » pour les ateliers.</text></g>
+</svg>

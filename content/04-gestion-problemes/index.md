@@ -14,11 +14,9 @@ aliases:
 
 > [!TIP] Ressources du chapitre
 >
-> - <a href="04-gestion-problemes-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [[04-tp-serveur-partage|TP — serveur mutualisé]]
-> - [[04-tp-serveur-individuel|TP — serveur individuel]]
-> - [[04-correction|Correction]] _(formateur)_
-> - [[00-INDEX|Sommaire de la formation]]
+> - <a href="https://kayasam.github.io/itil-decouverte/cours/04-gestion-problemes-interactif.html" target="_blank">Ouvrir le cours interactif</a>
+> - [Faire l’atelier](/04-gestion-problemes/tp/04-tp)
+> - [Sommaire de la formation](/)
 
 ---
 
@@ -54,13 +52,13 @@ On l'a vu au chapitre 3 : un incident, on le règle vite. Mais si le même incid
 
 Déclenché **après** les incidents. On observe qu'un incident s'est répété ou qu'un incident grave vient de se produire, et on ouvre un problème pour en chercher la cause.
 
-> Exemple : le réseau Wi-Fi a chuté 3 fois en 2 semaines → Thomas ouvre un problème pour investiguer.
+> Exemple : le réseau Wi-Fi a chuté 3 fois en 2 semaines → vous ouvrez un problème pour investiguer.
 
 ### Mode proactif
 
 On cherche les problèmes **avant** qu'ils ne causent des incidents. On analyse les tendances, les logs, les alertes.
 
-> Exemple : Thomas remarque dans GLPI que 60% des tickets concernent les PC du comptoir. Il ouvre un problème préventif avant la prochaine panne.
+> Exemple : vous remarquez dans GLPI que 60% des tickets concernent les PC du comptoir. Vous ouvrez un problème préventif avant la prochaine panne.
 
 ---
 
