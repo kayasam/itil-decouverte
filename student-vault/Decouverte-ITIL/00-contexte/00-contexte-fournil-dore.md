@@ -6,7 +6,7 @@ title: "Contexte commun : Le Fournil Doré"
 
 **Initiation GLPI** et **Découverte ITIL** se déroulent dans le même laboratoire. Vous construisez d'abord GLPI 11, puis réutilisez ses comptes, ses équipements et ses tickets pour étudier les pratiques ITIL. Chaque élève travaille sur sa propre instance.
 
-<a class="context-next" href="/00-contexte/contexte-interactif.html">Explorer l'organigramme et les intitulés interactifs →</a>
+<a class="context-next" href="https://kayasam.github.io/itil-decouverte/00-contexte/contexte-interactif.html">Explorer l'organigramme et les intitulés interactifs →</a>
 
 ## L'organisation en un coup d'œil
 
@@ -38,7 +38,7 @@ Le mot de passe pédagogique est **`a12345!`** pour tous ces comptes. Si LLDAP e
 
 ## Les intitulés utilisés
 
-Dans GLPI, un **intitulé** est une valeur d'une liste configurable. Les catégories ITIL servent à classer les tickets ; les lieux servent à situer les équipements. La [version interactive](/00-contexte/contexte-interactif.html) présente toute l'arborescence.
+Dans GLPI, un **intitulé** est une valeur d'une liste configurable. Les catégories ITIL servent à classer les tickets ; les lieux servent à situer les équipements. La [version interactive](https://kayasam.github.io/itil-decouverte/00-contexte/contexte-interactif.html) présente toute l'arborescence.
 
 - **Catégories ITIL** : Matériel > Ordinateur / Imprimante ; Réseau > Wi-Fi / Internet ; Logiciel > Installation / Dysfonctionnement ; Accès & Comptes ; Four & Production.
 - **Lieux** : Nantes > Salle serveur / Open space ; Rennes > Salle serveur / Open space.
