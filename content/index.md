@@ -11,7 +11,7 @@ description: "Parcours élève en deux étapes : initiation GLPI puis découvert
   <p>Commencer par installer et utiliser GLPI 11 dans le laboratoire du Fournil Doré. Poursuivre avec huit chapitres ITIL pour comprendre les pratiques qui donnent du sens au travail dans GLPI.</p>
   <div class="pc-actions">
     <a href="./00-glpi/">Commencer par GLPI →</a>
-    <a href="./01-introduction-itil/">Continuer avec ITIL</a>
+    <a href="./itil/">Continuer avec ITIL</a>
   </div>
 </section>
 
@@ -27,6 +27,7 @@ description: "Parcours élève en deux étapes : initiation GLPI puis découvert
 Une fois le laboratoire GLPI terminé, [relire le contexte commun](./00-contexte/) puis utiliser la même instance pour étudier les pratiques ITIL.
 
 <div class="pc-path">
+  <a class="pc-card" href="./itil/"><span class="pc-card__number">ITIL</span><small>Deuxième étape</small><strong>Découverte ITIL</strong><span>Huit chapitres pour comprendre les pratiques de gestion des services.</span></a>
   <a class="pc-card" href="./01-introduction-itil/"><span class="pc-card__number">01</span><small>Repères</small><strong>Introduction à ITIL</strong><span>Origines, versions, services, valeur et certifications.</span></a>
   <a class="pc-card" href="./02-concepts-fondamentaux/"><span class="pc-card__number">02</span><small>Fondations</small><strong>Concepts fondamentaux</strong><span>4 dimensions, SVS, principes directeurs et chaîne de valeur.</span></a>
   <a class="pc-card" href="./03-gestion-incidents/"><span class="pc-card__number">03</span><small>Support</small><strong>Gestion des incidents</strong><span>Qualification, priorité, cycle de vie et escalade.</span></a>

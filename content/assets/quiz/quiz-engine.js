@@ -38,7 +38,7 @@
   let index = 0
   let score = 0
   let answered = false
-  let answerOffset = 0
+  let correctPositions = []
 
   function shuffle(values) {
     const copy = values.slice()
@@ -70,7 +70,7 @@
     theme.textContent = question.theme
     title.textContent = question.question
     answers.replaceChildren()
-    const correctPosition = (index + answerOffset) % letters.length
+    const correctPosition = correctPositions[index]
     distributeChoices(question, correctPosition).forEach(function (choiceIndex, displayedIndex) {
       const button = document.createElement("button")
       button.type = "button"
@@ -166,7 +166,10 @@
     order = shuffle(data.questions.map((_, questionIndex) => questionIndex))
     index = 0
     score = 0
-    answerOffset = Math.floor(Math.random() * letters.length)
+    // Mélanger une répartition équilibrée : cinq bonnes réponses par lettre.
+    correctPositions = shuffle(
+      Array.from({ length: total }, (_, questionIndex) => questionIndex % letters.length),
+    )
     panel.classList.remove("hidden")
     result.classList.remove("visible")
     renderQuestion()

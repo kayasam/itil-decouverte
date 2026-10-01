@@ -18,10 +18,14 @@
 }
 
 .explorer-content ul.explorer-ul > li:has(> .folder-container[data-folderpath="00-glpi/index"]) {
+  order: -2;
+}
+
+.explorer-content ul.explorer-ul > li:has(> .folder-container[data-folderpath="itil/index"]) {
   order: -1;
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container {
+.explorer-content .folder-container {
   --chapter-accent: var(--secondary);
   --chapter-icon: none;
   position: relative;
@@ -42,14 +46,14 @@
     transform 150ms ease;
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container:hover {
+.explorer-content .folder-container:hover {
   border-color: color-mix(in srgb, var(--chapter-accent) 42%, var(--lightgray));
   background: color-mix(in srgb, var(--chapter-accent) 11%, var(--light));
   box-shadow: 0 0.35rem 0.85rem rgb(13 38 67 / 8%);
   transform: translateX(2px);
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container::before {
+.explorer-content .folder-container::before {
   display: grid;
   width: 1.9rem;
   height: 1.9rem;
@@ -65,12 +69,12 @@
   content: "";
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container > div {
+.explorer-content .folder-container > div {
   min-width: 0;
   flex: 1 1 auto;
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container .folder-button {
+.explorer-content .folder-container .folder-button {
   display: flex;
   width: 100%;
   gap: 0.4rem;
@@ -78,14 +82,14 @@
   justify-content: space-between;
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container .folder-title {
+.explorer-content .folder-container .folder-title {
   color: var(--dark);
   font-size: 0.83rem;
   font-weight: 750;
   line-height: 1.18;
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container .folder-button::after {
+.explorer-content .folder-container .folder-button::after {
   flex: 0 0 auto;
   padding: 0.12rem 0.32rem;
   border: 1px solid color-mix(in srgb, var(--chapter-accent) 28%, transparent);
@@ -100,7 +104,7 @@
   white-space: nowrap;
 }
 
-.explorer-content ul.explorer-ul > li > .folder-container > .folder-icon {
+.explorer-content .folder-container > .folder-icon {
   order: 3;
   width: 0.7rem;
   height: 0.7rem;
@@ -160,11 +164,42 @@
 
 .explorer-content .folder-container[data-folderpath^="00-glpi/"] {
   --chapter-accent: #1769aa;
-  --chapter-label: "GLPI";
+  --chapter-label: "ÉTAPE";
+  --chapter-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='16' rx='2'/%3E%3Cpath d='M3 9h18M8 13h8M8 16h5'/%3E%3C/svg%3E");
+  border-color: color-mix(in srgb, var(--chapter-accent) 32%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 12%, var(--light));
 }
 
-.explorer-content [data-folderpath^="00-glpi/"] .folder-container {
+.explorer-content .folder-container[data-folderpath="00-glpi/index"] {
   --chapter-accent: #1769aa;
+  --chapter-label: "GLPI";
+  --chapter-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='21' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-size='12' font-weight='bold'%3EGLPI%3C/text%3E%3C/svg%3E");
+}
+
+.explorer-content .folder-container[data-folderpath="itil/index"] {
+  --chapter-accent: #8956ee;
+  --chapter-label: "ITIL";
+  --chapter-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='21' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-size='13' font-weight='bold'%3EITIL%3C/text%3E%3C/svg%3E");
+  border-color: color-mix(in srgb, var(--chapter-accent) 32%, var(--lightgray));
+  background: color-mix(in srgb, var(--chapter-accent) 12%, var(--light));
+}
+
+.explorer-content .folder-container[data-folderpath="00-glpi/index"]::before,
+.explorer-content .folder-container[data-folderpath="itil/index"]::before {
+  background-size: 1.55rem;
+}
+
+.explorer-content a.nav-file-title[href*="/00-glpi/"][href$="/tp"] {
+  --exercise-accent: #1769aa;
+  display: block;
+  margin: 0.18rem 0;
+  padding: 0.35rem 0.5rem;
+  border-left: 2px solid #1769aa;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, #1769aa 8%, var(--light));
+  color: var(--dark);
+  font-size: 0.76rem;
+  font-weight: 700;
 }
 
 /* Les TP deviennent une sous-section claire de leur chapitre. */
@@ -343,7 +378,7 @@ body[data-slug$="/tp/index"] .page-listing {
     padding-inline: 0.8rem;
   }
 
-  .explorer-content ul.explorer-ul > li > .folder-container .folder-title {
+  .explorer-content .folder-container .folder-title {
     font-size: 0.9rem;
   }
 }
