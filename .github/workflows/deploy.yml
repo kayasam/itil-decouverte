@@ -87,7 +87,7 @@ jobs:
           archive="../public/itil-decouverte-obsidian.zip"
           zip -qr "$archive" Decouverte-ITIL
 
-          course_count="$(unzip -Z1 "$archive" | grep -cE 'cours/[0-9]{2}-[^/]+/[0-9]{2}-[^/]+\.md$' || true)"
+          course_count="$(unzip -Z1 "$archive" | grep -cE 'cours/[0-9]{2}-[^/]+/[0-9]{2}-cours\.md$' || true)"
           tp_count="$(unzip -Z1 "$archive" | grep -cE 'cours/[0-9]{2}-[^/]+/[0-9]{2}-tp\.md$' || true)"
           media_count="$(unzip -Z1 "$archive" | grep -ciE '/Ressources/images/[^/]+\.(svg|png|jpe?g|webp|gif)$' || true)"
           forbidden_count="$(unzip -Z1 "$archive" | grep -ciE '(^|/)(assets?|programme|corrections?)(/|$)' || true)"
