@@ -165,7 +165,7 @@ plugins:
     options:
       sortFn: >-
         function(a, b) {
-          const rank = node => node.slugSegment === "00-glpi" ? 0 : node.slugSegment === "itil" ? 1 : 2;
+          const rank = node => node.slugSegment === "00-contexte" ? 0 : node.slugSegment === "00-glpi" ? 1 : node.slugSegment === "itil" ? 2 : 3;
           const difference = rank(a) - rank(b);
           if (difference) return difference;
           if (a.isFolder !== b.isFolder) return a.isFolder ? -1 : 1;
@@ -176,7 +176,7 @@ plugins:
           if (node.slugSegments.length !== 0) return;
           const itil = node.children.find(child => child.slugSegment === "itil");
           if (!itil) return;
-          const pages = node.children.filter(child => /^0[1-8]-/.test(child.slugSegment) || child.slugSegment === "00-contexte" || child.slugSegment === "annexes");
+          const pages = node.children.filter(child => /^0[1-8]-/.test(child.slugSegment) || child.slugSegment === "Ressources");
           itil.children.push(...pages);
           node.children = node.children.filter(child => !pages.includes(child));
         }

@@ -7,6 +7,8 @@ description: Première étape du parcours GLPI puis ITIL.
 
 Installer GLPI 11, construire le laboratoire **Le Fournil Doré**, puis mettre en place le helpdesk. Les chapitres suivent le même fil rouge dans l'entité racine.
 
+[Découvrir le contexte commun et l'organigramme interactif](/00-contexte/)
+
 ## Parcours GLPI
 
 <div class="home-chapter-grid home-chapter-grid--glpi">

@@ -1,7 +1,7 @@
 ---
 title: "TP 04. Gestion des problèmes"
 aliases:
-  - "/tp/04-tp"
+  - "/04-gestion-problemes/tp/04-tp"
 ---
 
 # TP 04 — Rechercher la cause des pannes récurrentes

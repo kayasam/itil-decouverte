@@ -1,7 +1,7 @@
 ---
 title: "TP L'amélioration continue"
 aliases:
-  - "/tp/08-tp"
+  - "/08-amelioration-continue/tp/08-tp"
 ---
 
 # 08 — L'amélioration continue · TP

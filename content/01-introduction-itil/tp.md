@@ -1,7 +1,7 @@
 ---
 title: "TP : Introduction à ITIL"
 aliases:
-  - "/tp/01-tp"
+  - "/01-introduction-itil/tp/01-tp"
 ---
 
 # 01 — Introduction à ITIL · TP

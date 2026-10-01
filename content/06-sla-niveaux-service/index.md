@@ -15,7 +15,7 @@ aliases:
 > [!TIP] Ressources du chapitre
 >
 > - <a href="https://kayasam.github.io/itil-decouverte/cours/06-sla-niveaux-service-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [Faire l’atelier](/06-sla-niveaux-service/tp/06-tp)
+> - [Faire l’atelier](/06-sla-niveaux-service/tp)
 > - [Sommaire de la formation](/)
 
 ---

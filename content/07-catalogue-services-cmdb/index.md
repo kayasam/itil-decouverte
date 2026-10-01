@@ -15,7 +15,7 @@ aliases:
 > [!TIP] Ressources du chapitre
 >
 > - <a href="https://kayasam.github.io/itil-decouverte/cours/07-catalogue-services-cmdb-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [Faire l’atelier](/07-catalogue-services-cmdb/tp/07-tp)
+> - [Faire l’atelier](/07-catalogue-services-cmdb/tp)
 > - [Sommaire de la formation](/)
 
 ---

@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Le Fournil Doré · Contexte commun GLPI et ITIL</title>
+    <style>
+      :root {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          sans-serif;
+        color: #193654;
+        background: #f4f7fb;
+        line-height: 1.5;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      .wrap {
+        max-width: 1170px;
+        margin: auto;
+        padding: 28px 22px 80px;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .back {
+        color: #47637d;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .back:hover {
+        text-decoration: underline;
+      }
+      .pills {
+        display: flex;
+        gap: 8px;
+      }
+      .pill {
+        padding: 6px 13px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+      }
+      .glpi {
+        background: #e3f1fc;
+        color: #1769aa;
+      }
+      .itil {
+        background: #eee6ff;
+        color: #7347be;
+      }
+      .hero {
+        margin: 22px 0 24px;
+        padding: 32px 36px;
+        border-radius: 25px;
+        background: linear-gradient(120deg, #173c63, #1769aa 57%, #764ac0);
+        color: #fff;
+        box-shadow: 0 18px 40px #183f681c;
+      }
+      .eyebrow {
+        margin: 0 0 8px;
+        color: #cce5ff;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 12px;
+        font-weight: 850;
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.55rem);
+        line-height: 1.08;
+      }
+      .hero p {
+        max-width: 770px;
+        margin: 14px 0 0;
+        color: #e5f2ff;
+        font-size: 1.08rem;
+      }
+      .facts {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin-top: 23px;
+      }
+      .facts span {
+        padding: 8px 12px;
+        border: 1px solid #ffffff59;
+        border-radius: 10px;
+        background: #ffffff17;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .tabs {
+        display: flex;
+        gap: 7px;
+        overflow-x: auto;
+        margin: 26px 0 18px;
+        padding-bottom: 4px;
+      }
+      .tabs button {
+        white-space: nowrap;
+        border: 1px solid #d8e4ee;
+        border-radius: 11px;
+        background: #fff;
+        color: #496780;
+        padding: 11px 15px;
+        font-weight: 760;
+        cursor: pointer;
+      }
+      .tabs button[aria-selected="true"] {
+        background: #1769aa;
+        border-color: #1769aa;
+        color: #fff;
+      }
+      .panel {
+        display: none;
+      }
+      .panel.active {
+        display: block;
+      }
+      .intro {
+        margin: 0 0 17px;
+        color: #526c83;
+      }
+      .panel h2 {
+        font-size: 1.55rem;
+        margin: 0 0 8px;
+      }
+      .diagram-card,
+      .detail,
+      .info-card,
+      .tree,
+      .flow-card {
+        background: #fff;
+        border: 1px solid #dce7f0;
+        border-radius: 19px;
+        box-shadow: 0 6px 24px #163d6208;
+      }
+      .diagram-card {
+        padding: 18px;
+      }
+      .diagram {
+        position: relative;
+        max-width: 1000px;
+        margin: auto;
+      }
+      .diagram img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+      }
+      .hotspot {
+        position: absolute;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 18px;
+      }
+      .hotspot:hover {
+        outline: 3px solid #e3a040;
+      }
+      .hotspot:focus-visible {
+        outline: 4px solid #dd8e19;
+      }
+      .hotspot[data-target="root"] {
+        left: 29.4%;
+        top: 11.1%;
+        width: 41.2%;
+        height: 16.6%;
+      }
+      .hotspot[data-target="nantes"] {
+        left: 5.5%;
+        top: 39.2%;
+        width: 40%;
+        height: 27.9%;
+      }
+      .hotspot[data-target="rennes"] {
+        left: 54.5%;
+        top: 39.2%;
+        width: 40%;
+        height: 27.9%;
+      }
+      .hotspot[data-target="accounts"] {
+        left: 5.5%;
+        top: 72.8%;
+        width: 89%;
+        height: 20.6%;
+      }
+      .detail {
+        margin-top: 15px;
+        padding: 20px 23px;
+        border-left: 5px solid #d58a26;
+        min-height: 114px;
+      }
+      .detail h3 {
+        margin: 0 0 6px;
+      }
+      .detail p {
+        margin: 0;
+        color: #4c667e;
+      }
+      .hint {
+        color: #617a90;
+        font-size: 14px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+        gap: 13px;
+      }
+      .info-card {
+        padding: 19px;
+      }
+      .info-card .icon {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        background: #e8f3fc;
+        color: #1769aa;
+        font-size: 22px;
+        margin-bottom: 11px;
+      }
+      .info-card h3 {
+        margin: 0 0 6px;
+        font-size: 1.06rem;
+      }
+      .info-card p {
+        margin: 0;
+        color: #587087;
+        font-size: 0.94rem;
+      }
+      .note {
+        margin: 17px 0;
+        padding: 15px 18px;
+        background: #fff8ea;
+        border: 1px solid #f1d9aa;
+        border-radius: 14px;
+        color: #704c1b;
+      }
+      .filter {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 16px 0;
+      }
+      .filter button {
+        border: 1px solid #d6e4ef;
+        border-radius: 10px;
+        background: #fff;
+        color: #3e5c76;
+        padding: 9px 13px;
+        font-weight: 750;
+        cursor: pointer;
+      }
+      .filter button[aria-pressed="true"] {
+        background: #744cbe;
+        color: #fff;
+        border-color: #744cbe;
+      }
+      .tree-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+        gap: 14px;
+      }
+      .tree {
+        padding: 18px 20px;
+      }
+      .tree h3 {
+        margin: 0 0 11px;
+        font-size: 1.03rem;
+      }
+      .tree ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .tree li {
+        margin: 6px 0;
+      }
+      .tree li::marker {
+        color: #1769aa;
+      }
+      .search {
+        width: 100%;
+        max-width: 440px;
+        border: 1px solid #cbdce9;
+        border-radius: 10px;
+        padding: 11px 13px;
+        margin: 0 0 17px;
+        background: #fff;
+      }
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .flow-card {
+        padding: 19px;
+      }
+      .flow-card b {
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #1769aa;
+        color: #fff;
+      }
+      .flow-card h3 {
+        margin: 12px 0 6px;
+      }
+      .flow-card p {
+        margin: 0;
+        color: #526b83;
+        font-size: 0.93rem;
+      }
+      .routes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 23px;
+      }
+      .routes a {
+        display: inline-flex;
+        padding: 12px 17px;
+        border-radius: 11px;
+        background: #1769aa;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 750;
+      }
+      .routes a:last-child {
+        background: #7650bc;
+      }
+      .muted {
+        color: #617a90;
+        font-size: 0.88rem;
+        margin-top: 20px;
+      }
+      @media (max-width: 740px) {
+        .hero {
+          padding: 26px 22px;
+        }
+        .diagram-card {
+          padding: 7px;
+        }
+        .hotspot {
+          border-radius: 8px;
+        }
+        .flow {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 470px) {
+        .flow {
+          grid-template-columns: 1fr;
+        }
+        .wrap {
+          padding: 18px 12px 55px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="top">
+        <a class="back" href="https://kayasam.github.io/itil-decouverte/"
+          >← Accueil des formations</a
+        >
+        <div class="pills">
+          <span class="pill glpi">GLPI</span><span class="pill itil">ITIL</span>
+        </div>
+      </div>
+      <header class="hero">
+        <p class="eyebrow">Le laboratoire commun</p>
+        <h1>Le Fournil Doré</h1>
+        <p>
+          Une seule entreprise et une seule entité racine dans GLPI. Les deux parcours utilisent les
+          mêmes comptes, lieux, équipements et tickets.
+        </p>
+        <div class="facts">
+          <span>Réseau VirtualBox · 192.168.3.0/24</span><span>Serveur GLPI · .10</span
+          ><span>Poste Windows · .254</span><span>DNS · 1.1.1.1</span>
+        </div>
+      </header>
+      <div class="tabs" role="tablist" aria-label="Explorer le contexte">
+        <button
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="org"
+          id="tab-org"
+          data-tab="org"
+        >
+          ◈ Organisation</button
+        ><button
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="users"
+          id="tab-users"
+          data-tab="users"
+        >
+          ♙ Comptes</button
+        ><button
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="labels"
+          id="tab-labels"
+          data-tab="labels"
+        >
+          ▤ Intitulés GLPI</button
+        ><button
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="story"
+          id="tab-story"
+          data-tab="story"
+        >
+          ↗ Fil rouge
+        </button>
+      </div>
+      <section class="panel active" id="org" role="tabpanel" aria-labelledby="tab-org">
+        <h2>Organisation du laboratoire</h2>
+        <p class="intro">Cliquez sur un élément du schéma pour comprendre sa place dans GLPI.</p>
+        <div class="diagram-card">
+          <div class="diagram">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDYxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPk9yZ2FuaXNhdGlvbiBkdSBsYWJvcmF0b2lyZSBMZSBGb3VybmlsIERvcsOpPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+VW5lIHNldWxlIGVudGl0w6kgcmFjaW5lLiBEZXV4IGxpZXV4IHBoeXNpcXVlcywgTmFudGVzIGV0IFJlbm5lcy4gUXVhdHJlIGNvbXB0ZXMgZGUgZm9ybWF0aW9uIDogU3VwZXItQWRtaW4sIENsYWlyZSBSb3Vzc2VhdSwgTmljbyBSb2JpbiBldCBSb3Jvbm9hIFpvcm8uPC9kZXNjPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjdmOWZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmOGVjIi8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vdCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMjQ0Yzc5Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTc2OWFhIi8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9InNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTYwJSI+PGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjYiIHN0ZERldmlhdGlvbj0iOCIgZmxvb2QtY29sb3I9IiMyNDRjNzkiIGZsb29kLW9wYWNpdHk9Ii4xMiIvPjwvZmlsdGVyPgogICAgPHN0eWxlPgogICAgICB0ZXh0e2ZvbnQtZmFtaWx5OkludGVyLEFyaWFsLHNhbnMtc2VyaWZ9LmxhYmVse2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OjgwMDtsZXR0ZXItc3BhY2luZzouMDhlbX0uaGVhZHtmb250LXNpemU6MjNweDtmb250LXdlaWdodDo4MDB9LnNtYWxse2ZvbnQtc2l6ZToxNXB4fS5saW5le2ZpbGw6bm9uZTtzdHJva2U6I2FkYzRkODtzdHJva2Utd2lkdGg6MztzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmR9Lm5vZGV7Y3Vyc29yOnBvaW50ZXJ9Lm5vZGU6Zm9jdXMtdmlzaWJsZSByZWN0e3N0cm9rZTojZDk4NjI1O3N0cm9rZS13aWR0aDo0fS5ub2RlOmhvdmVyIHJlY3R7ZmlsdGVyOmJyaWdodG5lc3MoMS4wNCl9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2MTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KICA8dGV4dCB4PSI1MCIgeT0iNDQiIGZpbGw9IiM2Mzc0OGQiIGNsYXNzPSJsYWJlbCI+T1JHQU5JU0FUSU9OIERVIExBQk9SQVRPSVJFPC90ZXh0PgogIDxwYXRoIGNsYXNzPSJsaW5lIiBkPSJNNTAwIDE2OXYzN0gyNTR2MzJtMjQ2LTMyaDI0NnYzMk01MDAgMjA2djIzNiIvPgogIDxnIGNsYXNzPSJub2RlIiBkYXRhLW5vZGU9InJvb3QiIHRhYmluZGV4PSIwIiByb2xlPSJidXR0b24iIGFyaWEtbGFiZWw9IkVudGl0w6kgcmFjaW5lIExlIEZvdXJuaWwgRG9yw6kiPgogICAgPHJlY3QgeD0iMjk0IiB5PSI2OCIgd2lkdGg9IjQxMiIgaGVpZ2h0PSIxMDEiIHJ4PSIyMiIgZmlsbD0idXJsKCNyb290KSIgZmlsdGVyPSJ1cmwoI3NoYWRvdykiLz4KICAgIDxjaXJjbGUgY3g9IjM0NSIgY3k9IjExOSIgcj0iMjciIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iLjE3Ii8+CiAgICA8cGF0aCBkPSJNMzI5IDEyNWgzMm0tMjktMmMyLTcgNy0xMiAxMy0xMnMxMSA1IDEzIDEybS0yNiAwIDQgOWgyMGw0LTkiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDx0ZXh0IHg9IjM4OCIgeT0iMTEzIiBmaWxsPSJ3aGl0ZSIgY2xhc3M9ImhlYWQiPkxlIEZvdXJuaWwgRG9yw6k8L3RleHQ+CiAgICA8dGV4dCB4PSIzODgiIHk9IjEzOSIgZmlsbD0iI2RjZWVmZiIgY2xhc3M9InNtYWxsIj5FbnRpdMOpIHJhY2luZSB1bmlxdWUgZGFucyBHTFBJPC90ZXh0PgogIDwvZz4KICA8ZyBjbGFzcz0ibm9kZSIgZGF0YS1ub2RlPSJuYW50ZXMiIHRhYmluZGV4PSIwIiByb2xlPSJidXR0b24iIGFyaWEtbGFiZWw9IkxpZXUgTmFudGVzIj4KICAgIDxyZWN0IHg9IjU1IiB5PSIyMzkiIHdpZHRoPSI0MDAiIGhlaWdodD0iMTcwIiByeD0iMjAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNiZmRiZWYiIHN0cm9rZS13aWR0aD0iMiIgZmlsdGVyPSJ1cmwoI3NoYWRvdykiLz4KICAgIDxjaXJjbGUgY3g9IjEwNiIgY3k9IjI5MCIgcj0iMjkiIGZpbGw9IiNlN2YzZmMiLz4KICAgIDxwYXRoIGQ9Ik05NCAzMDF2LTI0bDEyLTYgMTIgNnYyNE05MCAzMDFoMzJNMTAxIDI4MmgybTcgMGgybS0xMSA4aDJtNyAwaDIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzE3NjlhYSIgc3Ryb2tlLXdpZHRoPSIyLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPHRleHQgeD0iMTQ4IiB5PSIyODciIGZpbGw9IiMxNDNiNjMiIGNsYXNzPSJoZWFkIj5OYW50ZXM8L3RleHQ+CiAgICA8dGV4dCB4PSIxNDgiIHk9IjMxMyIgZmlsbD0iIzYxNzQ4YiIgY2xhc3M9InNtYWxsIj4zMiBCZCBWaW5jZW50IEfDomNoZTwvdGV4dD4KICAgIDxwYXRoIGQ9Ik04NCAzMzhoMzQyIiBzdHJva2U9IiNlMmVkZjQiLz4KICAgIDx0ZXh0IHg9Ijg0IiB5PSIzNzEiIGZpbGw9IiM0MTU4NzMiIGNsYXNzPSJzbWFsbCI+U2FsbGUgc2VydmV1ciDCtyBPcGVuIHNwYWNlPC90ZXh0PgogICAgPHRleHQgeD0iODQiIHk9IjM5MiIgZmlsbD0iIzE3NjlhYSIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+SW1wcmltYW50ZSBkdSBmaWwgcm91Z2UgOiBJTVAtTkFOLU9QRU5TUEFDRS0wMTwvdGV4dD4KICA8L2c+CiAgPGcgY2xhc3M9Im5vZGUiIGRhdGEtbm9kZT0icmVubmVzIiB0YWJpbmRleD0iMCIgcm9sZT0iYnV0dG9uIiBhcmlhLWxhYmVsPSJMaWV1IFJlbm5lcyI+CiAgICA8cmVjdCB4PSI1NDUiIHk9IjIzOSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIxNzAiIHJ4PSIyMCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2RmZDJmYSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWx0ZXI9InVybCgjc2hhZG93KSIvPgogICAgPGNpcmNsZSBjeD0iNTk2IiBjeT0iMjkwIiByPSIyOSIgZmlsbD0iI2YwZWFmZCIvPgogICAgPHBhdGggZD0iTTU4NCAzMDF2LTI0bDEyLTYgMTIgNnYyNE01ODAgMzAxaDMyTTU5MSAyODJoMm03IDBoMm0tMTEgOGgybTcgMGgyIiBmaWxsPSJub25lIiBzdHJva2U9IiM4NTU4YmYiIHN0cm9rZS13aWR0aD0iMi42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICAgIDx0ZXh0IHg9IjYzOCIgeT0iMjg3IiBmaWxsPSIjMzkyZTYzIiBjbGFzcz0iaGVhZCI+UmVubmVzPC90ZXh0PgogICAgPHRleHQgeD0iNjM4IiB5PSIzMTMiIGZpbGw9IiM2MTc0OGIiIGNsYXNzPSJzbWFsbCI+MyBQbC4gZHUgR8OpbsOpcmFsLUdpcmF1ZDwvdGV4dD4KICAgIDxwYXRoIGQ9Ik01NzQgMzM4aDM0MiIgc3Ryb2tlPSIjZWVlOGY3Ii8+CiAgICA8dGV4dCB4PSI1NzQiIHk9IjM3MSIgZmlsbD0iIzQxNTg3MyIgY2xhc3M9InNtYWxsIj5TYWxsZSBzZXJ2ZXVyIMK3IE9wZW4gc3BhY2U8L3RleHQ+CiAgICA8dGV4dCB4PSI1NzQiIHk9IjM5MiIgZmlsbD0iIzg1NThiZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+TcOqbWUgZW50aXTDqSByYWNpbmUgR0xQSTwvdGV4dD4KICA8L2c+CiAgPGcgY2xhc3M9Im5vZGUiIGRhdGEtbm9kZT0iYWNjb3VudHMiIHRhYmluZGV4PSIwIiByb2xlPSJidXR0b24iIGFyaWEtbGFiZWw9IkNvbXB0ZXMgZHUgbGFib3JhdG9pcmUiPgogICAgPHJlY3QgeD0iNTUiIHk9IjQ0NCIgd2lkdGg9Ijg5MCIgaGVpZ2h0PSIxMjYiIHJ4PSIyMCIgZmlsbD0iIzE3MzQ1MiIgZmlsdGVyPSJ1cmwoI3NoYWRvdykiLz4KICAgIDxjaXJjbGUgY3g9IjEwNiIgY3k9IjQ5MyIgcj0iMjciIGZpbGw9IiMyZjU2NzgiLz4KICAgIDxjaXJjbGUgY3g9IjEwNiIgY3k9IjQ4NiIgcj0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgIDxwYXRoIGQ9Ik05MiA1MDZjMi05IDctMTMgMTQtMTNzMTIgNCAxNCAxMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHRleHQgeD0iMTQ4IiB5PSI0ODkiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iODAwIj5Db21wdGVzIGR1IGxhYm9yYXRvaXJlPC90ZXh0PgogICAgPHRleHQgeD0iMTQ4IiB5PSI1MTYiIGZpbGw9IiNjZmUyZjUiIGNsYXNzPSJzbWFsbCI+U3VwZXItQWRtaW4gZGUgbOKAmcOpbMOodmUgwrcgQ2xhaXJlIFJvdXNzZWF1IMK3IE5pY28gUm9iaW4gwrcgUm9yb25vYSBab3JvPC90ZXh0PgogICAgPHRleHQgeD0iMTQ4IiB5PSI1NDMiIGZpbGw9IiM5ZmM1ZTYiIGZvbnQtc2l6ZT0iMTQiPkNsYWlyZSBjcsOpZSBsZXMgZGVtYW5kZXMgOyBOaWNvIGV0IFpvcm8gYXJyaXZlbnQgYXZlYyBMTERBUCBhdSBjaGFwaXRyZSAyMi48L3RleHQ+CiAgPC9nPgogIDx0ZXh0IHg9IjUwMCIgeT0iNTk3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjM3NDhkIiBmb250LXNpemU9IjEzIj5VbiBsaWV1IHByw6ljaXNlIGxhIHBvc2l0aW9uIHBoeXNpcXVlIDsgaWwgbmUgY3LDqWUgcGFzIGRlIHNvdXMtZW50aXTDqS48L3RleHQ+Cjwvc3ZnPgo="
+              alt="Organigramme du Fournil Doré : entité racine, lieux Nantes et Rennes, comptes du laboratoire"
+            /><button
+              class="hotspot"
+              data-target="root"
+              aria-label="Détails de l'entité racine"
+            ></button
+            ><button
+              class="hotspot"
+              data-target="nantes"
+              aria-label="Détails du lieu Nantes"
+            ></button
+            ><button
+              class="hotspot"
+              data-target="rennes"
+              aria-label="Détails du lieu Rennes"
+            ></button
+            ><button
+              class="hotspot"
+              data-target="accounts"
+              aria-label="Détails des comptes"
+            ></button>
+          </div>
+        </div>
+        <div class="detail" id="org-detail" aria-live="polite">
+          <h3>Une entité, deux lieux</h3>
+          <p>
+            Les lieux Nantes et Rennes servent à localiser le matériel. Ils ne créent pas de
+            sous-entités : tout le laboratoire reste dans l'entité racine Le Fournil Doré.
+          </p>
+        </div>
+        <p class="hint">
+          Le schéma est aussi disponible au format SVG dans les ressources de la formation.
+        </p>
+      </section>
+      <section class="panel" id="users" role="tabpanel" aria-labelledby="tab-users">
+        <h2>Les comptes utilisés</h2>
+        <p class="intro">
+          Chaque élève travaille sur sa propre instance GLPI. Tous les comptes sont dans l'entité
+          racine.
+        </p>
+        <div class="cards">
+          <article class="info-card">
+            <span class="icon" aria-hidden="true">⚙</span>
+            <h3>Votre Super-Admin</h3>
+            <p>
+              Configure GLPI, le parc, les droits et les tickets. Utilisez votre compte personnel
+              pour les actions d'administration.
+            </p>
+          </article>
+          <article class="info-card">
+            <span class="icon" aria-hidden="true">✉</span>
+            <h3>Claire Rousseau</h3>
+            <p>
+              Identifiant <code>claire.rousseau</code>. Elle signale les incidents et vérifie
+              l'expérience du demandeur.
+            </p>
+          </article>
+          <article class="info-card">
+            <span class="icon" aria-hidden="true">◎</span>
+            <h3>Nico Robin</h3>
+            <p>
+              Identifiant <code>n.robin</code>. Compte LLDAP du groupe <code>mugiwara</code>, créé
+              au chapitre GLPI 22.
+            </p>
+          </article>
+          <article class="info-card">
+            <span class="icon" aria-hidden="true">◎</span>
+            <h3>Roronoa Zoro</h3>
+            <p>
+              Identifiant <code>z.roronoa</code>. Même groupe LLDAP, sans remplacer Claire dans le
+              fil rouge.
+            </p>
+          </article>
+        </div>
+        <div class="note">
+          Mot de passe pédagogique commun : <strong><code>a12345!</code></strong
+          >. Si LLDAP devient la source de connexion par défaut, choisissez « Base interne GLPI »
+          pour le Super-Admin ou Claire.
+        </div>
+      </section>
+      <section class="panel" id="labels" role="tabpanel" aria-labelledby="tab-labels">
+        <h2>Les intitulés du laboratoire</h2>
+        <p class="intro">
+          Dans GLPI, les intitulés sont des listes configurables. Choisissez une famille, puis
+          retrouvez les noms utilisés dans les chapitres et TP.
+        </p>
+        <div class="filter" role="group" aria-label="Famille d'intitulés">
+          <button type="button" data-kind="tickets" aria-pressed="true">Catégories ITIL</button
+          ><button type="button" data-kind="places" aria-pressed="false">Lieux</button
+          ><button type="button" data-kind="kb" aria-pressed="false">Base de connaissances</button
+          ><button type="button" data-kind="states" aria-pressed="false">Statut du parc</button>
+        </div>
+        <input
+          class="search"
+          id="label-search"
+          type="search"
+          placeholder="Rechercher un intitulé…"
+          aria-label="Rechercher un intitulé"
+        />
+        <div class="tree-grid" id="label-list" aria-live="polite"></div>
+        <div class="note">
+          Une <strong>catégorie ITIL</strong> classe un ticket ; un <strong>lieu</strong> situe un
+          équipement. Dans les deux cas, l'entité reste Le Fournil Doré.
+        </div>
+      </section>
+      <section class="panel" id="story" role="tabpanel" aria-labelledby="tab-story">
+        <h2>Le parcours GLPI → ITIL</h2>
+        <p class="intro">
+          L'initiation construit le laboratoire. La découverte ITIL réutilise les mêmes objets pour
+          raisonner sur les services.
+        </p>
+        <div class="flow">
+          <article class="flow-card">
+            <b>1</b>
+            <h3>Construire GLPI</h3>
+            <p>Serveur, utilisateurs, lieux, catégories, parc et messagerie.</p>
+          </article>
+          <article class="flow-card">
+            <b>2</b>
+            <h3>Claire signale</h3>
+            <p>Une panne de <code>IMP-NAN-OPENSPACE-01</code>, située à Nantes &gt; Open space.</p>
+          </article>
+          <article class="flow-card">
+            <b>3</b>
+            <h3>Étudier la cause</h3>
+            <p>Incidents récurrents, problème, changement de pilote préparé et plan de repli.</p>
+          </article>
+          <article class="flow-card">
+            <b>4</b>
+            <h3>Améliorer</h3>
+            <p>SLA, relations entre équipements, mesure et amélioration continue.</p>
+          </article>
+        </div>
+        <div class="note">
+          Le changement de pilote reste prévu si aucun pilote approprié n'est disponible. Le
+          laboratoire ne requiert ni domaine Active Directory ni GPO.
+        </div>
+      </section>
+      <nav class="routes" aria-label="Commencer un parcours">
+        <a href="https://kayasam.github.io/itil-decouverte/00-glpi/"
+          >Commencer l'initiation GLPI →</a
+        ><a href="https://kayasam.github.io/itil-decouverte/itil/">Ouvrir Découverte ITIL →</a>
+      </nav>
+      <p class="muted">
+        Ce contexte est partagé par les deux cours. Les manipulations suivent toujours le même fil
+        rouge.
+      </p>
+    </main>
+    <script>
+      const details = {
+        root: [
+          "Le Fournil Doré · entité racine",
+          "Tous les utilisateurs, équipements, tickets, catégories et objets des TP restent dans cette unique entité GLPI.",
+        ],
+        nantes: [
+          "Nantes · lieu physique",
+          "32 Bd Vincent Gâche, 44200 Nantes. Salle serveur et Open space. L’imprimante IMP-NAN-OPENSPACE-01 est dans Nantes > Open space.",
+        ],
+        rennes: [
+          "Rennes · lieu physique",
+          "3 Pl. du Général-Giraud, 35000 Rennes. Salle serveur et Open space. Rennes est un lieu, pas une sous-entité.",
+        ],
+        accounts: [
+          "Comptes du laboratoire",
+          "Votre Super-Admin configure GLPI ; Claire Rousseau est la demandeuse. Nico Robin et Roronoa Zoro sont importés depuis LLDAP au chapitre 22.",
+        ],
+      }
+      document.querySelectorAll(".hotspot").forEach((button) =>
+        button.addEventListener("click", () => {
+          const [title, body] = details[button.dataset.target]
+          const box = document.getElementById("org-detail")
+          box.querySelector("h3").textContent = title
+          box.querySelector("p").textContent = body
+        }),
+      )
+      document.querySelectorAll("[data-tab]").forEach((button) =>
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-tab]")
+            .forEach((tab) => tab.setAttribute("aria-selected", String(tab === button)))
+          document
+            .querySelectorAll(".panel")
+            .forEach((panel) => panel.classList.toggle("active", panel.id === button.dataset.tab))
+        }),
+      )
+      const groups = {
+        tickets: [
+          ["Matériel", "Ordinateur", "Imprimante"],
+          ["Réseau", "Wi-Fi", "Internet"],
+          ["Logiciel", "Installation", "Dysfonctionnement"],
+          ["Accès & Comptes"],
+          ["Four & Production"],
+        ],
+        places: [
+          ["Nantes", "Salle serveur", "Open space"],
+          ["Rennes", "Salle serveur", "Open space"],
+        ],
+        kb: [
+          ["Matériel", "Ordinateurs & périphériques", "Imprimantes"],
+          ["Réseau", "Wi-Fi", "Accès Internet"],
+          ["Logiciels", "Installation & licences", "Dépannage"],
+          ["Procédures internes", "Arrivée d’un collaborateur", "Départ d’un collaborateur"],
+          ["Four & Production"],
+        ],
+        states: [["En inventaire"]],
+      }
+      let kind = "tickets"
+      const list = document.getElementById("label-list"),
+        search = document.getElementById("label-search")
+      function render() {
+        const term = search.value.trim().toLocaleLowerCase("fr")
+        list.replaceChildren()
+        let count = 0
+        for (const [parent, ...children] of groups[kind]) {
+          const matches = parent.toLocaleLowerCase("fr").includes(term)
+          const shown =
+            term && !matches
+              ? children.filter((child) => child.toLocaleLowerCase("fr").includes(term))
+              : children
+          if (term && !matches && !shown.length) continue
+          const card = document.createElement("article")
+          card.className = "tree"
+          const heading = document.createElement("h3")
+          heading.textContent = parent
+          card.append(heading)
+          if (shown.length) {
+            const ul = document.createElement("ul")
+            for (const child of shown) {
+              const li = document.createElement("li")
+              li.textContent = child
+              ul.append(li)
+            }
+            card.append(ul)
+          }
+          list.append(card)
+          count++
+        }
+        if (!count) {
+          const p = document.createElement("p")
+          p.textContent = "Aucun intitulé trouvé."
+          list.append(p)
+        }
+      }
+      document.querySelectorAll("[data-kind]").forEach((button) =>
+        button.addEventListener("click", () => {
+          kind = button.dataset.kind
+          document
+            .querySelectorAll("[data-kind]")
+            .forEach((item) => item.setAttribute("aria-pressed", String(item === button)))
+          search.value = ""
+          render()
+        }),
+      )
+      search.addEventListener("input", render)
+      render()
+    </script>
+  </body>
+</html>

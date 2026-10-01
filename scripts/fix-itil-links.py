@@ -15,7 +15,7 @@ notes = {"00-INDEX": "/", "00-contexte-fournil-dore": "/00-contexte/"}
 for chapter in chapters:
     number = chapter.name[:2]
     notes[f"{number}-cours"] = f"/{chapter.name}/"
-    notes[f"{number}-tp"] = f"/{chapter.name}/tp/{number}-tp"
+    notes[f"{number}-tp"] = f"/{chapter.name}/tp"
 
 files = [stage / "00-contexte" / "index.md"]
 for chapter in chapters:

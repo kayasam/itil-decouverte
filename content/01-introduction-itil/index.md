@@ -15,7 +15,7 @@ aliases:
 > [!TIP] Ressources du chapitre
 >
 > - <a href="https://kayasam.github.io/itil-decouverte/cours/01-introduction-itil-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [TP du chapitre](/01-introduction-itil/tp/01-tp)
+> - [TP du chapitre](/01-introduction-itil/tp)
 > - [Sommaire de la formation](/)
 
 ---

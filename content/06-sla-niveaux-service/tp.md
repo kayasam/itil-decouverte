@@ -1,7 +1,7 @@
 ---
 title: "TP Les SLA et les niveaux de service"
 aliases:
-  - "/tp/06-tp"
+  - "/06-sla-niveaux-service/tp/06-tp"
 ---
 
 # 06 — Les SLA et les niveaux de service · TP

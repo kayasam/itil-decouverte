@@ -1,7 +1,7 @@
 ---
 title: "TP : Concepts fondamentaux d'ITIL 4"
 aliases:
-  - "/tp/02-tp"
+  - "/02-concepts-fondamentaux/tp/02-tp"
 ---
 
 # 02 — Concepts fondamentaux d'ITIL 4 · TP

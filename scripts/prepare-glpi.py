@@ -28,6 +28,7 @@ if len(rows) != 24:
 
 chapters = []
 notes = {"00-INDEX": "00-glpi/index.md",
+         "00-contexte-fournil-dore": "00-contexte/index.md",
          "liens-externes": "00-glpi/ressources/liens-externes.md",
          "lexique-glpi": "00-glpi/ressources/lexique-glpi.md"}
 for number, title, course_stem, tp_stem in rows:
@@ -104,6 +105,7 @@ home.write_text(home_body.replace(marker, "\n    ".join(cards)), encoding="utf-8
     "Installer GLPI 11, construire le laboratoire **Le Fournil Doré**, puis "
     "mettre en place le helpdesk. Les chapitres suivent le même fil rouge dans "
     "l'entité racine.\n\n"
+    "[Découvrir le contexte commun et l'organigramme interactif](/00-contexte/)\n\n"
     "## Parcours GLPI\n\n<div class=\"home-chapter-grid home-chapter-grid--glpi\">\n"
     + "\n".join(cards)
     + "\n</div>\n\n"

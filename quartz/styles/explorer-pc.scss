@@ -21,6 +21,12 @@
   order: -2;
 }
 
+.explorer-content
+  ul.explorer-ul
+  > li:has(> .folder-container[data-folderpath="00-contexte/index"]) {
+  order: -3;
+}
+
 .explorer-content ul.explorer-ul > li:has(> .folder-container[data-folderpath="itil/index"]) {
   order: -1;
 }
@@ -158,91 +164,22 @@
   background: color-mix(in srgb, var(--chapter-accent) 12%, var(--light));
 }
 
+.explorer-content .folder-container[data-folderpath="00-contexte/index"] {
+  --chapter-accent: #c48427;
+  --chapter-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v5M6 11h12M6 11v4m12-4v4M12 9v2'/%3E%3Crect x='8' y='2' width='8' height='3' rx='1'/%3E%3Crect x='3' y='15' width='6' height='5' rx='1'/%3E%3Crect x='15' y='15' width='6' height='5' rx='1'/%3E%3C/svg%3E");
+}
+
+.explorer-content .folder-container[data-folderpath="Ressources/index"] {
+  --chapter-accent: #8956ee;
+  --chapter-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5h7l2 2h7v12H4zM8 11h8m-8 4h6'/%3E%3C/svg%3E");
+}
+
 .explorer-content .folder-container[data-folderpath="00-glpi/index"]::before,
 .explorer-content .folder-container[data-folderpath="itil/index"]::before {
   background-size: 1.55rem;
 }
 
-.explorer-content a.nav-file-title[href*="/00-glpi/"][href$="/tp"] {
-  --exercise-accent: #1769aa;
-  display: block;
-  margin: 0.18rem 0;
-  padding: 0.35rem 0.5rem;
-  border-left: 2px solid #1769aa;
-  border-radius: 0.5rem;
-  background: color-mix(in srgb, #1769aa 8%, var(--light));
-  color: var(--dark);
-  font-size: 0.76rem;
-  font-weight: 700;
-}
-
-/* Les TP deviennent une sous-section claire de leur chapitre. */
-.explorer-content [data-folderpath$="/tp/index"] {
-  --tp-accent: var(--chapter-accent, var(--secondary));
-  position: relative;
-  display: flex;
-  gap: 0.45rem;
-  min-height: 2.45rem;
-  align-items: center;
-  margin: 0.34rem 0 0.22rem;
-  padding: 0.36rem 0.36rem 0.36rem 0.44rem;
-  border: 1px dashed color-mix(in srgb, var(--tp-accent) 42%, var(--lightgray));
-  border-radius: 0.67rem;
-  background: color-mix(in srgb, var(--tp-accent) 7%, var(--light));
-}
-
-.explorer-content [data-folderpath$="/tp/index"]::before {
-  display: block;
-  width: 1.55rem;
-  height: 1.55rem;
-  flex: 0 0 1.55rem;
-  border-radius: 0.44rem;
-  background-color: color-mix(in srgb, var(--tp-accent) 16%, var(--light));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23147a43' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='18' rx='2'/%3E%3Cpath d='M9 3.5h6V6H9zM9 11l1.5 1.5L13 10m-4 7h6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 1rem;
-  content: "";
-}
-
-.explorer-content [data-folderpath$="/tp/index"] .folder-title {
-  color: var(--dark);
-  font-size: 0;
-  font-weight: 750;
-}
-
-.explorer-content [data-folderpath$="/tp/index"] .folder-title::after {
-  content: "Exercices pratiques";
-  font-size: 0.77rem;
-}
-
-@each $slug,
-  $accent
-    in (
-      "01-introduction-itil": var(--pc-explorer-01),
-      "02-concepts-fondamentaux": var(--pc-explorer-02),
-      "03-gestion-incidents": var(--pc-explorer-03),
-      "04-gestion-problemes": var(--pc-explorer-04),
-      "05-gestion-changements": var(--pc-explorer-05),
-      "06-sla-niveaux-service": var(--pc-explorer-06),
-      "07-catalogue-services-cmdb": var(--pc-explorer-07),
-      "08-amelioration-continue": var(--pc-explorer-08)
-    )
-{
-  .explorer-content [data-folderpath^="#{$slug}/tp/"] {
-    --tp-accent: #{$accent};
-  }
-
-  .explorer-content a.nav-file-title[href*="/#{$slug}/tp/"] {
-    --exercise-accent: #{$accent};
-  }
-
-  body[data-slug^="#{$slug}/"][data-slug$="/tp/index"] {
-    --practice-accent: #{$accent};
-  }
-}
-
-.explorer-content a.nav-file-title[href*="/tp/"] {
+.explorer-content a.nav-file-title[href$="/tp"] {
   --exercise-accent: var(--secondary);
   display: grid;
   grid-template-columns: 1.4rem minmax(0, 1fr);
@@ -258,7 +195,7 @@
   text-decoration: none;
 }
 
-.explorer-content a.nav-file-title[href*="/tp/"]::before {
+.explorer-content a.nav-file-title[href$="/tp"]::before {
   display: grid;
   width: 1.4rem;
   height: 1.4rem;
@@ -271,58 +208,14 @@
   font-weight: 800;
 }
 
-.explorer-content a.nav-file-title[href*="/tp/"]:hover {
+.explorer-content a.nav-file-title[href$="/tp"]:hover {
   color: var(--dark);
   background: color-mix(in srgb, var(--exercise-accent) 9%, var(--light));
   transform: translateX(2px);
 }
 
-body[data-slug$="/tp/index"] article .markdown-preview-view > ul {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.7rem;
-  margin: 1.2rem 0;
-  padding: 0;
-}
-
-body[data-slug$="/tp/index"] article .markdown-preview-view > ul > li {
-  display: flex;
-  min-height: 4rem;
-  margin: 0;
-  padding: 0;
-  border: 1px solid color-mix(in srgb, var(--practice-accent) 22%, var(--lightgray));
-  border-radius: 0.8rem;
-  background: color-mix(in srgb, var(--practice-accent) 5%, var(--light));
-  list-style: none;
-}
-
-body[data-slug$="/tp/index"] article .markdown-preview-view > ul > li > a {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 2rem minmax(0, 1fr);
-  gap: 0.7rem;
-  align-items: center;
-  padding: 0.75rem 0.8rem;
-  color: var(--dark);
-  background: none;
-  font-size: 0.88rem;
-  font-weight: 750;
-  text-decoration: none;
-}
-
-body[data-slug$="/tp/index"] article .markdown-preview-view > ul > li > a::before {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 0.58rem;
-  color: var(--practice-accent);
-  background: color-mix(in srgb, var(--practice-accent) 13%, var(--light));
-  content: "✎";
-}
-
-body[data-slug$="/tp/index"] .page-listing {
-  display: none;
+.explorer-content a.nav-file-title[href*="/00-glpi/"][href$="/tp"] {
+  --exercise-accent: #1769aa;
 }
 
 @each $slug in "01-introduction-itil", "02-concepts-fondamentaux", "03-gestion-incidents",

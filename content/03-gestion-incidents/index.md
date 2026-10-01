@@ -15,7 +15,7 @@ aliases:
 > [!TIP] Ressources du chapitre
 >
 > - <a href="https://kayasam.github.io/itil-decouverte/cours/03-gestion-incidents-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [Faire l’atelier](/03-gestion-incidents/tp/03-tp)
+> - [Faire l’atelier](/03-gestion-incidents/tp)
 > - [Sommaire de la formation](/)
 
 ---

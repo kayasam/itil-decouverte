@@ -6,6 +6,8 @@ title: "GLPI Initiation — Le Fournil Doré"
 
 Formation GLPI en 22 chapitres, de l'installation à la configuration complète du helpdesk, sur le fil rouge de la boulangerie **Le Fournil Doré**.
 
+Avant de commencer, découvrez le [[00-contexte-fournil-dore|contexte commun GLPI et ITIL]], son organigramme et les intitulés utilisés dans les TP.
+
 ---
 
 ## Comment est organisé ce dossier

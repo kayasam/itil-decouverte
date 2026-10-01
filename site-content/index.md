@@ -11,6 +11,12 @@ description: Tous les chapitres du parcours élève GLPI puis ITIL.
   </nav>
 </header>
 
+<aside class="home-shared-context">
+  <strong>Un seul laboratoire pour les deux formations</strong>
+  <span>Découvrez Le Fournil Doré, ses comptes, ses lieux et les intitulés utilisés dans les TP.</span>
+  <a href="./00-contexte/">Explorer le contexte commun →</a>
+</aside>
+
 <section class="home-track home-track--glpi" id="glpi" aria-labelledby="home-glpi-title">
   <div class="home-track__head">
     <div class="home-track__logo home-track__logo--glpi"><img src="./assets/brands/glpi-logo.svg" alt="Logo officiel GLPI" /></div>
@@ -31,7 +37,6 @@ description: Tous les chapitres du parcours élève GLPI puis ITIL.
     <div class="home-track__heading">
       <h2 id="home-itil-title">Découverte ITIL</h2>
       <p>Reprenez le même laboratoire pour comprendre les services, les incidents, les problèmes et leur amélioration.</p>
-      <a class="home-track__context" href="./00-contexte/">Voir le contexte commun et ses schémas →</a>
     </div>
     <a class="home-track__start" href="./01-introduction-itil/">Commencer au chapitre 01 →</a>
   </div>

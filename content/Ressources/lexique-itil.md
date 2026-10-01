@@ -3,6 +3,7 @@ title: "Lexique ITIL"
 aliases:
   - "Vocabulaire ITIL"
   - "Glossaire ITIL"
+  - "/annexes/lexique-itil"
 ---
 
 # Lexique ITIL

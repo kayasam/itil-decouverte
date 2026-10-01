@@ -7,6 +7,8 @@ description: Huit chapitres pour comprendre la gestion des services après le la
 
 Après l'initiation GLPI, poursuivez sur la même instance avec huit chapitres consacrés à la gestion des services.
 
+[Voir le contexte commun du Fournil Doré et son organigramme interactif](/00-contexte/). Le [lexique ITIL](/Ressources/lexique-itil) est dans les ressources.
+
 1. [Introduction à ITIL](/01-introduction-itil/)
 2. [Concepts fondamentaux](/02-concepts-fondamentaux/)
 3. [Gestion des incidents](/03-gestion-incidents/)

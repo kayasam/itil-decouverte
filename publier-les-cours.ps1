@@ -2,6 +2,7 @@ param([string]$Message, [switch]$PrepareOnly)
 $ErrorActionPreference = "Stop"
 $sourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\itil"
 $glpiSourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi\initiation"
+$commonSourceRoot = "C:\Users\kayaw\Nextcloud\Obsidian\CoffreSam\Formations\glpi"
 $projectRoot = "D:\Projet-git\itil-decouverte"
 $staticRoot = Join-Path $projectRoot "site-content"
 $stageRoot = Join-Path $projectRoot ".publication-stage"
@@ -71,16 +72,21 @@ Mirror $staticRoot $stageRoot
 
 $contextRoot = Join-Path $stageRoot "00-contexte"
 New-Item -ItemType Directory -Path $contextRoot -Force | Out-Null
-Copy-Item -LiteralPath (Join-Path $sourceRoot "00-contexte\00-contexte-fournil-dore.md") -Destination (Join-Path $contextRoot "index.md")
+Copy-Item -LiteralPath (Join-Path $commonSourceRoot "00-contexte\00-contexte-fournil-dore.md") -Destination (Join-Path $contextRoot "index.md")
 Add-Metadata (Join-Path $contextRoot "index.md") "Contexte : Le Fournil Doré" "/contexte"
+$commonHtml = Join-Path $commonSourceRoot "00-contexte\contexte-interactif.html"
+Copy-Item -LiteralPath $commonHtml -Destination (Join-Path $contextRoot "contexte-interactif.html")
+foreach ($vaultContext in @((Join-Path $vaultStage "00-contexte"))) {
+  New-Item -ItemType Directory -Path $vaultContext -Force | Out-Null
+  Copy-Item -LiteralPath (Join-Path $commonSourceRoot "00-contexte\00-contexte-fournil-dore.md") -Destination (Join-Path $vaultContext "00-contexte-fournil-dore.md")
+  Copy-Item -LiteralPath $commonHtml -Destination (Join-Path $vaultContext "contexte-interactif.html")
+}
 
 foreach ($chapter in $chapters) {
   $sourceChapter = Join-Path $sourceRoot $chapter.Slug
   $chapterRoot = Join-Path $stageRoot $chapter.Slug
-  $tpRoot = Join-Path $chapterRoot "tp"
   $vaultChapter = Join-Path $vaultStage "cours\$($chapter.Slug)"
-  $vaultTp = Join-Path $vaultChapter "tp"
-  New-Item -ItemType Directory -Path $chapterRoot, $tpRoot, $vaultChapter, $vaultTp -Force | Out-Null
+  New-Item -ItemType Directory -Path $chapterRoot, $vaultChapter -Force | Out-Null
   $course = Join-Path $chapterRoot "index.md"
   Copy-Item -LiteralPath (Join-Path $sourceChapter $chapter.Course) -Destination $course
   Copy-Item -LiteralPath (Join-Path $sourceChapter $chapter.Course) -Destination (Join-Path $vaultChapter $chapter.Course)
@@ -97,30 +103,45 @@ foreach ($chapter in $chapters) {
     $interactiveLine = "> - [Ouvrir le chapitre interactif]($interactiveUrl)`n"
   }
   Add-ResourceBlock $course "`n`n> [!TIP] Ressources du chapitre`n$interactiveLine> - [Faire le quiz — 20 questions]($quiz)`n> - <a href=`"$download`" download>Télécharger ce cours en Markdown</a>`n"
-  $links = @()
   foreach ($tp in $chapter.Tps) {
-    $destination = Join-Path $tpRoot $tp
+    $destination = Join-Path $chapterRoot "tp.md"
     Copy-Item -LiteralPath (Join-Path $sourceChapter $tp) -Destination $destination
-    Copy-Item -LiteralPath (Join-Path $sourceChapter $tp) -Destination (Join-Path $vaultTp $tp)
-    $title = [IO.Path]::GetFileNameWithoutExtension($tp) -replace '-', ' '
-    Add-Metadata $destination $title "/tp/$([IO.Path]::GetFileNameWithoutExtension($tp))"
+    Copy-Item -LiteralPath (Join-Path $sourceChapter $tp) -Destination (Join-Path $vaultChapter $tp)
+    Add-Metadata $destination "TP du chapitre $($chapter.Slug.Substring(0,2))" "/$($chapter.Slug)/tp/$([IO.Path]::GetFileNameWithoutExtension($tp))"
     $tpDownload = "https://kayasam.github.io/itil-decouverte/telechargements/tp/$tp"
     Add-ResourceBlock $destination "`n`n> [!TIP] Ressource du TP`n> - <a href=`"$tpDownload`" download>Télécharger ce TP en Markdown</a>`n"
-    $links += "- [[$([IO.Path]::GetFileNameWithoutExtension($tp))|$title]]"
   }
-  [IO.File]::WriteAllText((Join-Path $tpRoot "index.md"), "---`ntitle: `"Travaux pratiques`"`n---`n`n# Travaux pratiques`n`n$($links -join "`n")`n", $utf8)
 }
 
-$annexes = Join-Path $stageRoot "annexes"; $vaultAnnexes = Join-Path $vaultStage "annexes"
-New-Item -ItemType Directory -Path $annexes, $vaultAnnexes -Force | Out-Null
-Get-ChildItem -LiteralPath (Join-Path $sourceRoot "annexes") -File -Filter "*.md" | ForEach-Object {
-  Copy-Item $_.FullName (Join-Path $annexes $_.Name); Copy-Item $_.FullName (Join-Path $vaultAnnexes $_.Name)
+$resources = Join-Path $stageRoot "Ressources"; $vaultResources = Join-Path $vaultStage "Ressources"
+New-Item -ItemType Directory -Path $resources, $vaultResources -Force | Out-Null
+Get-ChildItem -LiteralPath (Join-Path $sourceRoot "Ressources") -File -Filter "*.md" | ForEach-Object {
+  Copy-Item $_.FullName (Join-Path $resources $_.Name); Copy-Item $_.FullName (Join-Path $vaultResources $_.Name)
 }
 Mirror (Join-Path $sourceRoot "Ressources\images") (Join-Path $stageRoot "Ressources\images")
 Mirror (Join-Path $sourceRoot "Ressources\images") (Join-Path $vaultStage "Ressources\images")
+$commonSvg = Join-Path $commonSourceRoot "ressources\images\contexte-organigramme-fournil-dore.svg"
+foreach ($destination in @((Join-Path $stageRoot "Ressources\images"), (Join-Path $vaultStage "Ressources\images"))) {
+  New-Item -ItemType Directory -Path $destination -Force | Out-Null
+  Copy-Item -LiteralPath $commonSvg -Destination (Join-Path $destination "contexte-organigramme-fournil-dore.svg") -Force
+}
 
 & python (Join-Path $projectRoot "scripts\prepare-glpi.py") $glpiSourceRoot $stageRoot (Split-Path $vaultStage)
 if ($LASTEXITCODE) { throw "Échec de la préparation GLPI." }
+$glpiContext = Join-Path (Split-Path $vaultStage) "Initiation-GLPI\00-contexte"
+New-Item -ItemType Directory -Path $glpiContext -Force | Out-Null
+Copy-Item -LiteralPath (Join-Path $commonSourceRoot "00-contexte\00-contexte-fournil-dore.md") -Destination (Join-Path $glpiContext "00-contexte-fournil-dore.md") -Force
+Copy-Item -LiteralPath $commonHtml -Destination (Join-Path $glpiContext "contexte-interactif.html") -Force
+Copy-Item -LiteralPath $commonSvg -Destination (Join-Path (Split-Path $vaultStage) "Initiation-GLPI\ressources\images\contexte-organigramme-fournil-dore.svg") -Force
+foreach ($name in @("itil-contexte-laboratoire.svg", "itil-contexte-parcours.svg")) {
+  Copy-Item -LiteralPath (Join-Path $sourceRoot "Ressources\images\$name") -Destination (Join-Path (Split-Path $vaultStage) "Initiation-GLPI\ressources\images\$name") -Force
+}
+$svgData = "data:image/svg+xml;base64," + [Convert]::ToBase64String([IO.File]::ReadAllBytes($commonSvg))
+foreach ($htmlPath in @((Join-Path $contextRoot "contexte-interactif.html"), (Join-Path $vaultStage "00-contexte\contexte-interactif.html"), (Join-Path $glpiContext "contexte-interactif.html"))) {
+  $htmlBody = [IO.File]::ReadAllText($htmlPath)
+  $htmlBody = $htmlBody.Replace("../ressources/images/contexte-organigramme-fournil-dore.svg", $svgData)
+  [IO.File]::WriteAllText($htmlPath, $htmlBody, $utf8)
+}
 & python (Join-Path $projectRoot "scripts\fix-itil-links.py") $stageRoot
 if ($LASTEXITCODE) { throw "Échec de la résolution des liens ITIL." }
 
@@ -151,6 +172,8 @@ try {
   $glpiHtmlPublic = Join-Path (Join-Path $projectRoot "public") $glpiHtml
   New-Item -ItemType Directory -Path (Split-Path $glpiHtmlPublic) -Force | Out-Null
   Copy-Item -LiteralPath (Join-Path (Join-Path $projectRoot "content") $glpiHtml) -Destination $glpiHtmlPublic -Force
+  $contextHtmlPublic = Join-Path $projectRoot "public\00-contexte\contexte-interactif.html"
+  Copy-Item -LiteralPath (Join-Path $projectRoot "content\00-contexte\contexte-interactif.html") -Destination $contextHtmlPublic -Force
   if ($PrepareOnly) { Write-Host "Préparation et build terminés." -ForegroundColor Green; exit 0 }
   if (-not (git status --porcelain)) { Write-Host "Aucune modification."; exit 0 }
   if (-not $Message) { $Message = Read-Host "Message de publication" }

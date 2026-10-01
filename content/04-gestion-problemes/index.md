@@ -15,7 +15,7 @@ aliases:
 > [!TIP] Ressources du chapitre
 >
 > - <a href="https://kayasam.github.io/itil-decouverte/cours/04-gestion-problemes-interactif.html" target="_blank">Ouvrir le cours interactif</a>
-> - [Faire l’atelier](/04-gestion-problemes/tp/04-tp)
+> - [Faire l’atelier](/04-gestion-problemes/tp)
 > - [Sommaire de la formation](/)
 
 ---

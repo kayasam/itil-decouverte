@@ -1,7 +1,7 @@
 ---
 title: "TP Catalogue de services et CMDB"
 aliases:
-  - "/tp/07-tp"
+  - "/07-catalogue-services-cmdb/tp/07-tp"
 ---
 
 # 07 — Catalogue de services et CMDB · TP

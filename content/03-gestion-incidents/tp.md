@@ -1,7 +1,7 @@
 ---
 title: "TP 03. Gestion des incidents"
 aliases:
-  - "/tp/03-tp"
+  - "/03-gestion-incidents/tp/03-tp"
 ---
 
 # TP 03 — Qualifier et traiter un incident
@@ -59,4 +59,4 @@ Enregistrer. Dans la fiche du ticket, onglet **Éléments**, lier `IMP-NAN-OPENS
 - [ ] Un suivi et une solution sont visibles.
 - [ ] Le ticket est résolu ; vous savez expliquer sa priorité.
 
-**Suite :** le [TP 04](/04-gestion-problemes/tp/04-tp) ajoute deux signalements simulés de la même imprimante et relie les trois incidents à un problème.
+**Suite :** le [TP 04](/04-gestion-problemes/tp) ajoute deux signalements simulés de la même imprimante et relie les trois incidents à un problème.

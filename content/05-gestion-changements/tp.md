@@ -1,7 +1,7 @@
 ---
 title: "TP 05. Gestion des changements"
 aliases:
-  - "/tp/05-tp"
+  - "/05-gestion-changements/tp/05-tp"
 ---
 
 # TP 05 — Préparer un changement de pilote
